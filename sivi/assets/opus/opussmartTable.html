@@ -2086,112 +2086,127 @@
 				$("#viewcallUpdateModel").dialog({
                 autoOpen: false,
                 modal: true,
-                width: 800,
-                height: 800
+                width: 600,
+                height: 400
             });
-			
-			 $(document).on("click", ".fa-bullseye-pointer", function () {
-                 let rowData = $(this).attr("data-row"); // Get row data from attribute
-    
-				if (rowData) {
-					rowData = JSON.parse(rowData); // Convert back to object
-					console.log("Row Details:", rowData);
-					//alert(`Row Details: ${JSON.stringify(rowData, null, 2)}`);
-				} else {
-					console.warn("No row data found!");
-				}
-				console.log(":::::::::::::::::::::dos",rowData.DOS);
-				console.log(":::::::::::::::::::::cpt",rowData.CPT);
-				console.log(":::::::::::::::::::::account",rowData.Account);
-                
-                if (rowData != null) {
-                    let ccSaveQuery = {
-                            "query": {
-                            "bool": {
-                                "must": [
-                                    {
-                                        "term": {
-                                            "CPT": rowData.CPT
-                                        }
-                                    },
-                                    {
-                                        "term": {
-                                            "Account": rowData.Account
-                                        }
-                                    },
-                                    {
-                                        "term": {
-                                            "DOS": rowData.DOS
-                                        }
-                                    }
-                                ]
+			$(document).on("click", ".fa-bullseye-pointer", function () {
+    let rowData = $(this).attr("data-row"); // Get row data from attribute
+
+    if (rowData) {
+        rowData = JSON.parse(rowData); // Convert back to object
+        console.log("Row Details:", rowData);
+    } else {
+        console.warn("No row data found!");
+    }
+
+    if (rowData != null) {
+        let ccSaveQuery = {
+            "query": {
+                "bool": {
+                    "must": [
+                        { "term": { "CPT": rowData.CPT } },
+                        { "term": { "Account": rowData.Account } },
+                        { "term": { "DOS": rowData.DOS } }
+                    ]
+                }
+            }
+        };
+
+        $.ajax({
+            headers: ccData.hdr,
+            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search",
+            async: false,
+            type: 'POST',
+            dataType: 'json',
+            crossDomain: true,
+            data: JSON.stringify(ccSaveQuery),
+            contentType: 'application/json',
+            success: function (response) {
+                console.log("res", response);
+
+                let htmlCallerHistory = '';
+                let htmlCallerAssigned = '';
+
+                if (response.hits && response.hits.hits.length > 0) {
+                    let responseHistorys = response.hits.hits[0]._source.caller_history_details || [];
+                    let responsecallerassignedHistorys = response.hits.hits[0]._source.caller_assigned_history || [];
+
+                    // Caller History Table
+                    if (responseHistorys.length === 0) {
+                        htmlCallerHistory = '<p style="text-align: center;">No Data Available</p>';
+                    } else {
+                        htmlCallerHistory += '<table class="tblAssignHistory">';
+                        htmlCallerHistory += '<tr><th style="width: 150px"><i class="fa fa-calendar" aria-hidden="true"></i> Call Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Comments</th><th><i class="fa fa-user" aria-hidden="true"></i> Caller</th></tr>';
+                        
+                        $.each(responseHistorys, function (index, item) {
+                            let newcalldate = moment(item.call_date).format('MM-DD-YYYY');
+
+                            if (item.comments) {
+                                htmlCallerHistory += '<tr>';
+                                htmlCallerHistory += '<td>' + newcalldate + '</td>';
+                                htmlCallerHistory += '<td>' + item.comments + '</td>';
+                                htmlCallerHistory += '<td>' + item.caller + '</td>';
+                                htmlCallerHistory += '</tr>';
                             }
-                        }
-                    };
-                    $.ajax({
-                        headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search",
-                        async: false,
-                        type: 'POST',
-                        dataType: 'json',
-                        crossDomain: true,
-                        data: JSON.stringify(ccSaveQuery),
-                        contentType: 'application/json',
-                        success: function (response) {
-                            console.log("res", response);
-                            var html = '';
-                            if (response.hits && response.hits.hits && response
-                                .hits.hits.length > 0 && response.hits.hits[0]._source &&
-                                response.hits.hits[0]._source.caller_history_details) {
-                                var responseHistorys = response.hits.hits[0]._source
-                                    .caller_history_details;
-                                if (responseHistorys.length === 0) {
-                                    html +=
-                                        '<p style="text-align: center;">No Data  Avaliable</p>';
-                                } else {
-                                    html += '<table class="tblAssignHistory">';
-                                    html +=
-                                        '<tr><th style="width: 120px"><i class="fa fa-calendar" aria-hidden="true"></i>Call Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Comments</th><th><i class="fa fa-user" aria-hidden="true"></i> Caller</th></tr>';
-                                    $.each(responseHistorys, function (index, item) {
-                                       
-                                        newcalldate = moment(item
-                                            .call_date)
-                                            .format('MM-DD-YYYY');
+                        });
 
-                                        if (item.comments) {
-                                            html += '<tr>';
-                                            html +=
-                                                '<td> ' + newcalldate + '</td>';
-                                            html +=
-                                                '<td> ' + item.comments +
-                                                '</td>'
-                                            html +=
-                                                '<td> ' + item.caller +
-                                                '</td>'
+                        htmlCallerHistory += '</table>';
+                    }
 
-                                            html += '</tr>';
-                                        }
-                                    });
-                                    html += '</table>';
-                                }
-                            } else {
-                                html +=
-                                    '<p style="text-align: center;">No Data Available</p>';
+                    // Caller Assigned History Table
+                    if (responsecallerassignedHistorys.length === 0) {
+                        htmlCallerAssigned = '<p style="text-align: center;">No Data Available</p>';
+                    } else {
+                        htmlCallerAssigned += '<table class="tblAssignHistory">';
+                        htmlCallerAssigned += '<tr><th style="width: 150px"><i class="fa fa-calendar" aria-hidden="true"></i> Assigned Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned By</th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned To</th></tr>';
+                        
+                        $.each(responsecallerassignedHistorys, function (index, item) {
+                            let newformatdate = moment(item.assigneddate).format('MM-DD-YYYY');
+                            let newReassigndate = moment(item.reassigneddate).format('MM-DD-YYYY');
+
+                            if (item.reassignedTo) {
+                                htmlCallerAssigned += '<tr>';
+                                htmlCallerAssigned += '<td>' + newReassigndate + '</td>';
+                                htmlCallerAssigned += '<td>' + item.reassignedby + '</td>';
+                                htmlCallerAssigned += '<td>' + item.reassignedTo + '</td>';
+                                htmlCallerAssigned += '</tr>';
+                            } else if (item.assignedTo) {
+                                htmlCallerAssigned += '<tr>';
+                                htmlCallerAssigned += '<td>' + newformatdate + '</td>';
+                                htmlCallerAssigned += '<td>' + item.assignedby + '</td>';
+                                htmlCallerAssigned += '<td>' + item.assignedTo + '</td>';
+                                htmlCallerAssigned += '</tr>';
                             }
+                        });
 
-							console.log("::::::::::::::::::rowData.Account",rowData.Account);
-                            $('#callerUpdateDetails').html(html);
-                            $("#viewcallUpdateModel").dialog("option", "title",
-                                "Assignment History of Member: " + rowData.Account);
-                            $("#viewcallUpdateModel").dialog("open");
-                        },
-                        error: function (error) { }
-                    });
+                        htmlCallerAssigned += '</table>';
+                    }
+                } else {
+                    htmlCallerHistory = '<p style="text-align: center;">No Data Available</p>';
+                    htmlCallerAssigned = '<p style="text-align: center;">No Data Available</p>';
                 }
 
+                // Update HTML for respective sections
+                $('#callerUpdateDetails').html(htmlCallerHistory);
+                $('#callerhistoryDetails').html(htmlCallerAssigned);
 
-            });
+                // Set the dialog title
+                $("#viewcallUpdateModel").dialog("option", "title", "Caller History");
+
+                // Open the dialog
+                $("#viewcallUpdateModel").dialog("open");
+            },
+            error: function (error) {
+                console.error("Error fetching data:", error);
+            }
+        });
+    }
 })
+
+			})
+			
+			
+                 
 			
 			$(document).on("click", function (event) {
                 var popup = $("#customize_columns");
@@ -5922,19 +5937,16 @@
 				</div>
 			</div>
 	
-	<div id="viewcallUpdateModel" style="display:none" title="Caller Update">
-				<div id="callerUpdateDetails" style="display: flex;width: 100%">
-					<div class="row">
-						<div class="col-md-6">Assigned By</div>
-						<div class="col-md-6"></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">Assigned Date</div>
-						<div class="col-md-6"></div>
-					</div>
-				</div>
+				<div id="viewcallUpdateModel" style="display:none" title="Assignment History">
+				
+				<h5>Caller Assigned History</h5>
+				<div id="callerhistoryDetails"></div>
+				<h5>Caller Update History</h5>
+				<div id="callerUpdateDetails"></div>
+
+				
 			</div>
-    <div id="assigncallerModel" class="modal" role="dialog" aria-labelledby="careTitle" tabindex="-1"
+  <div id="assigncallerModel" class="modal" role="dialog" aria-labelledby="careTitle" tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="width: 109%;">
