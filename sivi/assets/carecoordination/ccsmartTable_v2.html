@@ -45643,10 +45643,11 @@
 
                         });
                     
-                    let assignDate
+                        let assignDate
                     let todayDate
+                    console.log("test12ee3", olddata.length)
                     if (olddata.length > 0) {
-
+                        console.log("test12ee3", olddata.length)
                         if (olddata[0].Status == 'Pending' || olddata[0].Status == 'Assigned') {
 
                             displayToastrError('Data Available for this Member, Proceed with Edit for any Update');
@@ -45654,7 +45655,7 @@
                             return;
                         } else if (olddata[0].Status == '' || olddata[0].Status == null) {
                             if (!_.isUndefined(olddata[0].PV1_44_asDate)) {
-
+                               
                                 var currentDate = new Date();
                                 var year = currentDate.getUTCFullYear();
                                 let day
@@ -45665,29 +45666,28 @@
                                 var minutes = String(currentDate.getMinutes()).padStart(2, '0');
                                 var seconds = String(currentDate.getSeconds()).padStart(2, '0');
                                 if (month < 10 && day < 10) {
-                                    date = year + "-" + "0" + month + "-" + "0" + day + "T" + hours + ":" +
-                                        minutes + ":" + seconds;
+                                    date = year + "-" + "0" + month + "-" + "0" + day 
                                 } else if (month < 10 && day >= 10) {
-                                    date = year + "-" + "0" + month + "-" + day + "T" + hours + ":" + minutes +
-                                        ":" + seconds;
+                                    date = year + "-" + "0" + month + "-" + day 
                                 } else if (day < 10 && month >= 10) {
-                                    date = year + "-" + month + "-" + "0" + day + "T" + hours + ":" + minutes +
-                                        ":" + seconds;
+                                    date = year + "-" + month + "-" + "0" + day 
                                 } else {
 
-                                    date = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" +
-                                        seconds;
+                                    date = year + "-" + month + "-" + day 
                                 }
                                 assignDate = date;
-
+                                console.log("(assignDate ", assignDate )
+                                
+                                console.log("(olddata[0].PV1_44_asDate", (olddata[0].PV1_44_asDate))
                                 const epochDate = new Date(olddata[0].PV1_44_asDate);
                                 const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
                                 const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
                                 const year1 = epochDate.getFullYear();
 
                                 // Format as DD-MM-YYYY
-                                const formattedDate = `${day1}-${month1}-${year1}`;
+                                const formattedDate = `${year1}-${month1}-${day1}`;
 
+                                console.log(formattedDate , assignDate ,"test")
                                 if (formattedDate > assignDate) {
                                   
                                 } else {
