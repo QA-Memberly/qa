@@ -45643,61 +45643,61 @@
 
                         });
                     
-                        let assignDate
-						if(olddata.length >0){
-						if(olddata[0].Status == 'Pending' || olddata[0].Status == 'Assigned'){
-							 console.log("test12")
-							displayToastrError('Data Available for this Member, Proceed with Edit for any Update');
-						isValid = false;
-						return;
-						}else if (olddata[0].Status == '' || olddata[0].Status == null) {
-                      if (!_.isUndefined(olddata[0].PV1_44_asDate)){
-                       
-                          var currentDate = new Date();
-                    var year = currentDate.getUTCFullYear();
-                    let day
-                    let month = currentDate.getUTCMonth() + 1
-                    day = currentDate.getUTCDate();
-                    let date;
-                    var hours = String(currentDate.getHours()).padStart(2, '0');
-                    var minutes = String(currentDate.getMinutes()).padStart(2, '0');
-                    var seconds = String(currentDate.getSeconds()).padStart(2, '0');
-                    if (month < 10 && day < 10) {
-                        date = year + "-" + "0" + month + "-" + "0" + day + "T" + hours + ":" +
-                            minutes + ":" + seconds;
-                    } else if (month < 10 && day >= 10) {
-                        date = year + "-" + "0" + month + "-" + day + "T" + hours + ":" + minutes +
-                            ":" + seconds;
-                    } else if (day < 10 && month >= 10) {
-                        date = year + "-" + month + "-" + "0" + day + "T" + hours + ":" + minutes +
-                            ":" + seconds;
-                    } else {
-                      
-                        date = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" +
-                            seconds;
-                    }
-                    assignDate = date;
-                    
-			      console.log(assignDate,"assignDate")
-                  const epochDate = new Date(olddata[0].PV1_44_asDate);
-                  const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
-const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
-const year1 = epochDate.getFullYear();
+                    let assignDate
+                    let todayDate
+                    if (olddata.length > 0) {
 
-// Format as DD-MM-YYYY
-const formattedDate = `${day1}-${month1}-${year1}`;
+                        if (olddata[0].Status == 'Pending' || olddata[0].Status == 'Assigned') {
 
-console.log(formattedDate,"formattedDate");
-                    if (formattedDate>assignDate) {
-                      console.log("test")
-                    } else {
-                        displayToastrError('Member Data Already Exist with Latest Admission Date');
-                        isValid = false;
-						return;
-                    }
-                      }
-                    } else if (olddata[0].Status == 'Done') {
-                      if (!isNaN(dateofAdmissionPriority) && !_.isUndefined(olddata[0].PV1_44_asDate)) {
+                            displayToastrError('Data Available for this Member, Proceed with Edit for any Update');
+                            isValid = false;
+                            return;
+                        } else if (olddata[0].Status == '' || olddata[0].Status == null) {
+                            if (!_.isUndefined(olddata[0].PV1_44_asDate)) {
+
+                                var currentDate = new Date();
+                                var year = currentDate.getUTCFullYear();
+                                let day
+                                let month = currentDate.getUTCMonth() + 1
+                                day = currentDate.getUTCDate();
+                                let date;
+                                var hours = String(currentDate.getHours()).padStart(2, '0');
+                                var minutes = String(currentDate.getMinutes()).padStart(2, '0');
+                                var seconds = String(currentDate.getSeconds()).padStart(2, '0');
+                                if (month < 10 && day < 10) {
+                                    date = year + "-" + "0" + month + "-" + "0" + day + "T" + hours + ":" +
+                                        minutes + ":" + seconds;
+                                } else if (month < 10 && day >= 10) {
+                                    date = year + "-" + "0" + month + "-" + day + "T" + hours + ":" + minutes +
+                                        ":" + seconds;
+                                } else if (day < 10 && month >= 10) {
+                                    date = year + "-" + month + "-" + "0" + day + "T" + hours + ":" + minutes +
+                                        ":" + seconds;
+                                } else {
+
+                                    date = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" +
+                                        seconds;
+                                }
+                                assignDate = date;
+
+                                const epochDate = new Date(olddata[0].PV1_44_asDate);
+                                const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
+                                const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
+                                const year1 = epochDate.getFullYear();
+
+                                // Format as DD-MM-YYYY
+                                const formattedDate = `${day1}-${month1}-${year1}`;
+
+                                if (formattedDate > assignDate) {
+                                  
+                                } else {
+                                    displayToastrError('Member Data Already Exist with Latest Admission Date');
+                                    isValid = false;
+                                    return;
+                                }
+                            }
+                        } else if (olddata[0].Status == 'Done') {
+                            if (!isNaN(dateofAdmissionPriority) && !_.isUndefined(olddata[0].PV1_44_asDate)) {
                         if (dateofAdmissionPriority > olddata[0].PV1_44_asDate) {
                         } else {
                           console.log("::::error");
@@ -45713,7 +45713,7 @@ console.log(formattedDate,"formattedDate");
                         isValid = false;
 						return;
 						}}
-						}}else if(HealthPlanId != "" && HealthPlanId !=null){
+						}} else if(HealthPlanId != "" && HealthPlanId !=null && !olddata.length <0){
 						
 						let HQry = {
                             query: {
@@ -45755,7 +45755,50 @@ console.log(formattedDate,"formattedDate");
                         isValid = false;
 						return;
 						}
-                     }
+                     } else if(olddata.length <=0){
+                        var currentDate = new Date();
+                        var year = currentDate.getUTCFullYear();
+                        let day
+                        let month = currentDate.getUTCMonth() + 1
+                        day = currentDate.getUTCDate();
+                        let date;
+                        var hours = String(currentDate.getHours()).padStart(2, '0');
+                        var minutes = String(currentDate.getMinutes()).padStart(2, '0');
+                        var seconds = String(currentDate.getSeconds()).padStart(2, '0');
+                        if (month < 10 && day < 10) {
+                            date = year + "-" + "0" + month + "-" + "0" + day ;
+                        } else if (month < 10 && day >= 10) {
+                            date = year + "-" + "0" + month + "-" + day ;
+                        } else if (day < 10 && month >= 10) {
+                            date = year + "-" + month + "-" + "0" + day;
+                        } else {
+                          
+                            date = year + "-" + month + "-" + day 
+                        }
+                        todayDate = date;
+                        
+                        console.log(todayDate, "todayDate")
+                        const epochDate = new Date(dateofAdmissionPriority);
+                        const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
+                        const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
+                        const year1 = epochDate.getFullYear();
+
+                        // Format as DD-MM-YYYY
+                        const formattedDate = `${year1}-${month1}-${day1}`;
+
+                        $('#AdmissionDate').on('change', function () {
+                            var editAdmissionDate = $(this).val(); // Get updated value
+                            console.log(editAdmissionDate, "formattedDate"); // Log to check if value updates
+                        });
+
+                        if (formattedDate <= todayDate) {
+                            console.log("test")
+                        } else {
+                            displayToastrError('Member Data Already Exist with Latest Admission Date');
+                            isValid = false;
+                            return;
+                        }
+                    }
 
                     var updatedDataPriority = {
                         primary_benefitPlanDescription_merged: benefitPlans,
