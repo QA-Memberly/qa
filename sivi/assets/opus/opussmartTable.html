@@ -6245,6 +6245,11 @@
 
 
                 data.forEach((element) => {
+				let status = "Assigned to Caller";
+
+				if (element && element.Status && element.Status.includes('Rework')) {
+					status = "Rework - " + status;
+				}
 
                     let query = {
                         "query": {
@@ -6286,7 +6291,7 @@
                                 "call_assigned_date": assignDate,
                                 "caller_assigned_by": loginVal,
                                 "modified_on": assignDate,
-                                "Status": "Assigned to Caller",
+                                "Status": status,
                                 "caller_assigned_history": assignedHistory
                             }
                         }
@@ -6393,7 +6398,11 @@
 
 
                 data.forEach((element) => {
-				
+				let status = "Assigned to Caller";
+
+				if (element && element.Status && element.Status.includes('Rework')) {
+					status = "Rework - " + status;
+				}
 				  let searchquery = {
                         "query": {
                             "bool": {
@@ -6500,7 +6509,7 @@
                                 "call_assigned_date": assignDate,
                                 "caller_assigned_by": loginVal,
                                 "modified_on": assignDate,
-                                "Status": "Re Assigned to Caller",
+                                "Status": status,
                                 "caller_assigned_history": assignedHistory
                             }
                         }
@@ -7114,6 +7123,9 @@
 							 callstatus = 'Inprogress';
 							 
 							}
+							if(oldData.worked_status == 'Rework'){
+							status = "Rework - " +status;
+							}
 
                             if (incConfMap.tablename == 'analystListing') {
                                 newObject = {
@@ -7334,6 +7346,10 @@
                             }
                             let responseDatas = res.hits.hits[0]._id;
                             let oldData = res.hits.hits[0]._source;
+							let status = "Update by Caller" ;
+							if(oldData.worked_status == 'Rework'){
+							status = "Rework - " +status;
+							}
                             var newObject;
 
                             if(careCordinatorData.call_status == 'Done'){
@@ -7343,7 +7359,7 @@
                                     .call_date,
                                 "caller_comments": careCordinatorData.caller_comments,
 								"call_status": careCordinatorData.call_status,
-                                "Status": 'Update by Caller',
+                                "Status": status,
 								"caller_history_details":callHistory,
                                 "modified_on": modifiedon
                             };
@@ -7354,7 +7370,7 @@
                                     .call_date,
                                 "caller_comments": careCordinatorData.caller_comments,
 								"call_status": careCordinatorData.call_status,
-                                "Status": 'Update by Caller',
+                                "Status": status,
                                 "modified_on": modifiedon
                             };  
 							
@@ -7512,7 +7528,7 @@
 				if(careCordinatorData.worked_status == 'Completed'){
 				status = 'Claim Closed';
 				}else{
-				status = 'Update by Audit';
+				status = 'Rework - Update by Audit';
 				}
 				
 
