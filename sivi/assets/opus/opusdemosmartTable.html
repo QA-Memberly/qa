@@ -2,6 +2,12 @@
 
 <head>
 
+<!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Include jQuery UI library -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <script src="https://kit.fontawesome.com/5862fb8f71.js" crossorigin="anonymous"></script>
     <link href="../../apps/sqml/assets/css/magic.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -66,6 +72,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
     <script type="text/javascript" charset="utf8"
         src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js" crossorigin="anonymous"
@@ -75,10 +83,12 @@
 
     <!-- <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">-->
     <style id="special_hide" disabled="true">
+	   
         .forceHidden {
             display: none !important;
         }
-    </style>
+		 </style>
+		 
     <style>
         .class_pv_1_44_as_date,
         .class_pv_1_45_as_date,
@@ -739,13 +749,7 @@
         }
 
         /* Optional: To center the modal without the backdrop, you can add the following styles */
-        .modal-dialog {
-            position: absolute;
-            top: 12%;
-            left: 60%;
-            width: 31%;
-            margin: 0;
-        }
+       
 
         /* Adding custom full screen in the smartdatatable html as modal-dialog above is overriding modal-fullscreen coming from css file*/
         .modal-fullscreen {
@@ -956,12 +960,105 @@
             outline: none;
             text-overflow: ellipsis;
         }
+		
+		 .tblAssignHistory {
+            margin: 10px;
+            width: 100%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            display: table;
+            font-size: 14px
+        }
+
+        .tblAssignHistory tr {
+            display: table-row;
+            background: #f6f6f6;
+        }
+
+        .tblAssignHistory tr:nth-of-type(odd) td {
+            background: #e9e9e9;
+        }
+
+        .tblAssignHistory tr th {
+            font-weight: 600;
+            color: #ffffff;
+            background: #34a5e0;
+            padding: 6px 12px;
+        }
+
+        .tblAssignHistory tr td {
+            padding: 6px 12px;
+            display: table-cell;
+        }
 
         /* Styles for disabled state of the specific button */
         button.dt-button.buttons-select-none.disabled {
             cursor: default;
             opacity: 0.4;
         }
+		  .modal-dialog {
+            position: absolute;
+            top: 8%;
+            left: 45%;
+            width: 100%;
+        }
+		
+		 .ui-dialog-titlebar-close {
+            background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+            border: medium none;
+        }
+
+        .ui-dialog-titlebar-close:hover {
+            background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_222222_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
+        }
+		
+		 .fa-bullseye:before {
+            content: "\f140"
+        }
+        .fa-bullseye-arrow:before {
+            content: "\f648"
+        }
+        .fa-bullseye-pointer:before {
+            content: "\f649"
+        }
+        .fa-duotone.fa-bullseye:after,
+        .fad.fa-bullseye:after {
+            content: "\f140\f140"
+        }
+        .fa-duotone.fa-bullseye-arrow:after,
+        .fad.fa-bullseye-arrow:after {
+            content: "\f648\f648"
+        }
+        .fa-duotone.fa-bullseye-pointer:after,
+        .fad.fa-bullseye-pointer:after {
+            content: "\e29c\e29c"
+        }
+        .fa-duotone.fa-bullseye-pointer-arrow:after,
+        .fad.fa-bullseye-pointer-arrow:after {
+            content: "\e29d\e29d"
+        }
+        .fa-duotone.fa-bullseye-pointer:after,
+        .fad.fa-bullseye-pointer:after {
+            content: "\f649\f649"
+        }
+
+		.fa-timeline:before {
+            content: "\e29c"
+        }
+
+        .fa-timeline-arrow:before {
+            content: "\e29d"
+        }
+
+        .fa-duotone.fa-timeline:after,
+        .fad.fa-timeline:after {
+            content: "\e29c\e29c"
+        }
+
+        .fa-duotone.fa-timeline-arrow:after,
+        .fad.fa-timeline-arrow:after {
+            content: "\e29d\e29d"
+        }
+
     </style>
     <script>
         if (window.addEventListener) {
@@ -1178,6 +1275,11 @@
 					    if (incConfMap.tablename == 'supervisorUpdateListing' ||incConfMap.tablename == 'callerSupervisorListing' || incConfMap.tablename == 'callerUpdateListing' || incConfMap.tablename == 'auditListing' ) 
 						{
 					    runtimeColumns = runtimeColumns.filter(col => col !== "claim_classification");
+                        }
+						 if (incConfMap.tablename == 'callerUpdateListing') 
+						{
+						runtimeColumns = runtimeColumns.filter(col => col !== "Category");
+						runtimeColumns = runtimeColumns.filter(col => col !== "AD");
                         }
                         wsDataRequest["runtime_mappings"] = runtimeMappings;
                         wsDataRequest["fields"] = runtimeColumns;
@@ -1859,8 +1961,259 @@
                 $('#example').DataTable().clearPipeline().draw();
                 $('#customize_columns_trigger').trigger('click.bs.dropdown');
             });
+			
+			 $(document).ready(function () {
+				
+				$("#viewModel").dialog({
+                autoOpen: false,
+                modal: true,
+                width: 800,
+                height: 800
+            });
+			
+			 $(document).on("click", ".fa-timeline", function () {
+                 let rowData = $(this).attr("data-row"); // Get row data from attribute
+    
+				if (rowData) {
+					rowData = JSON.parse(rowData); // Convert back to object
+					console.log("Row Details:", rowData);
+					//alert(`Row Details: ${JSON.stringify(rowData, null, 2)}`);
+				} else {
+					console.warn("No row data found!");
+				}
+				console.log(":::::::::::::::::::::dos",rowData.DOS);
+				console.log(":::::::::::::::::::::cpt",rowData.CPT);
+				console.log(":::::::::::::::::::::account",rowData.Account);
+                
+                if (rowData != null) {
+                    let ccSaveQuery = {
+                            "query": {
+                            "bool": {
+                                "must": [
+                                    {
+                                        "term": {
+                                            "CPT": rowData.CPT
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "Account": rowData.Account
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "DOS": rowData.DOS
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    };
+                    $.ajax({
+                        headers: ccData.hdr,
+                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search",
+                        async: false,
+                        type: 'POST',
+                        dataType: 'json',
+                        crossDomain: true,
+                        data: JSON.stringify(ccSaveQuery),
+                        contentType: 'application/json',
+                        success: function (response) {
+                            console.log("res", response);
+                            var html = '';
+                            if (response.hits && response.hits.hits && response
+                                .hits.hits.length > 0 && response.hits.hits[0]._source &&
+                                response.hits.hits[0]._source.assigned_history) {
+                                var responseHistorys = response.hits.hits[0]._source
+                                    .assigned_history;
+                                if (responseHistorys.length === 0) {
+                                    html +=
+                                        '<p style="text-align: center;">No Data  Avaliable</p>';
+                                } else {
+                                    html += '<table class="tblAssignHistory">';
+                                    html +=
+                                        '<tr><th style="width: 150px"><i class="fa fa-calendar" aria-hidden="true"></i> Assigned Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned By</th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned To</th></tr>';
+                                    $.each(responseHistorys, function (index, item) {
+                                        newformatdate = moment(item.assigneddate)
+                                            .format('MM-DD-YYYY');
+                                        newReassigndate = moment(item
+                                            .reassigneddate)
+                                            .format('MM-DD-YYYY');
 
-            $(document).on("click", function (event) {
+                                        if (item.reassignedTo) {
+                                            html += '<tr>';
+                                            html +=
+                                                '<td> ' + newReassigndate + '</td>';
+                                            html +=
+                                                '<td> ' + item.reassignedby +
+                                                '</td>'
+                                            html +=
+                                                '<td> ' + item.reassignedTo +
+                                                '</td>'
+
+                                            html += '</tr>';
+                                        } else if (item.assignedTo) {
+                                            html += '<tr>';
+                                            html +=
+                                                '<td> ' + newformatdate + '</td>';
+
+                                            html +=
+                                                '<td> ' + item.assignedby + '</td>'
+                                            html +=
+                                                '<td> ' + item.assignedTo + '</td>'
+                                            html += '</tr>';
+
+                                        }
+                                    });
+                                    html += '</table>';
+                                }
+                            } else {
+                                html +=
+                                    '<p style="text-align: center;">No Data Available</p>';
+                            }
+
+							console.log("::::::::::::::::::rowData.Account",rowData.Account);
+                            $('#historyDetails').html(html);
+                            $("#viewModel").dialog("option", "title",
+                                "Analyst Assigned History");
+                            $("#viewModel").dialog("open");
+                        },
+                        error: function (error) { }
+                    });
+                }
+
+
+            });
+})
+			
+             $(document).ready(function () {
+				
+				$("#viewcallUpdateModel").dialog({
+                autoOpen: false,
+                modal: true,
+                width: 600,
+                height: 400
+            });
+			$(document).on("click", ".fa-bullseye-pointer", function () {
+    let rowData = $(this).attr("data-row"); // Get row data from attribute
+
+    if (rowData) {
+        rowData = JSON.parse(rowData); // Convert back to object
+        console.log("Row Details:", rowData);
+    } else {
+        console.warn("No row data found!");
+    }
+
+    if (rowData != null) {
+        let ccSaveQuery = {
+            "query": {
+                "bool": {
+                    "must": [
+                        { "term": { "CPT": rowData.CPT } },
+                        { "term": { "Account": rowData.Account } },
+                        { "term": { "DOS": rowData.DOS } }
+                    ]
+                }
+            }
+        };
+
+        $.ajax({
+            headers: ccData.hdr,
+            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search",
+            async: false,
+            type: 'POST',
+            dataType: 'json',
+            crossDomain: true,
+            data: JSON.stringify(ccSaveQuery),
+            contentType: 'application/json',
+            success: function (response) {
+                console.log("res", response);
+
+                let htmlCallerHistory = '';
+                let htmlCallerAssigned = '';
+
+                if (response.hits && response.hits.hits.length > 0) {
+                    let responseHistorys = response.hits.hits[0]._source.caller_history_details || [];
+                    let responsecallerassignedHistorys = response.hits.hits[0]._source.caller_assigned_history || [];
+
+                    // Caller History Table
+                    if (responseHistorys.length === 0) {
+                        htmlCallerHistory = '<p style="text-align: center;">No Data Available</p>';
+                    } else {
+                        htmlCallerHistory += '<table class="tblAssignHistory">';
+                        htmlCallerHistory += '<tr><th style="width: 150px"><i class="fa fa-calendar" aria-hidden="true"></i> Call Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Comments</th><th><i class="fa fa-user" aria-hidden="true"></i> Caller</th></tr>';
+                        
+                        $.each(responseHistorys, function (index, item) {
+                            let newcalldate = moment(item.call_date).format('MM-DD-YYYY');
+
+                            if (item.comments) {
+                                htmlCallerHistory += '<tr>';
+                                htmlCallerHistory += '<td>' + newcalldate + '</td>';
+                                htmlCallerHistory += '<td>' + item.comments + '</td>';
+                                htmlCallerHistory += '<td>' + item.caller + '</td>';
+                                htmlCallerHistory += '</tr>';
+                            }
+                        });
+
+                        htmlCallerHistory += '</table>';
+                    }
+
+                    // Caller Assigned History Table
+                    if (responsecallerassignedHistorys.length === 0) {
+                        htmlCallerAssigned = '<p style="text-align: center;">No Data Available</p>';
+                    } else {
+                        htmlCallerAssigned += '<table class="tblAssignHistory">';
+                        htmlCallerAssigned += '<tr><th style="width: 150px"><i class="fa fa-calendar" aria-hidden="true"></i> Assigned Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned By</th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned To</th></tr>';
+                        
+                        $.each(responsecallerassignedHistorys, function (index, item) {
+                            let newformatdate = moment(item.assigneddate).format('MM-DD-YYYY');
+                            let newReassigndate = moment(item.reassigneddate).format('MM-DD-YYYY');
+
+                            if (item.reassignedTo) {
+                                htmlCallerAssigned += '<tr>';
+                                htmlCallerAssigned += '<td>' + newReassigndate + '</td>';
+                                htmlCallerAssigned += '<td>' + item.reassignedby + '</td>';
+                                htmlCallerAssigned += '<td>' + item.reassignedTo + '</td>';
+                                htmlCallerAssigned += '</tr>';
+                            } else if (item.assignedTo) {
+                                htmlCallerAssigned += '<tr>';
+                                htmlCallerAssigned += '<td>' + newformatdate + '</td>';
+                                htmlCallerAssigned += '<td>' + item.assignedby + '</td>';
+                                htmlCallerAssigned += '<td>' + item.assignedTo + '</td>';
+                                htmlCallerAssigned += '</tr>';
+                            }
+                        });
+
+                        htmlCallerAssigned += '</table>';
+                    }
+                } else {
+                    htmlCallerHistory = '<p style="text-align: center;">No Data Available</p>';
+                    htmlCallerAssigned = '<p style="text-align: center;">No Data Available</p>';
+                }
+
+                // Update HTML for respective sections
+                $('#callerUpdateDetails').html(htmlCallerHistory);
+                $('#callerhistoryDetails').html(htmlCallerAssigned);
+
+                // Set the dialog title
+                $("#viewcallUpdateModel").dialog("option", "title", "Caller History");
+
+                // Open the dialog
+                $("#viewcallUpdateModel").dialog("open");
+            },
+            error: function (error) {
+                console.error("Error fetching data:", error);
+            }
+        });
+    }
+})
+
+			})
+			
+			
+                 
+			
+			$(document).on("click", function (event) {
                 var popup = $("#customize_columns");
                 if (!popup.is(event.target) && popup.has(event.target).length === 0) {
                     // Clicked outside the popup
@@ -2117,6 +2470,41 @@
                 $('#mySpan').text(myData);
                 $('#myCallerSpan').text(myData);
                 $("#assigncallerModel").modal("show");
+            });
+
+			
+			  $(document).on("click", "#ReassignCaller", function () {
+                $.ajax({
+
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    //url: "https://devus.servicedx.com/admin/getDomainBasedUserList/department/DenverDept/domain/CareManager",
+                    url: adminUrl + "getDomainBasedUserList/department/" + dept + "/domain/Caller",
+                    async: false,
+                    type: 'GET',
+                    crossDomain: true,
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    success: function (response) {
+
+                        var selectRecallercolumns = document.getElementById("reassigncallercolumns");
+                        var options = response.map(function (domain) {
+                            return "<option>" + domain + "</option>";
+                        });
+
+                        selectRecallercolumns.innerHTML = options.join("");
+
+                    }
+
+                });
+
+
+                var data = myTable.rows('.selected').data().toArray()
+                var myData = "Members Selected for Reassign: " + data.length;
+                $('#mySpan').text(myData);
+                $('#myReCallerSpan').text(myData);
+                $("#ReassigncallerModel").modal("show");
             });
 
             $(document).on("click", "#ccButton", function () {
@@ -3168,6 +3556,7 @@
                     });
 
                 $(document).ready(function () {
+				
                     $('input[type="radio"]').click(function () {
                         var value = $(this).val();
                         dateSelectionType = value;
@@ -3324,7 +3713,8 @@
                     $("#statusUpdateBySupervisor").show();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").hide();
-
+					$("#ReassignCaller").hide();
+					
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').hide();
@@ -3348,6 +3738,7 @@
                     $("#backToSupervisorListing").hide();
                     $('#updateStatus').show();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').hide();
                 }
@@ -3361,6 +3752,7 @@
                     $("#reassignButtton").hide();
                     $("#statusUpdateBySupervisor").hide();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     var myButton1 = $('#reassignButtton');
                     myButton1.hide();
                     $('#updatecallerStatus').hide();
@@ -3376,6 +3768,7 @@
                     $("#statusUpdateBySupervisor").hide();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").show();
+					$("#ReassignCaller").show();
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').hide();
@@ -3390,6 +3783,7 @@
                     $("#statusUpdateBySupervisor").hide();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').show();
 					$('#updateAuditStatus').hide();
@@ -3404,6 +3798,7 @@
                     $("#statusUpdateBySupervisor").hide();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').show();
@@ -3508,8 +3903,12 @@
 		    if (colKey === 'claim_classification' && (incConfMap.tablename == 'supervisorUpdateListing' ||incConfMap.tablename == 'callerSupervisorListing' || incConfMap.tablename == 'callerUpdateListing' || incConfMap.tablename == 'auditListing')) {
 				return ''; // Skip processing for 'claim_classification' column.
 			}
-		
-		
+			
+			 if ((colKey === 'Category'||colKey === 'AD') && incConfMap.tablename == 'callerUpdateListing' ) {
+				return ''; // Skip processing for 'claim_classification' column.
+			}
+			
+			
             let titleStr =
                 ' '; //This should not be null or empty string.  Some of the fields not in extEngg will result in errors as data-bs-content is set empty.
             let extEnggFiltered = _.last(_.filter(extFieldEngg, fieldDef => {
@@ -3824,11 +4223,37 @@
                                         downlodDetails = configMap
                                         if ((configMap.tablename == "analystListing" || configMap.tablename == "supervisorUpdateListing") && configMap.origin && configMap.map360 && propKey ===
                                             "#") {
-                                            // let outHTML =
-                                            //     '<input type="checkbox" class="checkboxforcc"/>';
-                                            // return outHTML;
+                                              
+                                            
 
-                                        } else if ((configMap.tablename == "auditListing") && configMap.origin && configMap.map360 &&
+                                        }else if (configMap.origin && configMap.map360 &&
+                                            propKey === "age" ) {
+                                            
+                                            let outHTML = ""; // Declare outHTML first
+                                            if (configMap.tablename == "opusListing"){
+												outHTML += `${data}
+													</button> 
+													<i class="fa-solid fa-timeline"   
+													   data-row='${JSON.stringify(row)}' 
+													   id="btnHistory" 
+													   style="cursor: pointer; margin: 5px; width: 20px; height: 20px; background: transparent" 
+													   title="Assigned History">
+													</i>`;
+											}
+											else if (configMap.tablename == "callerUpdateListing" || configMap.tablename == "analystListing" ){
+												outHTML += `${data}
+													</button> 
+													<i class="fa-solid fa-bullseye-pointer"   
+													   data-row='${JSON.stringify(row)}' 
+													   id="btncallerHistory" 
+													   style="cursor: pointer; margin: 5px; width: 20px; height: 20px; background: transparent" 
+													   title="Caller Update History">
+													</i>`;	
+                                             }else {
+											   outHTML += `${data}`;
+											 }
+												return outHTML;
+                                        }else if ((configMap.tablename == "auditListing") && configMap.origin && configMap.map360 &&
                                             propKey === "error_comments") {
                                             // let uniqueIdentifier1 = row.memberID_merged;
                                             let selectedRowComments = row.error_comments;
@@ -4363,6 +4788,7 @@
                                                 ' mr-1"></i>';
                                             outHTML += data;
                                             outHTML += '</button>';
+											
                                             return outHTML;
                                         } else {
                                             let propDefaultValue = (!_.isNil(row[propKey])) ? row[
@@ -5157,7 +5583,11 @@
 
                     <button id="assignCaller" aria-haspopup="true" aria-expanded="false" class="btn btn-sm btn-primary 
 												cursor-pointer" type="button"
-                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">Assign caller
+                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">Assign Caller
+                    </button>
+					<button id="ReassignCaller" aria-haspopup="true" aria-expanded="false" class="btn btn-sm btn-primary 
+												cursor-pointer" type="button"
+                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">ReAssign Caller
                     </button>
 
                     <button id="updateStatus" aria-haspopup="true" aria-expanded="false" class="btn btn-sm btn-primary 
@@ -5509,8 +5939,29 @@
             </div>
         </div>
     </div>
+		<div id="viewModel" style="display:none" title="Assignment History">
+				<div id="historyDetails" style="display: flex;width: 100%">
+					<div class="row">
+						<div class="col-md-6">Assigned By</div>
+						<div class="col-md-6"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">Assigned Date</div>
+						<div class="col-md-6"></div>
+					</div>
+				</div>
+			</div>
+	
+				<div id="viewcallUpdateModel" style="display:none" title="Assignment History">
+				
+				<h5>Caller Assigned History</h5>
+				<div id="callerhistoryDetails"></div>
+				<h5>Caller Update History</h5>
+				<div id="callerUpdateDetails"></div>
 
-    <div id="assigncallerModel" class="modal" role="dialog" aria-labelledby="careTitle" tabindex="-1"
+				
+			</div>
+  <div id="assigncallerModel" class="modal" role="dialog" aria-labelledby="careTitle" tabindex="-1"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content" style="width: 109%;">
@@ -5540,6 +5991,42 @@
                             Caller</button>
                     </div>
                     <div id="success-message" style="display:none;">Members Assigned to Caller!</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+	
+	 <div id="ReassigncallerModel" class="modal" role="dialog" aria-labelledby="careTitle" tabindex="-1"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 109%;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="careTitle">Number of Members Reassigned to Caller:<span
+                            id="myReCallerSpan"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" id="closeReassignModelButton">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <span id="myReCallerSpan"></span>
+                        <div id="CCcolumns" class="col-sm-4 alert alert-primary"
+                            style="height: 35px; width: 330px;padding: 2px 10px;margin:0px 8px;display: inline-flex;">
+
+                            <label style="margin-top:7px;">ReAssign Caller : </label>
+                            <select id="reassigncallercolumns"
+                                style="border-radius: 0.2rem;padding: 2px 10px;margin: 2px 8px;">
+                                <option value="select">--Select--</option>
+                                <option value="jstockmyer">Jessica Stockmyer</option>
+
+                            </select>
+                        </div>
+                        <button id="RecallerAssignValueButton" class="btn btn-sm btn-primary cursor-pointer" type="button"
+                            style="height: 35px;width:84px;padding: 2px 10px;margin-left: 15px;margin-top: 0px;">Reassign
+                            Caller</button>
+                    </div>
+                    <div id="success-message" style="display:none;">Members Reassigned to Caller!</div>
                 </div>
 
             </div>
@@ -5763,9 +6250,9 @@
                 }));
 
                 assignedHistory = [{
-                    "reassignedby": dataNew,
-                    "reassignedTo": newValue,
-                    "reassigneddate": assignDate
+                    "assignedby": dataNew,
+                    "assignedTo": newValue,
+                    "assigneddate": assignDate
                 }]
 
                 let loginValue = ccData.loginContext
@@ -5773,6 +6260,11 @@
 
 
                 data.forEach((element) => {
+				let status = "Assigned to Caller";
+
+				if (element && element.Status && element.Status.includes('Rework')) {
+					status = "Rework - " + status;
+				}
 
                     let query = {
                         "query": {
@@ -5804,7 +6296,7 @@
 							   ctx._source.caller_assigned_by = params.caller_assigned_by;
 							   ctx._source.modified_on = params.modified_on;
 			                   ctx._source.Status = params.Status;
-							   ctx._source.assigned_history = params.assigned_history;
+							   ctx._source.caller_assigned_history = params.caller_assigned_history;
 							   
 							   
 	                         `,
@@ -5814,8 +6306,226 @@
                                 "call_assigned_date": assignDate,
                                 "caller_assigned_by": loginVal,
                                 "modified_on": assignDate,
-                                "Status": "Assigned to Caller",
-                                "assigned_history": assignedHistory
+                                "Status": status,
+                                "caller_assigned_history": assignedHistory
+                            }
+                        }
+                    }
+                    $.ajax({
+                        headers: ccData.hdr,
+                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_update_by_query",
+                        async: false,
+                        type: 'POST',
+                        data: JSON.stringify(query),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response) {
+                            hideLoader(assignedLoader);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+                        },
+                        error: function (error) {
+                            console.log("ERROR happened >>>> ", error);
+                            hideLoader(assignedLoader);
+                            return null;
+                        },
+                        complete: function () {
+                            hideLoader(assignedLoader);
+                        }
+                    })
+
+
+                })
+            }
+        });
+
+		
+		$('#RecallerAssignValueButton').on('click', function () {
+            let data = (myTable.rows('.selected').data().toArray())
+            if (data.length == 0) {
+                toastr.error(
+                    'Select atleast one Member'
+                );
+            } else if (data.length == 0 || $("#reassigncallercolumns").val() === "--Select--") {
+                toastr.error(
+                    'Select CC Name'
+                );
+            } else {
+                var selectedValue = $('#reassigncallercolumns').val();
+                console.log("selectedRow: " + selectedValue);
+                var modalBody = $(this).closest(".modal-content").find(".modal-body");
+                var assignedLoader = showLoaderCC(modalBody,
+                    "Members Assigned to Caller!");
+                let data = (myTable.rows('.selected').data().toArray())
+
+                console.log("selectedRow: " + JSON.stringify(data));
+                // var selectedValue = $('#reassignCCcolumns').val();
+
+                const newKey = 'CC';
+                const newValue = selectedValue;
+                let assignedHistory;
+                let ccValue = ccData.loginContext
+                let dataNew = ccValue.replace(/^\s+|\s+$/g, "")
+
+                var currentDate = new Date();
+                var year = currentDate.getUTCFullYear();
+                let day
+                let month = currentDate.getUTCMonth() + 1
+                day = currentDate.getUTCDate();
+                let date;
+                var hours = String(currentDate.getHours()).padStart(2, '0');
+                var minutes = String(currentDate.getMinutes()).padStart(2, '0');
+                var seconds = String(currentDate.getSeconds()).padStart(2, '0');
+                if (month < 10 && day < 10) {
+                    date = year + "-" + "0" + month + "-" + "0" + day + "T" + hours + ":" +
+                        minutes + ":" + seconds;
+                } else if (month < 10 && day >= 10) {
+                    date = year + "-" + "0" + month + "-" + day + "T" + hours + ":" + minutes +
+                        ":" + seconds;
+                } else if (day < 10 && month >= 10) {
+                    date = year + "-" + month + "-" + "0" + day + "T" + hours + ":" + minutes +
+                        ":" + seconds;
+                } else {
+                    // console.log(month, "mm.length", mm)
+                    date = year + "-" + month + "-" + day + "T" + hours + ":" + minutes + ":" +
+                        seconds;
+                }
+
+                let assignDate = date;
+                const newKey1 = 'assigned_date';
+                // const newValue1 = date
+                if (!Array.isArray(data)) {
+                    data = [data];
+                }
+                updatedCCArray = data.map(obj => ({
+                    ...obj,
+                    [newKey]: newValue,
+                    ["Status"]: "Assigned",
+                    [newKey1]: assignDate
+
+                }));
+
+               
+
+                let loginValue = ccData.loginContext
+                let loginVal = loginValue.replace(/^\s+|\s+$/g, "")
+
+
+                data.forEach((element) => {
+				let status = "Assigned to Caller";
+
+				if (element && element.Status && element.Status.includes('Rework')) {
+					status = "Rework - " + status;
+				}
+				  let searchquery = {
+                        "query": {
+                            "bool": {
+                                "must": [
+                                    {
+                                        "term": {
+                                            "CPT": element.CPT
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "Account": element.Account
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "DOS": element.DOS
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+
+                    $.ajax({
+                        headers: ccData.hdr,
+                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search?size=1",
+                        async: false,
+                        type: 'POST',
+                        data: JSON.stringify(searchquery),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response) {
+                            if (response.hits && response.hits
+                                .hits && response.hits.hits
+                                    .length > 0 &&
+                                response.hits.hits[0]._source) {
+                                let element = response.hits.hits[0]._source;
+                                let history = element.caller_assigned_history
+
+                                if (history && (history != null || history !=
+                                    '' || history != undefined)) {
+                                    assignedHistory = element[
+                                        "caller_assigned_history"];
+                                    assignedHistory.push({
+                                        "reassignedby": dataNew,
+                                        "reassignedTo": newValue,
+                                        "reassigneddate": assignDate
+                                    });
+                                } else {
+                                    assignedHistory = [{
+                                        "reassignedby": dataNew,
+                                        "reassignedTo": newValue,
+                                        "reassigneddate": assignDate
+                                    }]
+                                }
+
+                            }
+
+                        },
+                        error: function (error) {
+                            console.log("ERROR happened >>>> ", error);
+                            return null;
+                        }
+                    })
+
+                    let query = {
+                        "query": {
+                            "bool": {
+                                "must": [
+                                    {
+                                        "term": {
+                                            "CPT": element.CPT
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "Account": element.Account
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "DOS": element.DOS
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "script": {
+
+                            "source": `
+                               ctx._source.caller = params.caller;
+                               ctx._source.call_assigned_date = params.call_assigned_date;
+							   ctx._source.caller_assigned_by = params.caller_assigned_by;
+							   ctx._source.modified_on = params.modified_on;
+			                   ctx._source.Status = params.Status;
+							   ctx._source.caller_assigned_history = params.caller_assigned_history;
+							   
+							   
+	                         `,
+                            "lang": "painless",
+                            "params": {
+                                "caller": newValue,
+                                "call_assigned_date": assignDate,
+                                "caller_assigned_by": loginVal,
+                                "modified_on": assignDate,
+                                "Status": status,
+                                "caller_assigned_history": assignedHistory
                             }
                         }
                     }
@@ -6428,6 +7138,9 @@
 							 callstatus = 'Inprogress';
 							 
 							}
+							if(oldData.worked_status == 'Rework'){
+							status = "Rework - " +status;
+							}
 
                             if (incConfMap.tablename == 'analystListing') {
                                 newObject = {
@@ -6648,6 +7361,10 @@
                             }
                             let responseDatas = res.hits.hits[0]._id;
                             let oldData = res.hits.hits[0]._source;
+							let status = "Update by Caller" ;
+							if(oldData.worked_status == 'Rework'){
+							status = "Rework - " +status;
+							}
                             var newObject;
 
                             if(careCordinatorData.call_status == 'Done'){
@@ -6657,7 +7374,7 @@
                                     .call_date,
                                 "caller_comments": careCordinatorData.caller_comments,
 								"call_status": careCordinatorData.call_status,
-                                "Status": 'Update by Caller',
+                                "Status": status,
 								"caller_history_details":callHistory,
                                 "modified_on": modifiedon
                             };
@@ -6668,7 +7385,7 @@
                                     .call_date,
                                 "caller_comments": careCordinatorData.caller_comments,
 								"call_status": careCordinatorData.call_status,
-                                "Status": 'Update by Caller',
+                                "Status": status,
                                 "modified_on": modifiedon
                             };  
 							
@@ -6826,7 +7543,7 @@
 				if(careCordinatorData.worked_status == 'Completed'){
 				status = 'Claim Closed';
 				}else{
-				status = 'Update by Audit';
+				status = 'Rework - Update by Audit';
 				}
 				
 
