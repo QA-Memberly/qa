@@ -1276,6 +1276,11 @@
 						{
 					    runtimeColumns = runtimeColumns.filter(col => col !== "claim_classification");
                         }
+						 if (incConfMap.tablename == 'callerUpdateListing') 
+						{
+						runtimeColumns = runtimeColumns.filter(col => col !== "Category");
+						runtimeColumns = runtimeColumns.filter(col => col !== "AD");
+                        }
                         wsDataRequest["runtime_mappings"] = runtimeMappings;
                         wsDataRequest["fields"] = runtimeColumns;
                         console.log("runtimeColumns", runtimeColumns);
@@ -2027,7 +2032,7 @@
                                 } else {
                                     html += '<table class="tblAssignHistory">';
                                     html +=
-                                        '<tr><th style="width: 120px"><i class="fa fa-calendar" aria-hidden="true"></i> Date </th><th><i class="fa fa-user" aria-hidden="true"></i> By</th><th><i class="fa fa-user" aria-hidden="true"></i> To</th></tr>';
+                                        '<tr><th style="width: 150px"><i class="fa fa-calendar" aria-hidden="true"></i> Assigned Date </th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned By</th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned To</th></tr>';
                                     $.each(responseHistorys, function (index, item) {
                                         newformatdate = moment(item.assigneddate)
                                             .format('MM-DD-YYYY');
@@ -2070,7 +2075,7 @@
 							console.log("::::::::::::::::::rowData.Account",rowData.Account);
                             $('#historyDetails').html(html);
                             $("#viewModel").dialog("option", "title",
-                                "Assignment History of Member: " + rowData.Account);
+                                "Analyst Assigned History");
                             $("#viewModel").dialog("open");
                         },
                         error: function (error) { }
@@ -3708,7 +3713,8 @@
                     $("#statusUpdateBySupervisor").show();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").hide();
-
+					$("#ReassignCaller").hide();
+					
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').hide();
@@ -3732,6 +3738,7 @@
                     $("#backToSupervisorListing").hide();
                     $('#updateStatus').show();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').hide();
                 }
@@ -3745,6 +3752,7 @@
                     $("#reassignButtton").hide();
                     $("#statusUpdateBySupervisor").hide();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     var myButton1 = $('#reassignButtton');
                     myButton1.hide();
                     $('#updatecallerStatus').hide();
@@ -3760,6 +3768,7 @@
                     $("#statusUpdateBySupervisor").hide();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").show();
+					$("#ReassignCaller").show();
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').hide();
@@ -3774,6 +3783,7 @@
                     $("#statusUpdateBySupervisor").hide();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').show();
 					$('#updateAuditStatus').hide();
@@ -3788,6 +3798,7 @@
                     $("#statusUpdateBySupervisor").hide();
                     $("#backToSupervisorListing").hide();
                     $("#assignCaller").hide();
+					$("#ReassignCaller").hide();
                     $('#updateStatus').hide();
                     $('#updatecallerStatus').hide();
 					$('#updateAuditStatus').show();
@@ -3892,8 +3903,12 @@
 		    if (colKey === 'claim_classification' && (incConfMap.tablename == 'supervisorUpdateListing' ||incConfMap.tablename == 'callerSupervisorListing' || incConfMap.tablename == 'callerUpdateListing' || incConfMap.tablename == 'auditListing')) {
 				return ''; // Skip processing for 'claim_classification' column.
 			}
-		
-		
+			
+			 if ((colKey === 'Category'||colKey === 'AD') && incConfMap.tablename == 'callerUpdateListing' ) {
+				return ''; // Skip processing for 'claim_classification' column.
+			}
+			
+			
             let titleStr =
                 ' '; //This should not be null or empty string.  Some of the fields not in extEngg will result in errors as data-bs-content is set empty.
             let extEnggFiltered = _.last(_.filter(extFieldEngg, fieldDef => {
@@ -5568,11 +5583,11 @@
 
                     <button id="assignCaller" aria-haspopup="true" aria-expanded="false" class="btn btn-sm btn-primary 
 												cursor-pointer" type="button"
-                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">Assign caller
+                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">Assign Caller
                     </button>
 					<button id="ReassignCaller" aria-haspopup="true" aria-expanded="false" class="btn btn-sm btn-primary 
 												cursor-pointer" type="button"
-                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">ReAssign caller
+                        style="height: 35px; width: 298px !important;padding: 2px 10px;margin:0px 8px">ReAssign Caller
                     </button>
 
                     <button id="updateStatus" aria-haspopup="true" aria-expanded="false" class="btn btn-sm btn-primary 
