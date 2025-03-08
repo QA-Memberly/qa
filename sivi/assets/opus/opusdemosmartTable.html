@@ -4686,7 +4686,7 @@
                                             if (!ccData.selectedDoneRow) {
                                                 let patient = row.Patient_.replace(/[, ]/g, "");
 
-                                                let uniqueIdentifier = row.Account + moment.utc(row.DOS).format("MMDDYYYY") + row.CPT;
+                                                let uniqueIdentifier = row.Account + moment.utc(row.DOS).format("MMDDYYYY");
 
                                                 outHTML =
                                                     '<div style="display:flex; flex-direction: row;"> <input type="text" style="width: 120px;" placeholder="MM-DD-YYYY" id="dateValue' +
@@ -6971,10 +6971,12 @@
                 // console.log(JSON.parse(decodeObj),"decodeObj");
                 const careCordinatorData = row;
                 const uniqueIdentifier = row.Account + moment.utc(row.DOS).format("MMDDYYYY") + row.CPT;
+				const uniqueIdentifierdate = row.Account + moment.utc(row.DOS).format("MMDDYYYY");
+                
                 //const uniqueIdentifier = careCordinatorData.memberID_merged;
 
                 const statusId = "status" + uniqueIdentifier;
-                var dateId = "dateValue" + uniqueIdentifier;
+                var dateId = "dateValue" + uniqueIdentifierdate;
 				 var hospitalcontactId = "hospitalcontact" + uniqueIdentifier;
                 var denialstatusId = "denialstatus" + uniqueIdentifier;
 
@@ -7012,9 +7014,10 @@
                 const decodeObj = decodeURIComponent(selectedRows[i]);
                 var careCordinatorData = selectedRows[i];
                 const uniqueIdentifier = careCordinatorData.Account + moment.utc(careCordinatorData.DOS).format("MMDDYYYY") + careCordinatorData.CPT;
+                const uniqueIdentifierdate = careCordinatorData.Account + moment.utc(careCordinatorData.DOS).format("MMDDYYYY");
 
                 var statusId = "status" + uniqueIdentifier;
-                var dateId = "dateValue" + uniqueIdentifier;
+                var dateId = "dateValue" + uniqueIdentifierdate;
                 var hospitalcontactId = "hospitalcontact" + uniqueIdentifier;
                 var denialstatusId = "denialstatus" + uniqueIdentifier;
 
