@@ -6122,9 +6122,14 @@
                     })
 
 					
-					if (claimAlreadyAssigned) {
+				 if (claimAlreadyAssigned) {
 					closeModal();
+					hideLoader(assignedLoader);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 500);
 					return;  // This prevents further processing
+					
 				    }
 
                     let query = {
@@ -6278,6 +6283,77 @@
 
 
                 data.forEach((element) => {
+				
+				 let searchquery = {
+                        "query": {
+                            "bool": {
+                                "must": [
+                                    {
+                                        "term": {
+                                            "CPT": element.CPT
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "Account": element.Account
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "DOS": element.DOS
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+				
+				let claimAlreadyAssigned = false;
+                    $.ajax({
+                        headers: ccData.hdr,
+                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search?size=1",
+                        async: false,
+                        type: 'POST',
+                        data: JSON.stringify(searchquery),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response) {
+                            if (response.hits && response.hits
+                                .hits && response.hits.hits
+                                    .length > 0 &&
+                                response.hits.hits[0]._source) {
+                                let element = response.hits.hits[0]._source;
+                                let history = element.caller_assigned_history
+								
+                                if (history && (history != null || history !=
+                                    '' || history != undefined)) {
+									toastr.error(
+										'The Claim has already Assigned ,plz do proceed with Reassign'
+									);
+									claimAlreadyAssigned = true;
+                                  
+                                } 
+
+                            }
+
+                        },
+                        error: function (error) {
+                            console.log("ERROR happened >>>> ", error);
+                            return null;
+                        }
+                    })
+					
+					 if (claimAlreadyAssigned) {
+					closeModal();
+					hideLoader(assignedLoader);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 500);
+					return;  // This prevents further processing
+					
+				    }
+				
+				
 				let status = "Assigned to Caller";
 
 				if (element && element.Status && element.Status.includes('Rework')) {
@@ -6459,7 +6535,8 @@
                             }
                         }
                     }
-
+					
+					let claimAlreadyAssigned = false;
                     $.ajax({
                         headers: ccData.hdr,
                         url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search?size=1",
@@ -6475,7 +6552,7 @@
                                 response.hits.hits[0]._source) {
                                 let element = response.hits.hits[0]._source;
                                 let history = element.caller_assigned_history
-
+								
                                 if (history && (history != null || history !=
                                     '' || history != undefined)) {
                                     assignedHistory = element[
@@ -6486,11 +6563,10 @@
                                         "reassigneddate": assignDate
                                     });
                                 } else {
-                                    assignedHistory = [{
-                                        "reassignedby": dataNew,
-                                        "reassignedTo": newValue,
-                                        "reassigneddate": assignDate
-                                    }]
+                                   toastr.error(
+										'The selected Claims not Assigned yet,please do proceed with Assign'
+									);
+									claimAlreadyAssigned = true;
                                 }
 
                             }
@@ -6501,6 +6577,16 @@
                             return null;
                         }
                     })
+					
+					if (claimAlreadyAssigned) {
+					closeModal();
+					  // This prevents further processing
+					hideLoader(assignedLoader);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 500);
+					return;		
+				    }
 
                     let query = {
                         "query": {
@@ -6575,7 +6661,6 @@
                 })
             }
         });
-
 
         $('#getReAssignValueButton').on('click', function () {
             let data = (myTable.rows('.selected').data().toArray())
@@ -6706,7 +6791,7 @@
 								
 								}else {
 								  toastr.error(
-										'The Claim have not Assigned yet,please do proceed with Assign'
+										'The Selected Claims not Assigned yet,please do proceed with Assign'
 									);
 								  claimAlreadyAssigned = true;
                                   
@@ -6724,7 +6809,12 @@
 
                     if (claimAlreadyAssigned) {
 					closeModal();
+					hideLoader(assignedLoader);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 500);
 					return;  // This prevents further processing
+					
 				    }
 
                     let searchquery = {
