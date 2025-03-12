@@ -4403,7 +4403,7 @@
                                                 moment().utc().format("MM-DD-YYYY");
 
                                             if (!ccData.selectedDoneRow) {
-                                                let patient = row.Patient_.replace(/[, ]/g, "");
+                                                // let patient = row.Patient_.replace(/[, ]/g, "");
 
                                                 let uniqueIdentifier = row.Account + moment.utc(row.DOS).format("MMDDYYYY");
 
@@ -4526,7 +4526,7 @@
                                                 moment().utc().format("MM-DD-YYYY");
 
                                             if (!ccData.selectedDoneRow) {
-                                                let patient = row.Patient_.replace(/[, ]/g, "");
+                                                // let patient = row.Patient_.replace(/[, ]/g, "");
 
                                                 let uniqueIdentifier = row.Account + moment.utc(row.DOS).format("MMDDYYYY");
 												
@@ -4684,7 +4684,7 @@
                                                 moment().utc().format("MM-DD-YYYY");
 
                                             if (!ccData.selectedDoneRow) {
-                                                let patient = row.Patient_.replace(/[, ]/g, "");
+                                                // let patient = row.Patient_.replace(/[, ]/g, "");
 
                                                 let uniqueIdentifier = row.Account + moment.utc(row.DOS).format("MMDDYYYY");
 
@@ -4724,71 +4724,6 @@
                                                     outHTML = '';
                                                 }
                                             }
-                                            return outHTML;
-                                        } else if (configMap.origin && configMap.map360 &&
-                                            propKey ===
-                                            "Patient") {
-                                            let propDefaultValue = (!_.isNil(row[propKey])) ? row[
-                                                propKey] :
-                                                "";
-                                            let propValue = getFormattedValue(rowFormatters,
-                                                propKey, row[
-                                            propKey], propDefaultValue, (propKey,
-                                                propValue,
-                                                defaultValue) => {
-                                                return propValue;
-                                            });
-                                            if (rowFormatters[propKey] && rowFormatters[propKey][
-                                                "MASK"
-                                            ] !=
-                                                "undefined") {
-                                                let maskedValue = doMask(propKey, propValue,
-                                                    rowFormatters[
-                                                    propKey]["MASK"]["config"]["opts"]);
-                                                let outHTML = '<div class="d-inline-flex">';
-                                                outHTML +=
-                                                    '<button class="btn btn-sm mr-2" data-origin="' +
-                                                    configMap.origin + '" data-route="' + data +
-                                                    '" data-ext-launch="p360">';
-                                                outHTML +=
-                                                    '<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
-                                                outHTML +=
-                                                    '<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
-                                                outHTML += '</div></button>';
-                                                outHTML +=
-                                                    '<button class="btn btn-sm btn-outline-primary" data-origin="' +
-                                                    configMap.origin +
-                                                    '" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
-                                                    data + '" ';
-                                                outHTML += 'data-ext-launch="journey"><i class="' +
-                                                    data +
-                                                    ' mr-1"></i>';
-                                                outHTML += maskedValue;
-                                                outHTML += '</button>';
-                                                return outHTML;
-                                            };
-
-                                            let outHTML = '<div class="d-inline-flex">';
-                                            outHTML +=
-                                                '<button class="btn btn-sm mr-2" data-origin="' +
-                                                configMap.origin + '" data-route="' + data +
-                                                '" data-ext-launch="p360">';
-                                            outHTML +=
-                                                '<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
-                                            outHTML +=
-                                                '<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
-                                            outHTML += '</div></button>';
-                                            outHTML +=
-                                                '<button class="btn btn-sm btn-outline-primary" data-origin="' +
-                                                configMap.origin +
-                                                '" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
-                                                data + '" ';
-                                            outHTML += 'data-ext-launch="journey"><i class="' +
-                                                data +
-                                                ' mr-1"></i>';
-                                            outHTML += data;
-                                            outHTML += '</button>';
-											
                                             return outHTML;
                                         } else {
                                             let propDefaultValue = (!_.isNil(row[propKey])) ? row[
@@ -6034,6 +5969,11 @@
     </div>
     </div>
     <script id="rendered-js">
+	
+		 function closeModal() {
+			$('.modal').modal('hide'); // Bootstrap function to hide modal
+		}
+		
         $('#getValueButton').on('click', function () {
             let data = (myTable.rows('.selected').data().toArray())
             if (data.length == 0) {
@@ -6108,6 +6048,84 @@
                 }]
 
                 data.forEach((element) => {
+				
+				 let searchquery = {
+                        "query": {
+                            "bool": {
+                                "must": [
+                                    {
+                                        "term": {
+                                            "CPT": element.CPT
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "Account": element.Account
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "DOS": element.DOS
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                    let claimAlreadyAssigned = false;
+                    $.ajax({
+                        headers: ccData.hdr,
+                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search?size=1",
+                        async: false,
+                        type: 'POST',
+                        data: JSON.stringify(searchquery),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response) {
+                            if (response.hits && response.hits
+                                .hits && response.hits.hits
+                                    .length > 0 &&
+                                response.hits.hits[0]._source) {
+                                let element = response.hits.hits[0]._source;
+                                let history = element.assigned_history
+                                if (history && (history != null || history !=
+                                    '' || history != undefined)) {
+									if(element.Status){
+								
+								    toastr.error(
+										'The Selected Claim is already in inprogress,cannot able to Assign'
+									);
+								  claimAlreadyAssigned = true;
+								
+							     	}else{
+									 toastr.error(
+										'The Claim has already Assigned ,plz do proceed with Reassign'
+									);
+									claimAlreadyAssigned = true;
+									}
+                                }else if(element.Status){
+								
+								 toastr.error(
+										'The Selected Claim is already in inprogress,cannot able to Assign'
+									);
+								  claimAlreadyAssigned = true;
+								
+								}
+
+                            }
+
+                        },
+                        error: function (error) {
+                            console.log("ERROR happened >>>> ", error);
+                            return null;
+                        }
+                    })
+
+					
+					if (claimAlreadyAssigned) {
+					closeModal();
+					return;  // This prevents further processing
+				    }
 
                     let query = {
                         "query": {
@@ -6628,6 +6646,86 @@
                 let loginVal = loginValue.replace(/^\s+|\s+$/g, "")
 
                 data.forEach((element) => {
+				
+				 let getquery = {
+                        "query": {
+                            "bool": {
+                                "must": [
+                                    {
+                                        "term": {
+                                            "CPT": element.CPT
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "Account": element.Account
+                                        }
+                                    },
+                                    {
+                                        "term": {
+                                            "DOS": element.DOS
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+
+					let claimAlreadyAssigned = false;
+                    $.ajax({
+                        headers: ccData.hdr,
+                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/opus_billing_data/_search?size=1",
+                        async: false,
+                        type: 'POST',
+                        data: JSON.stringify(getquery),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response) {
+                            if (response.hits && response.hits
+                                .hits && response.hits.hits
+                                    .length > 0 &&
+                                response.hits.hits[0]._source) {
+                                let element = response.hits.hits[0]._source;
+                                let history = element.assigned_history
+                                if (history && (history != null || history !=
+                                    '' || history != undefined)) {
+									
+									if(element.Status && element.Status != 'Assigned to Analyst'){
+								
+								 toastr.error(
+										'The Selected Claim is already in inprogress,cannot able to Reassign'
+									);
+								  claimAlreadyAssigned = true;
+								
+								}}else if(element.Status && element.Status != 'Assigned to Analyst'){
+								
+								 toastr.error(
+										'The Selected Claim is already in inprogress,cannot able to Assign'
+									);
+								  claimAlreadyAssigned = true;
+								
+								}else {
+								  toastr.error(
+										'The Claim have not Assigned yet,please do proceed with Assign'
+									);
+								  claimAlreadyAssigned = true;
+                                  
+                                }
+								
+
+                            }
+
+                        },
+                        error: function (error) {
+                            console.log("ERROR happened >>>> ", error);
+                            return null;
+                        }
+                    })
+
+                    if (claimAlreadyAssigned) {
+					closeModal();
+					return;  // This prevents further processing
+				    }
 
                     let searchquery = {
                         "query": {
@@ -7131,7 +7229,7 @@
                         dataType: 'json',
                         contentType: 'application/json',
                         success: function (res) {
-						
+						console.log(":::::::::::::::::::::::res:",res);
                             let responseDatas = res.hits.hits[0]._id;
                             let oldData = res.hits.hits[0]._source;
                             var newObject;
