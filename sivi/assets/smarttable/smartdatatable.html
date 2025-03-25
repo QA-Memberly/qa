@@ -1364,7 +1364,7 @@ let totalRecord;
                                 specialtypesEntities = fldConfig.entity_specialtypes;
                                 var entityName = { "entityName": fldConfig.entity_name }
                                 var mergedObject = Object.assign({}, specialtypesEntities, entityName);
-                                specialtypesEntities1[fldConfig.entity_name] = mergedObject;
+                                specialtypesEntities[fldConfig.entity_name] = mergedObject;
                             }
                             let ctnt = '<div data-sort="' + (iidx + 1) + '" data-entity-id="' + fldConfig.entity_name + '" ';
                             ctnt += 'class="field-item col-md-4 col-lg-3 dt-' + fldConfig.entity_datatype;
