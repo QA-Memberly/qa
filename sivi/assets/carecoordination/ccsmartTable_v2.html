@@ -51458,7 +51458,7 @@ else{
 									
                                         newformatdate = moment(item.assigned_date)
                                             .format('MM-DD-YYYY');
-                                            const epochDate = new Date(olddata[0].PV1_44_asDate);
+                                            const epochDate = new Date(item.PV1_44_asDate);
                                             const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
                                             const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
                                             const year1 = epochDate.getFullYear();
@@ -51472,7 +51472,7 @@ else{
 											} else{
 										admitdate ="";	
 											}
-											const discrgeepochDate = new Date(olddata[0].PV1_45_asDate);
+											const discrgeepochDate = new Date(item.PV1_45_asDate);
                                             const discrgeday1 = String(discrgeepochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
                                             const discrgemonth1 = String(discrgeepochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
                                             const discrgeyear1 = discrgeepochDate.getFullYear();
