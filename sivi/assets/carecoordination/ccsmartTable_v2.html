@@ -51458,23 +51458,33 @@ else{
 									
                                         newformatdate = moment(item.assigned_date)
                                             .format('MM-DD-YYYY');
-											if(item.cc_PV1_44_asDate){
-                                        admitdate = moment.utc(item
-                                        .cc_PV1_44_asDate)
-                                    .format(
-                                        "MM-DD-YYYY");
-											}else{
+                                            const epochDate = new Date(olddata[0].PV1_44_asDate);
+                                            const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
+                                            const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
+                                            const year1 = epochDate.getFullYear();
+            
+                                            // Format as DD-MM-YYYY
+                                            const admitformattedDate = `${month1}-${day1}-${year1}`;
+
+											if(item.admitformattedDate){
+                                        admitdate = admitformattedDate
+                                   
+											} else{
 										admitdate ="";	
 											}
-											
-											if(item.cc_PV1_45_asDate){
-										dischargedate = moment.utc(item
-                                                .cc_PV1_45_asDate)
-                                            .format('MM-DD-YYYY');	
+											const discrgeepochDate = new Date(olddata[0].PV1_45_asDate);
+                                            const discrgeday1 = String(discrgeepochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
+                                            const discrgemonth1 = String(discrgeepochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
+                                            const discrgeyear1 = discrgeepochDate.getFullYear();
+            
+                                            // Format as DD-MM-YYYY
+                                            const discrgeformattedDate = `${month1}-${day1}-${year1}`;
+											if(item.discrgeformattedDate){
+										dischargedate = discrgeformattedDate;	
 											}else {
 										dischargedate ="";	
                                         	}
-											
+											console.log(dischargedate,"dischargedate")
                                          if (item.assigned_date) {
                                             html += '<tr>';
                                             html +=
