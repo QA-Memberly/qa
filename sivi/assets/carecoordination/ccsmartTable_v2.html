@@ -51486,6 +51486,12 @@ else{
                                     } else {
                                         dischargedate = "";
                                     }
+                                    if (item.TOC_Comments) {
+                                        item.TOC_Comments=item.TOC_Comments
+                                    } else {
+                                        item.TOC_Comments=""
+                                    } 
+                                   
 											console.log(dischargedate,"dischargedate")
                                          if (item.assigned_date) {
                                             html += '<tr>';
