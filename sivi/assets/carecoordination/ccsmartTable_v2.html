@@ -51458,11 +51458,11 @@ else{
 									
                                         newformatdate = moment(item.assigned_date)
                                             .format('MM-DD-YYYY');
-                                            const epochDate = new Date(item.PV1_44_asDate);
-                                            const day1 = String(epochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
-                                            const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
-                                            const year1 = epochDate.getFullYear();
-            
+                                        const epochDate = new Date(item.PV1_44_asDate);
+                                        const day1 = String(epochDate.getUTCDate()).padStart(2, '0');
+                                        const month1 = String(epochDate.getUTCMonth() + 1).padStart(2, '0');
+                                        const year1 = epochDate.getUTCFullYear();
+                                            
                                             // Format as DD-MM-YYYY
                                             const admitformattedDate = `${month1}-${day1}-${year1}`;
 
