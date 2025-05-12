@@ -51458,32 +51458,34 @@ else{
 									
                                         newformatdate = moment(item.assigned_date)
                                             .format('MM-DD-YYYY');
-                                        const epochDate = new Date(item.PV1_44_asDate);
+                                      
+
+											if(item.PV1_44_asDate){
+                                                const epochDate = new Date(item.PV1_44_asDate);
                                         const day1 = String(epochDate.getUTCDate()).padStart(2, '0');
                                         const month1 = String(epochDate.getUTCMonth() + 1).padStart(2, '0');
                                         const year1 = epochDate.getUTCFullYear();
                                             
                                             // Format as DD-MM-YYYY
-                                            const admitformattedDate = `${month1}-${day1}-${year1}`;
-
-											if(admitformattedDate){
+                                        const admitformattedDate = `${month1}-${day1}-${year1}`;
                                         admitdate = admitformattedDate
-                                   
-											} else{
-										admitdate ="";	
-											}
-											const discrgeepochDate = new Date(item.PV1_45_asDate);
-                                            const discrgeday1 = String(discrgeepochDate.getDate()).padStart(2, '0'); // Ensure day is two digits
-                                            const discrgemonth1 = String(discrgeepochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
-                                            const discrgeyear1 = discrgeepochDate.getFullYear();
-            
-                                            // Format as DD-MM-YYYY
-                                            const discrgeformattedDate = `${discrgemonth1}-${discrgeday1}-${discrgeyear1}`;
-											if(discrgeformattedDate){
-										dischargedate = discrgeformattedDate;	
-											}else {
-										dischargedate ="";	
-                                        	}
+
+                                    } else {
+                                        admitdate = "";
+                                    }
+                                    if (item.PV1_45_asDate) {
+                                        const discrgeepochDate = new Date(item.PV1_45_asDate);
+                                        const discrgeday1 = String(discrgeepochDate.getUTCDate()).padStart(2, '0');       // UTC day
+                                        const discrgemonth1 = String(discrgeepochDate.getUTCMonth() + 1).padStart(2, '0'); // UTC month
+                                        const discrgeyear1 = discrgeepochDate.getUTCFullYear();                           // UTC year
+
+                                        // Format as MM-DD-YYYY
+                                        const discrgeformattedDate = `${discrgemonth1}-${discrgeday1}-${discrgeyear1}`;
+
+                                        dischargedate = discrgeformattedDate;
+                                    } else {
+                                        dischargedate = "";
+                                    }
 											console.log(dischargedate,"dischargedate")
                                          if (item.assigned_date) {
                                             html += '<tr>';
