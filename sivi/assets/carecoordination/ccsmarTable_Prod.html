@@ -4603,17 +4603,23 @@
                 if (formatters[propKey]["DEFAULT"]) {
                     try {
                         if (formatters[propKey]["DEFAULT"]["type"] === "MOMENT_Date") {
+				console.log(formatters[propKey]["DEFAULT"]["config"]
+                                ["opts"][
+                                    "format"
+                                ],"testt")
                             if (formatters[propKey]["DEFAULT"]["config"]["opts"]["utc"]) {
                                 formattedValue = moment(propValue).utc().format(formatters[propKey]["DEFAULT"]["config"]
                                 ["opts"][
                                     "format"
                                 ]);
+					console.log(formattedValue,"formattedValue")
                             } else {
                                 formattedValue = moment(propValue).format(formatters[propKey]["DEFAULT"]["config"][
                                     "opts"
                                 ][
                                     "format"
                                 ]);
+				    console.log(formattedValue,"formattedValue1")
                             }
                         } else if (formatters[propKey]["DEFAULT"]["type"] === "INTL_Date") {
                             let dateObject = new Date(propValue);
