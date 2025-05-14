@@ -1,0 +1,4707 @@
+<html>
+
+<head> 
+	
+
+	<script src="https://kit.fontawesome.com/5862fb8f71.js" crossorigin="anonymous"></script>
+	<link href="../../apps/sqml/assets/css/magic.css" rel="stylesheet" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css"
+		integrity="sha512-PT0RvABaDhDQugEbpNMwgYBCnGCiTZMh9yOzUsJHDgl/dMhD9yjHAwoumnUk3JydV3QTcIkNDuN40CJxik5+WQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.6/css/selectize.bootstrap5.css"
+		integrity="sha512-wD3+yEMEGhx4+wKKWd0bNGCI+fxhDsK7znFYPvf2wOVxpr7gWnf4+BKphWnUCzf49AUAF6GYbaCBws1e5XHSsg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://memberly-app.github.io/apps/sdx/assets/css/sdx_qa.css" crossorigin="anonymous"
+		referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css"
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.3.2/css/fixedHeader.bootstrap4.min.css"
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+		integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+		</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+		integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+		</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+		integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.6/js/standalone/selectize.min.js"
+		integrity="sha512-pgmLgtHvorzxpKra2mmibwH/RDAVMlOuqU98ZjnyZrOZxgAR8hwL8A02hQFWEK25V40/9yPYb/Zc+kyWMplgaA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/hideseek-mod/0.8.5/jquery.hideseek-mod.min.js"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+		integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdn.datatables.net/fixedheader/3.3.2/js/dataTables.fixedHeader.min.js" crossorigin="anonymous"
+		referrerpolicy="no-referrer"></script>
+	<script src="https://npmcdn.com/isotope-layout@3.0.6/dist/isotope.pkgd.js"></script>
+	<script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+	<style id="special_hide" disabled="true">
+		.forceHidden {
+			display: none !important;
+		}
+	</style>
+	<style>
+		.class_pv_1_44_as_date,
+		.class_pv_1_45_as_date,
+		.class_msh_7_as_date {
+			min-width: 12vw !important;
+		}
+
+		body {
+			font-size: 14px !important;
+		}
+
+		.f-12 {
+			font-size: 12px !important;
+		}
+
+		.f-13 {
+			font-size: 13px !important;
+		}
+
+		.f-13p5 {
+			font-size: 13.5px !important;
+		}
+
+		.value-row {
+			font-size: 13.5px !important;
+		}
+
+		div.dataTables_scrollBody table.dataTable.dtfc-has-left thead {
+			display: table-footer-group !important;
+		}
+
+		div.dataTables_scrollBody table.dataTable thead {
+			display: table-footer-group !important;
+			background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 244, 0.21)) !important;
+			border: none !important;
+			background: white !important;
+		}
+
+		div.dataTables_scrollBody table.dataTable.dtfc-has-left thead tr th.dtfc-fixed-left {
+			background-color: white !important;
+		}
+
+		li {
+			font-size: 0.905rem !important;
+			list-style: auto !important;
+		}
+
+		a {
+			text-decoration: none !important;
+			font-weight: 600 !important;
+		}
+
+		.mark,
+		mark {
+			padding: 0.025em .4em;
+			background-color: #dcbc14;
+			border-radius: 0.25rem;
+		}
+
+		span.highlight {
+			padding: 0.025em .4em;
+			background-color: #dcbc14;
+			border-radius: 0.25rem;
+		}
+
+		.h6,
+		h6 {
+			font-size: 0.855rem;
+			margin-bottom: 0px;
+		}
+
+		.selectize-dropdown,
+		.selectize-input,
+		.selectize-input input {
+			color: #343a40;
+			font-size: 13px !important;
+		}
+
+		.modal-backdrop {
+			z-index: -1;
+		}
+
+		.card {
+			box-shadow: 0 5px 11px 0px rgba(69, 90, 100, 0.3);
+		}
+
+		.element-item {
+			min-width: 24vw !important;
+			max-width: 24vw !important;
+			min-height: 15vh !important;
+			overflow-x: hidden !important;
+			transform: translate3d(0, 0, 0);
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+		}
+
+		.field-card {
+			margin: 4px !important;
+			margin-right: 2px !important;
+			font-size: 13.25px !important;
+			min-width: 24vw !important;
+			box-shadow: 0 5px 11px 0px rgb(69 90 100 / 13%);
+			border: 1px solid #BCBCBC;
+		}
+
+		.field-card .card-header {
+			padding: .25rem 0.75rem !important;
+			font-size: 13.25px !important;
+		}
+
+		.field-card .primary-header {
+			background-image: linear-gradient(to bottom, #fff, #7cb1e036);
+		}
+
+		.field-card .card-body {
+			padding: .5rem !important;
+			font-size: 13.25px !important;
+		}
+
+		.card .card-header .card-header-right {
+			right: 10px;
+			top: 10px;
+			display: inline-block;
+			float: right;
+			padding: 0;
+			position: absolute;
+		}
+
+		.selectized {
+			box-shadow: -2px -2px 15px 0px rgb(69 90 100 / 30%);
+		}
+
+		.wildcard-btn:before {
+			content: '\f141';
+			font-family: "Font Awesome 6 Pro";
+			font-weight: 900;
+			font-size: 13px;
+			border: none;
+			position: absolute;
+			top: 12px;
+			left: 4px;
+			transition: 0.3s ease-in-out;
+			color: #0dcaf0;
+		}
+
+		.wildcard-btn.btn-info:before {
+			content: '\f141';
+			font-family: "Font Awesome 6 Pro";
+			font-weight: 900;
+			font-size: 13px;
+			border: none;
+			position: absolute;
+			top: 12px;
+			left: 4px;
+			transition: 0.3s ease-in-out;
+			color: #FFF;
+		}
+
+		#dt_searchValidMsg {
+			color: red
+		}
+
+		div.dataTables_wrapper div.dataTables_processing {
+			position: absolute !important;
+			top: 5% !important;
+			left: 7% !important;
+			width: 99.8% !important;
+			height: 96% !important;
+			text-align: center !important;
+			padding: 1em !important;
+			border: 1px solid #CCC !important;
+			z-index: 999 !important;
+			background: white !important;
+			border-radius: 4px !important;
+			opacity: 1 !important;
+			box-shadow: inset rgb(0 0 0 / 8%) 0px 0.9px 4px, rgb(0 0 0 / 6%) 0px 2.6px 8px, rgb(0 0 0 / 5%) 0px 5.7px 12px, inset rgb(0 0 0 / 4%) 0px 15px 15px !important;
+		}
+
+		.noDataTables {
+			position: relative !important;
+			margin-left: calc(100vw - 50vw);
+			padding: 1em 0px !important;
+		}
+
+		@keyframes spinner {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		.spinner:before {
+			content: '';
+			box-sizing: border-box;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 20px;
+			height: 20px;
+			margin-top: -10px;
+			margin-left: -10px;
+			border-radius: 50%;
+			border: 2px solid #ccc;
+			border-top-color: #333;
+			animation: spinner .6s linear infinite;
+		}
+
+		#close_processing {
+			border: none !important;
+		}
+
+		#dt_search:focus {
+			color: #212529;
+			background-color: #fff;
+			border-color: blue;
+			outline: 0;
+			box-shadow: 0 0 0 0.15rem rgb(191 212 243 / 13%);
+		}
+
+		th.dtfc-fixed-left {
+			background: #CCC !important;
+		}
+
+		td.dtfc-fixed-left {
+			background: #DEDEDE !important;
+		}
+
+		.h-45px {
+			margin-top: 5px;
+			min-height: 35px !important;
+			height: 35px !important;
+		}
+
+		.rowHDR {
+			margin-top: -13px !important;
+			margin-bottom: 5px !important;
+		}
+
+		.table.dataTable[class*="table-"] thead th {
+			background-image: linear-gradient(to bottom, #fff, #887ce036);
+			border-bottom: 1px solid #c9d1d8;
+		}
+
+		.dtbody {
+			border: 1px solid #DDD;
+			padding: 0px !important;
+			padding-left: 5px !important;
+			padding-bottom: 5px !important;
+			margin-left: 5px;
+			width: 99%;
+		}
+
+		.dataTables_info,
+		.dataTables_paginate {
+			padding: 0.5em 0px;
+		}
+
+		div.dataTables_length select {
+			padding: 0.15em;
+		}
+
+		div.dataTables_length select:focus,
+		div.dataTables_length select:focus-visible {
+			border: 1px solid #CCC;
+		}
+
+		.table>tbody>tr>td,
+		.table>tbody>tr>th,
+		.table>tfoot>tr>td,
+		.table>tfoot>tr>th,
+		.table>thead>tr>td,
+		.table>thead>tr>th {
+			font-size: 13.5px !important;
+			border-right: 1px solid #EEE;
+		}
+
+		.esstyle {
+			box-shadow: inset rgb(0 0 0 / 8%) 0px 0.9px 4px, rgb(0 0 0 / 6%) 0px 2.6px 8px, rgb(0 0 0 / 5%) 0px 5.7px 12px, inset rgb(0 0 0 / 4%) 0px 15px 15px !important;
+			margin: 0px 2px;
+			margin-bottom: 5px;
+			padding: 0px 5px;
+			border-radius: 5px;
+		}
+
+		.col-selector {
+			min-height: 20vh !important;
+			overflow-y: scroll;
+			margin-left: 10px;
+			margin-top: 5px;
+			font-size: 13.5px;
+			padding: 5px !important;
+			padding-right: 15px !important;
+			padding-left: 8px !important;
+		}
+
+		.cb-col-selector {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-left: 25px;
+		}
+
+		.cb-col-selector.active {
+			background: #ffffff25;
+		}
+
+		.customize-columns {
+			min-width: 30vw;
+			min-height: 70vh !important;
+			max-height: 70vh !important;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			padding-left: 5px;
+			padding-top: 5px;
+			overflow: hidden;
+		}
+
+		.mr-2 {
+			margin-right: 5px;
+		}
+
+		.ml-2 {
+			margin-left: 5px;
+		}
+
+		.mt-1 {
+			margin-top: 2px;
+		}
+
+		.th-hdr-right {
+			right: -10px;
+			top: -10px;
+			display: inline-block;
+			float: right;
+			padding: 0;
+			padding-top: 3px;
+			position: absolute;
+		}
+
+		.th-hdr-right button {
+			opacity: 0.5;
+		}
+
+		.th-hdr-right button[data-state="shown"] {
+			opacity: 1 !important;
+		}
+
+		.th-hdr-right button[data-state="shown"]>i.fa-filter {
+			color: blue !important;
+		}
+
+		.th-hdr-right button:hover {
+			opacity: 1;
+		}
+
+		.th-hdr-right-actioned button {
+			opacity: 1 !important;
+		}
+
+		/* For hiding the S_no column */
+		th.sorting_disabled.class_s_no,
+		td.class_s_no {
+			display: none !important;
+		}
+
+		button[data-role="columnsort"][data-state="desc"][data-col]>i {
+			transform: rotateZ(180deg);
+		}
+
+		button[data-role="columnsort"][data-state="asc"][data-col]>i {
+			transform: rotateZ(0deg);
+		}
+
+		table.dataTable th {
+			border-bottom-width: 0.2rem;
+		}
+
+		/* ---------- Container for the orbiting circles animation ---------- */
+		.circle-orbit-container {
+			position: relative;
+			top: -5px;
+			left: -10px;
+			width: 30px;
+			height: 30px;
+		}
+
+		.inner-orbit {
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			width: 30px;
+			height: 30px;
+			border: 1px #4A437F dashed;
+			border-radius: 100%;
+			/*	-webkit-animation: spin-right 5s linear infinite;
+				animation: spin-right 5s linear infinite; */
+		}
+
+		.inner-orbit-cirlces {
+			position: absolute;
+			top: 10px;
+			left: -6px;
+			height: 10px;
+			width: 10px;
+			border-radius: 100%;
+			background-color: #9F98E6;
+		}
+
+		@-webkit-keyframes spin-right {
+			100% {
+				-webkit-transform: rotate(360deg);
+				-moz-transform: rotate(360deg);
+				-ms-transform: rotate(360deg);
+				-o-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
+
+		.isotope-grid {
+			border: 4px solid transparent;
+			background: hsla(0, 0%, 0%, 0.15);
+			position: relative;
+		}
+
+		.w-20vw {
+			width: 20vw !important;
+		}
+
+		#enhanced_col_search_term {
+			padding: 0.275rem 0.5rem;
+			font-size: 14px !important;
+		}
+
+		.cb_muted {
+			color: #CCC !important
+		}
+
+		.cb_selected {
+			color: blue !important
+		}
+
+		.field-item-selected .field-card {
+			border: 1px solid #0d6efd !important;
+			box-shadow: 0 5px 11px 0px rgb(69 90 100 / 30%);
+		}
+
+		.field-item-selected .field-card .primary-header {
+			background-image: linear-gradient(to bottom, #fff, #0d6efd4d);
+		}
+
+		.btn-group-sm>.btn,
+		.btn-sm {
+			font-size: .825rem !important;
+		}
+
+		.popover {
+			border: 1px solid #808a9396;
+			border-radius: .3rem;
+			box-shadow: rgb(0 0 0 / 13%) 0px 0.9px 4px, rgb(0 0 0 / 6%) 0px 2.6px 8px, rgb(0 0 0 / 5%) 0px 5.7px 12px, rgb(0 0 0 / 4%) 0px 15px 15px !important;
+			margin-top: 3px !important;
+		}
+
+		.popover-header {
+			padding: .25rem 0.5rem;
+			margin-bottom: 0;
+			background-image: linear-gradient(to bottom, #fff, #7cb1e036);
+			font-size: 13.75px !important;
+		}
+
+		.popover-body {
+			padding: 0.2rem 0.5rem;
+			font-size: 13.75px !important;
+		}
+
+		.filter-req {
+			min-width: 100% !important;
+			max-width: 100% !important;
+			min-height: 65vh !important;
+			max-height: 80vh !important;
+			/* Adjust this value as needed */
+			/* overflow-y: auto; */
+			/* left: 24px; */
+			position: relative;
+		}
+
+		.filter-req>.popover-body {
+			min-height: 50vh !important;
+			max-height: 50vh !important;
+		}
+
+		.filter-req>.popover-header {
+			line-height: 30px !important;
+			height: 30px !important;
+		}
+
+		.filter-field-selector {
+			width: 36vw !important;
+			min-width: 36vw !important;
+			margin-top: 20px !important;
+			padding-top: 5px !important;
+			z-index: 1 !important;
+		}
+
+		.filter-field-selector::before {
+			position: absolute;
+			display: block;
+			content: "";
+			left: calc(50% - 0.25px);
+			border: 1px dotted #CCC;
+			background-color: #FFF;
+			top: -30px;
+			height: 30px;
+		}
+
+		.popover-right-close {
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			top: 16px;
+			right: 10px;
+			background-color: #6c757d;
+			padding: 0px;
+			border-radius: 50% !important;
+			overflow: hidden;
+		}
+
+		.filter-apply,
+		.filter-clear {
+			width: 10vw !important;
+			background: white !important;
+		}
+
+		.btn-alternate {
+			border: 1px solid #e2edf8;
+			color: #3778b0 !important;
+		}
+
+		.filter-apply {
+			border-bottom: 4px solid #b8d5ee;
+			background-image: linear-gradient(to bottom, #fff, #b08df73a) !important;
+		}
+
+		.filter-clear {
+			border-bottom: 4px solid #afb6b7;
+			right: 44px;
+			position: relative;
+		}
+
+		.filter-apply:focus,
+		.filter-clear:focus {
+			box-shadow: 0 0 0 0.15rem rgb(191 212 243 / 3%);
+		}
+
+		.gray-1-border {
+			border-radius: 1px;
+			border: 1px solid gainsboro;
+		}
+
+		.aggr-filter-hdr {
+			padding: .25rem 0.5rem;
+			margin-bottom: 0;
+			background-image: linear-gradient(to bottom, #7cb1e0a2, #7cb1e036);
+			font-size: 13.75px !important;
+		}
+
+		.aggr-filter-hdr.gray-1-border {
+			border-top-left-radius: 2px;
+			border-top-right-radius: 2px;
+			border: 1px solid rgb(194, 189, 189);
+			border-bottom: none !important;
+			color: #201277 !important;
+		}
+
+		.aggr-filter-hdr>.aggr-search-box>input[type="text"] {
+			float: right;
+			border: 1px solid rgb(194, 189, 189);
+			background-color: white;
+			border-radius: 3px;
+		}
+
+		.btn-check:focus+.btn,
+		.btn:focus,
+		.aggr-inner-search:focus {
+			outline: 0;
+			box-shadow: 0 0 0 0.1rem rgba(13, 110, 253, .25);
+		}
+
+		div[data-role="filter-selector"] {
+			user-select: none;
+		}
+
+		.sort-info-box,
+		.aggrfilters-info-box,
+		.searchterms-info-box {
+			padding: 0.07rem 0.35rem !important;
+			font-size: 13px !important;
+		}
+
+		/* Override Bootstrap modal backdrop styles to remove background effect */
+		.modal-backdrop {
+			display: none;
+		}
+
+		/* Optional: To center the modal without the backdrop, you can add the following styles */
+		.modal-dialog {
+			position: absolute;
+			top: 12%;
+			left: 60%;
+			width: 25%;
+			margin: 0;
+		}
+
+		/* Adding custom full screen in the smartdatatable html as modal-dialog above is overriding modal-fullscreen coming from css file*/
+		.modal-fullscreen {
+			top: 5%;
+			left: 0%;
+			width: 100vw;
+			height: calc(100vh - 40px);
+		}
+
+		.simple-dropdown-menu {
+			min-width: 25vw !important;
+			min-height: 15vh !important;
+		}
+
+		.simple-dropdown-menu-header {
+			min-height: 5vh !important;
+			width: 400px;
+			max-height: 13vh !important;
+		}
+
+		.simple-dropdown-menu-content {
+			min-height: 10vh !important;
+			max-height: 65vh !important;
+			overflow-x: hidden !important;
+			overflow-y: scroll !important;
+			padding-bottom: 5px !important;
+		}
+
+		.simple-dropdown-menu-items {
+			min-height: 15vh !important;
+			overflow-y: scroll;
+			margin-left: 10px;
+			margin-top: 5px;
+			font-size: 13.5px;
+			padding: 0px !important;
+			background: #fff;
+		}
+
+		.simple-dropdown-menu-item {
+			background: #cfe2ff;
+			padding-left: 0.25em;
+			padding-right: 1.5em;
+		}
+
+		.simple-dropdown-menu-item:hover {
+			background: #fff;
+		}
+
+		.simple-dropdown-cb-muted {
+			color: #828282 !important;
+			margin-left: 0.5em !important;
+			margin-right: 1em !important;
+		}
+
+		/* Style for the loader container */
+		.loader-container {
+			text-align: center;
+			position: relative;
+		}
+
+		/* Style for the loader message */
+		.csvLoaderMessage {
+			margin-top: 10px;
+			font-size: 16px;
+			color: #333;
+			/* Adjust the color to match your design */
+		}
+
+		/* Style for the loader icon */
+		.loader {
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #3498db;
+			border-radius: 50%;
+			width: 20px;
+			height: 20px;
+			animation: spin 2s linear infinite;
+			display: inline-block;
+			/* Display the loader */
+			margin-right: 5px;
+			/* Add some space between loader and message */
+			vertical-align: middle;
+			/* Align loader vertically with text */
+		}
+
+		/* Loader animation */
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.optgroup-header {
+			color: #0dcaf0 !important;
+		}
+
+		/* Customizing the color of the range slider */
+		.ion-range-slider {
+			margin: 0 25px;
+		}
+
+		.irs--flat .irs-bar {
+			background-color: #828282 !important;
+			font-size: 12px !important;
+		}
+
+		.irs--flat .irs-from,
+		.irs--flat .irs-to,
+		.irs--flat .irs-single {
+			background-color: #3498db !important;
+			font-size: 12px !important;
+		}
+
+		.irs--flat .irs-handle>i:first-child {
+			background-color: #3498db;
+			font-size: 12px !important;
+		}
+
+		.irs--flat .irs-from:before,
+		.irs--flat .irs-to:before,
+		.irs--flat .irs-single:before {
+			border-top-color: #3498db;
+			font-size: 12px !important;
+		}
+
+		.irs-grid-text {
+			font-size: 12px !important;
+		}
+
+		.irs--flat .irs-min,
+		.irs--flat .irs-max {
+			font-size: 12px !important;
+		}
+
+		.nav-tabs .nav-link.active {
+			background-image: linear-gradient(to bottom, #d4e5f5, #e5e7e836);
+			border: 2px solid #ebeff3;
+			margin-bottom: 0px;
+			color: #3778b0;
+		}
+
+		input[type='radio'] {
+			transform: scale(1.2);
+		}
+	</style>
+	<script>
+		if (window.addEventListener) {
+			window.addEventListener("message", invokeEssentials, false);
+		} else {
+			window.attachEvent("onmessage", invokeEssentials);
+		}
+		let hcUtilsESURL = "https://sivi-healthcare-utilities.es.us-east4.gcp.elastic-cloud.com";
+		let hcUtilsAUTH = "ApiKey Ui1TVTQ0WUJGZk5MQ012TUsxd3Y6QVNNVHh4cmlTbFNGbWh1d0l2Q29MZw==";
+
+
+		let incConfMap = null;
+		let baseQuery = null;
+		let myTable = null;
+		let valueCount = null;
+		let totalFilterCount = null;
+		let rawCount = -1;
+		let mappingProps = null;
+		let colsUpdated = false;
+		let sortUpdated = false;
+		let extFieldEngg = null;
+		let searchTerms = null;
+		let searchWCard = false;
+		let datasExport;
+		let aggrFilters = [];
+		let aggrFiltersContext = {};
+
+		var $grid;
+		var qsRegex;
+		var buttonFilter;
+		var rowFormatters = {};
+		var runtimeEntities = {};
+		var runtimeColumns = [];
+		var runtimeMappings = {};
+		let downlodDetails;
+		let selColumns = [
+			"MemberDWID", "BenefitPlanCode", "BenefitPlanDescription", "City", "ClaimID", "ClaimLineID", "Gender",
+			"ProcCode", "RevCode",
+			"Zip", "Quantity", "AllowedAmount", "@timestamp", "DOB", "SvcFromDate", "SvcToDate"
+		];
+		let selSearchColumns = [];
+		let numberTypes = ["integer", "long", "double", "float"];
+		const FieldDataTypeUtil = Object.freeze({
+			isNumber: function (fieldType) {
+				return (numberTypes.includes(fieldType))
+			},
+			isDate: function (fieldType) {
+				return (fieldType === 'date')
+			},
+			isKeyword: function (fieldType) {
+				return (fieldType === 'keyword')
+			}
+		});
+		const RANGE_DELIMITER = " - ";
+		let dataCheck = null;
+		let selectData = [];
+		let sortSelected = [];
+		let searchFilterQuery;
+		let popupFilter;
+		var dateSelectionType = "daterange";
+		var displayNoData = "false"
+		var fromDatePicker;
+		var toDatePicker;
+		var epochFrom;
+		var epochTo;
+		var datepickerObj = {};
+		var popOverSettings = {
+			placement: 'bottom',
+			container: 'body',
+			html: true,
+			content: function () {
+				return "<div class='text-danger p-4' style='color:red'>Filter Requested for : " + filterRequested +
+					"</div>";
+			}
+		}
+		let totalRecord;
+        var specialtypesEntities = {};
+        var specialtypesEntities1 = {};
+        var specialMappings = {};
+        var resultArray = [];
+        let lookupValue = [];
+        let lookupColumns = [];
+        let lookupTarget = [];
+		$.fn.dataTable.pipeline = function (opts) {
+			//console.log(" PREPARING Pipeline OPTS  "+JSON.stringify(opts));
+			var conf = $.extend({
+				url: '',
+				hdr: {},
+				pages: 0,
+				data: null,
+				method: 'POST',
+				ds: "",
+				query: null
+			}, opts);
+			var cacheLower = -1;
+			var cacheUpper = null;
+			var cacheLastRequest = null;
+			var cacheLastJson = null;
+
+
+			return function (request, drawCallback, settings) {
+				//console.log("SEARCH TERMS is changed :::: "+searchTerms); 
+				//console.log("PREPARING Pipeline REQT :::: "+JSON.stringify(request)); 
+				console.log("conf.url " + conf.url);
+				if (colsUpdated || sortUpdated) {
+					console.log("YES, cols/sort Updated >>> invalidate cache ");
+					settings.clearCache = true;
+				}
+				var ajax = false;
+				var requestStart = request.start;
+				var drawStart = request.start;
+				var requestLength = request.length;
+				var requestEnd = requestStart + requestLength;
+				if (settings.clearCache) {
+					ajax = true;
+					settings.clearCache = false;
+				} else if (cacheLower < 0 || requestStart < cacheLower || requestEnd > cacheUpper || requestEnd <
+					cacheUpper) {
+					ajax = true;
+				} else if (
+					JSON.stringify(request.order) !== JSON.stringify(cacheLastRequest.order) ||
+					JSON.stringify(request.columns) !== JSON.stringify(cacheLastRequest.columns) ||
+					JSON.stringify(request.search) !== JSON.stringify(cacheLastRequest.search)
+				) {
+					ajax = true;
+				}
+				cacheLastRequest = $.extend(true, {}, request);
+				console.log("AJAX is needed >>>>> " + ajax);
+				if (ajax) {
+					if (requestStart < cacheLower) {
+						requestStart = requestStart - requestLength * (conf.pages - 1);
+						if (requestStart < 0) {
+							requestStart = 0
+						}
+					}
+					cacheLower = requestStart;
+					cacheUpper = requestStart + requestLength * conf.pages;
+					request.start = requestStart;
+					request.length = requestLength * conf.pages;
+
+					if (typeof conf.data === 'function') {
+						var d = conf.data(request);
+						if (d) {
+							$.extend(request, d);
+						}
+					} else if ($.isPlainObject(conf.data)) {
+						$.extend(request, conf.data);
+					}
+					console.log(baseQuery, "baseQuery.runtimeMappings")
+					let wsDataRequest
+					if(baseQuery.sort){
+						wsDataRequest = {
+						"query": {
+							"match_all": {}
+						},
+						"size": request.length,
+						//"_source":selColumns,"from":request.start,
+						"sort":baseQuery.sort,
+						"_source": selColumns,
+						"from": request.start,
+						"track_total_hits": true
+					}
+					}
+					else {
+						wsDataRequest = {
+						"query": {
+							"match_all": {}
+						},
+						"size": request.length,
+						//"_source":selColumns,"from":request.start,
+						// "sort":[{"_score":{"order":"desc"}}],
+						"_source": selColumns,
+						"from": request.start,
+						"track_total_hits": true
+					}
+					    }
+					
+					if (!_.isNil(baseQuery)) {
+						wsDataRequest.query = _.cloneDeep(baseQuery.query);
+						if (!_.isNil(baseQuery.aggregations)) {
+							wsDataRequest.aggregations = baseQuery.aggregations;
+							if (!_.isNil(baseQuery.runtime_mappings)) {
+								wsDataRequest["runtime_mappings"] = baseQuery.runtime_mappings;
+							}
+						} else if (!_.isNil(baseQuery.aggs)) {
+							wsDataRequest.aggregations = baseQuery.aggs;
+							if (!_.isNil(baseQuery.runtime_mappings)) {
+								wsDataRequest["runtime_mappings"] = baseQuery.runtime_mappings;
+							}
+						}
+					}
+					// for getting the runtime columns 
+					if (!_.isEmpty(runtimeEntities)) {
+						wsDataRequest["runtime_mappings"] = runtimeMappings;
+						wsDataRequest["fields"] = runtimeColumns;
+						console.log("runtimeColumns", runtimeColumns);
+
+					}
+					if (!_.isNil(sortSelected) && sortSelected.length > 0) {
+						wsDataRequest.sort = sortSelected;
+					}
+					if ((!_.isNil(searchTerms) && _.trim(searchTerms).length > 0) || (!_.isNil(aggrFilters) && !_
+						.isEmpty(aggrFilters) && _.size(aggrFilters) > 0)) {
+
+						console.log("EITHER searchTerm or AggrFilter is NOT null ---> ");
+
+						console.log("\tAGGREGATION FILTERS are not null -> " + JSON.stringify(aggrFilters));
+						wsDataRequest.query = getQueryForAppliedSearchAndFilters(baseQuery, searchTerms, aggrFilters);
+						addAggrFiltersToActionInfo(aggrFilters);
+						addGlobalSearchToActionInfo(searchTerms);
+						console.log("\tThe aggregated query " + JSON.stringify(wsDataRequest.query, null, 1));
+
+						setTimeout(function () {
+							$(".filter-field-selector").popover("dispose");
+							$("button[data-role='columnfilter'][data-state]").attr("data-state", "none");
+						}, 100);
+						console.log("\tThen the WSQuery is " + JSON.stringify(wsDataRequest));
+						searchQuery = wsDataRequest;
+						if(incConfMap.stratListing && incConfMap.stratListing == true) {
+						window.parent.postMessage({
+							DTQuery: wsDataRequest
+						}, '*');
+						}
+						let pAggQry = _.cloneDeep(wsDataRequest);
+						console.log("\tThe aggregated query " + JSON.stringify(pAggQry));
+
+						if (!pAggQry.aggregations && !pAggQry.aggs) {
+							pAggQry["aggs"] = {};
+							pAggQry.aggs["value_count"] = {
+								"value_count": {
+									field: "_id"
+								}
+							};
+						}
+						$.ajax({
+							headers: conf.hdr,
+							url: conf.url.replace("/_msearch", "") +
+								"/_search?size=0&filter_path=aggregations",
+							async: false,
+							type: 'POST',
+							data: JSON.stringify(pAggQry),
+							dataType: 'json',
+							contentType: 'application/json',
+							success: function (response) {
+
+								if (response["aggregations"] && response["aggregations"]["classes"] &&
+									response["aggregations"]["classes"]["buckets"]) {
+									response = response["aggregations"]["classes"]["buckets"][0]
+										.doc_count;
+								} else if (response["aggregations"] && response["aggregations"][
+									"classes"
+								] && response["aggregations"]["classes"]["value"]) {
+									response = response["aggregations"]["classes"]["value"];
+								} else if (response["aggregations"] && response["aggregations"][
+									"type_count"
+								] && response["aggregations"]["type_count"]["value"]) {
+									response = response["aggregations"]["type_count"]["value"];
+								} else if (response["aggregations"] && response["aggregations"][
+									"escalationType"
+								] && response["aggregations"]["escalationType"]["value"]) {
+									response = response["aggregations"]["escalationType"]["value"];
+								} else if (response["aggregations"] && response["aggregations"][
+									"cardinality"
+								] && response["aggregations"]["cardinality"]["value"]) {
+									response = response["aggregations"]["cardinality"].value;
+								} else {
+									response = response.aggregations.value_count.value;
+								}
+								console.log("VALUE count KEY >>>>>>> " + response)
+								totalFilterCount = response
+								valueCount = {
+									recordsTotal: rawCount,
+									recordsFiltered: response,
+									query: pAggQry
+								};
+								aggrFiltersContext = {};
+							}
+						});
+					}
+					if (_.isNil(valueCount)) {
+						let pAggQry = {
+							"query": {
+								"match_all": {}
+							},
+							"aggs": {}
+						}
+						console.log("baseQueryQuery " + JSON.stringify(baseQuery));
+						if (!_.isNil(baseQuery)) {
+							pAggQry.query = baseQuery.query;
+						}
+						if (!_.isNil(baseQuery.aggregations)) {
+							pAggQry.aggs = baseQuery.aggregations;
+							if (!_.isNil(wsDataRequest.runtime_mappings)) {
+								pAggQry["runtime_mappings"] = wsDataRequest.runtime_mappings;
+							}
+						} else if (!_.isNil(baseQuery.aggs)) {
+							pAggQry.aggs = baseQuery.aggs;
+							if (!_.isNil(wsDataRequest.runtime_mappings)) {
+								pAggQry["runtime_mappings"] = wsDataRequest.runtime_mappings;
+							}
+						} if (!_.isNil(baseQuery.sort)) {
+							pAggQry.sort = baseQuery.sort;
+							
+						} else {
+							pAggQry.aggs["value_count"] = {
+								"value_count": {
+									field: "_id"
+								}
+							};
+						}
+						console.log(JSON.stringify(pAggQry), "tetstttttt")
+						$.ajax({
+							headers: conf.hdr,
+							url: conf.url.replace("/_msearch", "") +
+								"/_search?size=0&filter_path=aggregations",
+							async: false,
+							type: 'POST',
+							data: JSON.stringify(pAggQry),
+							dataType: 'json',
+							contentType: 'application/json',
+							success: function (response) {
+								if (response["aggregations"] && response["aggregations"]["classes"] &&
+									response["aggregations"]["classes"]["buckets"]) {
+									response = response["aggregations"]["classes"]["buckets"][0]
+										.doc_count;
+								} else if (response["aggregations"] && response["aggregations"][
+									"classes"
+								] && response["aggregations"]["classes"]["value"]) {
+									response = response["aggregations"]["classes"]["value"];
+								} else if (response["aggregations"] && response["aggregations"][
+									"type_count"
+								] && response["aggregations"]["type_count"]["value"]) {
+									response = response["aggregations"]["type_count"]["value"];
+								} else if (response["aggregations"] && response["aggregations"][
+									"escalationType"
+								] && response["aggregations"]["escalationType"]["value"]) {
+									response = response["aggregations"]["escalationType"]["value"];
+								} else if (response["aggregations"] && response["aggregations"][
+									"value_count"
+								] && response["aggregations"]["value_count"]["value"]) {
+									response = response.aggregations.value_count.value;
+								} else if (response["aggregations"] && response["aggregations"][
+									"cardinality"
+								] && response["aggregations"]["cardinality"]["value"]) {
+									response = response["aggregations"]["cardinality"].value;
+								}
+								console.log("VALUE count KEY valueCount Null >>>>> " + response)
+								valueCount = {
+									recordsTotal: response,
+									recordsFiltered: response,
+									query: pAggQry
+								};
+								rawCount = response;
+								aggrFiltersContext = {};
+							}
+						});
+					}
+					count = 0;
+					setTimeout(function () {
+						$(".filter-field-selector").popover("dispose");
+						$("button[data-role='columnfilter'][data-state]").attr("data-state", "none");
+					}, 100);
+					return $.ajax({
+						headers: conf.hdr,
+						type: conf.method,
+						url: conf.url,
+						data: JSON.stringify({
+							"preference": "results"
+						}) + "\n" + JSON.stringify(wsDataRequest) + "\n",
+						dataType: 'json',
+						contentType: 'application/json',
+						cache: false,
+						async: true,
+						success: function (json) {
+							//console.log("GOT Response for QUERY "+JSON.stringify(this.data));
+							console.log("Response timing " + json.took);
+
+							try {
+								let hitsTotal = json["responses"][0]["hits"]["total"]["value"];
+                                json = _.map(json["responses"][0]["hits"]["hits"], srcData => {
+                                    let lupMapped =srcData._source
+                                   
+                                    if (specialtypesEntities.type !== null && _.isEmpty(runtimeEntities)) {
+                                        if (json && json["responses"] && json["responses"][0]) {
+                                            let finder;
+                                            let tt;
+                                            _.forEach(specialtypesEntities1, (specialtypeEntitity, iidx) => {
+                                                let value = _.head(_.filter(lupMapped, luMap => {
+                                                    _.forEach(lookupColumns, (lookupColumn, iidx) => {
+                                                        _.forEach(lookupValue, (srcDataS, iidx) => {
+                                                            let ds = lookupColumn["lookup-by"]
+                                                            let dt = lookupColumn["target"]
+                                                            finder = srcDataS[ds];
+                                                            tt = srcDataS[lookupColumn["target"]];
+                                                            	if (finder == undefined || finder == "" || finder == null) {
+                                                                finder = ''
+                                                            }
+                                                            if (Array.isArray(srcData._source[lookupColumn["entityName"]])) {
+
+                                                                let lookupArray = []
+                                                                let entityName = srcData._source[lookupColumn["entityName"]]
+                                                                let data = ""
+                                                                for (let i = 0; i < entityName.length; i++) {
+                                                                    let lookupBy = lookupColumn["lookup-by"]
+                                                                    let datas2 = lookupColumn["target"]
+                                                                    if (entityName[i] == srcDataS[lookupBy]) {
+                                                                        data = entityName[i]
+                                                                        lookupArray.push(entityName[i] + "-" + srcDataS[datas2])
+                                                                    }
+                                                                }
+                                                                let lookupBy = lookupColumn["lookup-by"]
+                                                                entityName = entityName.filter(item => item !== data);
+                                                                srcData._source[lookupColumn["entityName"]] = entityName.concat(lookupArray);
+                                                            } else { 
+								                               if (finder ==  lupMapped[lookupColumn["entityName"]]) {
+                                                                let containsDisplay = containsDisplayValue(srcDataS);
+                                                                if (containsDisplay && srcDataS.displayValue === "Desc") {
+                                                                       srcData._source[lookupColumn["entityName"]] = tt;
+                                                                } else {
+                                                                       srcData._source[lookupColumn["entityName"]] = srcData._source[lookupColumn["entityName"]] + "-" + tt;
+                                                                }
+                                                              }
+                                                           }
+                                                        });
+                                                    })
+                                                }));
+                                            })
+                                        }
+                                        return srcData._source
+
+                                    } else if (!_.isEmpty(runtimeEntities) && !_.isEmpty(srcData.fields) && specialtypesEntities.type == null) {
+                                        return getMergedSource(srcData.fields, srcData._source);
+                                    } else if (!_.isEmpty(runtimeEntities) && !_.isEmpty(srcData
+                                        .fields) && specialtypesEntities.type != null) {
+                                        if (json && json["responses"] && json["responses"][0]) {
+                                            let finder;
+                                            let tt;
+                                            console.log(specialtypesEntities1, "specialtypesEntities1")
+                                            _.forEach(specialtypesEntities1, (specialtypeEntitity, iidx) => {
+                                                let value = _.head(_.filter(lupMapped, luMap => {
+                                                    _.forEach(lookupColumns, (lookupColumn, iidx) => {
+                                                        _.forEach(lookupValue, (srcDataS, iidx) => {
+                                                            let ds = lookupColumn["lookup-by"]
+                                                            let dt = lookupColumn["target"]
+
+                                                            finder = srcDataS[lookupColumn["lookup-by"]];
+                                                            tt = srcDataS[lookupColumn["target"]];
+                                                            if (finder == undefined || finder == "" || finder == null) {
+                                                                finder = ''
+                                                            }
+
+                                                            if (Array.isArray(srcData._source[lookupColumn["entityName"]])) {
+
+                                                                let lookupArray = []
+                                                                let entityName = srcData._source[lookupColumn["entityName"]]
+                                                                let data = ""
+                                                                for (let i = 0; i < entityName.length; i++) {
+                                                                    let lookupBy = lookupColumn["lookup-by"]
+                                                                    let datas2 = lookupColumn["target"]
+                                                                    if (entityName[i] == srcDataS[lookupBy]) {
+                                                                        data = entityName[i]
+                                                                        lookupArray.push(entityName[i] + "-" + srcDataS[datas2])
+                                                                    }
+                                                                }
+                                                                let lookupBy = lookupColumn["lookup-by"]
+                                                                entityName = entityName.filter(item => item !== data);
+                                                                srcData._source[lookupColumn["entityName"]] = entityName.concat(lookupArray);
+                                                            } else {
+                                                                if (finder == lupMapped[lookupColumn["entityName"]]) {
+                                                                    let containsDisplay = containsDisplayValue(srcDataS);
+                                                                    if (containsDisplay && srcDataS.displayValue === "Desc") {
+                                                                        srcData._source[lookupColumn["entityName"]] = tt;
+                                                                    } else {
+                                                                        srcData._source[lookupColumn["entityName"]] = srcData._source[lookupColumn["entityName"]] + "-" + tt;
+                                                                    }
+                                                                }
+                                                            }
+                                                        });
+                                                    })
+                                                }));
+                                            })
+                                        }
+                                      
+                                        return getMergedSources(srcData.fields, srcData)
+                                    }
+                                    else {
+                                        return srcData._source;
+                                    }
+								});
+								// console.log("valueCount.recordsTotal vs Hits-Total vs JSON " + valueCount
+								// 	.recordsTotal + " vs " + hitsTotal + " vs " + json.length);
+								if (!_.isNil(valueCount)) {
+									valueCount.query = wsDataRequest;
+									valueCount.recordsFiltered = hitsTotal;
+								}
+								json = {
+									data: json
+								};
+								if (!_.isNil(valueCount)) {
+									//console.log("VALUE Count >>>> "+JSON.stringify(valueCount));
+									_.forEach(Object.keys(valueCount), vKey => {
+										json[vKey] = valueCount[vKey]
+									});
+								}
+								console.log("POST JSON valueCount " + JSON.stringify(valueCount));
+								cacheLastJson = $.extend(true, {}, json);
+								if (cacheLower != drawStart) {
+									json.data.splice(0, drawStart - cacheLower);
+								}
+								if (requestLength >= -1) {
+									json.data.splice(requestLength, json.data.length);
+								}
+								//console.log("Reach DrawCallBack ==> ");
+								drawCallback(json);
+							} catch (err) {
+								// console.log("RESPONSE ACCESS ISSUES " + err.stack);
+								//console.log("mSearch REQUEST "+this.data);
+								//console.log("mSearch RESPONSE KEYS "+Object.keys(json["responses"][0]));
+								try {
+									if (_.includes(Object.keys(json["responses"][0]), "error")) {
+										console.log("error happened >>>> " + JSON.stringify(json[
+											"responses"][0]["error"]));
+										if (_.isObject(json["responses"][0]["error"])) {
+											let errObj = json["responses"][0]["error"];
+											if (_.startsWith(errObj.caused_by.reason,
+												"Result window is too large")) {
+												$("#dt_error_message").html(
+													"Please contact Administrator to set Maximum data retrieval configuration for this Dataset"
+												);
+												$("#loadError").show();
+												$("#loadSpinner").hide();
+											}
+										}
+									}
+								} catch (error) {
+									$("#dt_error_message").html(
+										"Unknown Error while accessing the Dataset. Please contact Administrator"
+									);
+									$("#loadError").show();
+									$("#loadSpinner").hide();
+								}
+							}
+						},
+					});
+				} else {
+					json = $.extend(true, {}, cacheLastJson);
+					json.draw = request.draw; // Update the echo for each response
+					json.data.splice(0, requestStart - cacheLower);
+					json.data.splice(requestLength, json.length);
+					drawCallback(json);
+				}
+			};
+		};
+		$.fn.dataTable.Api.register('clearPipeline()', function () {
+			return this.iterator('table', function (settings) {
+				settings.clearCache = true;
+			});
+		});
+
+		function getQueryForAppliedSearchAndFilters(baseQuery, searchTerms, aggrFilters, filterIgnorefieldName = null) {
+			//Create a clone of baseQuery and update the new query based on additional conditions.
+			//Performing deep copy instead of shallow copy with sub objects customized as new, query objects are not huge.
+			let query = baseQuery != null && baseQuery.query != null ? _.cloneDeep(baseQuery.query) : {};
+
+			//Prepare properties that will be customized.
+			query.bool = query.bool || {};
+			query.bool.must = query.bool.must || [];
+			query.bool.must_not = query.bool.must_not || [];
+			let mustArray = query.bool.must;
+			let mustNotArray = query.bool.must_not;
+
+			//Add search string supplied by user on the listing dialog
+			if ((!_.isNil(searchTerms) && _.trim(searchTerms).length > 0)) {
+				searchTerms = (searchWCard) ? (searchTerms = "*" + searchTerms.replace(/ /g, "*") + "*") : searchTerms;
+				let searchColumns = (selSearchColumns != null && selSearchColumns.length > 0) ?
+					selSearchColumns : _.intersection(selColumns, mappingProps["kwdFields"]);
+				mustArray.push({
+					"query_string": {
+						"query": searchTerms,
+						"fields": searchColumns
+					}
+				});
+
+			}
+
+			//Add filter string supplied by user on the filter dialog
+			if (!_.isNil(aggrFilters) && !_.isEmpty(aggrFilters) && _.size(aggrFilters) > 0) {
+				_.forEach(aggrFilters, aggrFilter => {
+					if (_.isNil(filterIgnorefieldName) || aggrFilter.field != filterIgnorefieldName) {
+						let filterQuery = null;
+						if (aggrFilter.type == 'date') {
+							var shouldArray = [];
+							_.forEach(aggrFilter.values, value => {
+								if (value.includes(RANGE_DELIMITER)) {
+									var splitValues = value.split(RANGE_DELIMITER);
+									shouldArray.push({
+										range: {
+											[aggrFilter.field]: {
+												gte: (splitValues[0]),
+												lt: (splitValues[1])
+											}
+										}
+									});
+								} else {
+									var value2 = moment(value, "MM-YYYY").add(1, 'months').format("MM-YYYY");
+									shouldArray.push({
+										range: {
+											[aggrFilter.field]: {
+												gte: value,
+												lt: value2,
+												format: 'MM-yyyy'
+											}
+										}
+									});
+								}
+							});
+							filterQuery = {
+								bool: {
+									should: shouldArray
+								}
+							};
+							mustArray.push(filterQuery);
+						} else if (_.includes(numberTypes, aggrFilter.type)) {
+							var shouldArray = [];
+							_.forEach(aggrFilter.values, value => {
+								var splitValues = value.split(RANGE_DELIMITER);
+								shouldArray.push({
+									range: {
+										[aggrFilter.field]: {
+											gte: ((splitValues[0]) / 1),
+											lt: ((splitValues[1]) / 1)
+										}
+									}
+								});
+							});
+							filterQuery = {
+								bool: {
+									should: shouldArray
+								}
+							};
+							mustArray.push(filterQuery);
+						} else {
+							let value = aggrFilter.values;
+							if (value.includes('Others')) {
+								filterQuery = {
+									exists: {
+										field: aggrFilter.field
+									}
+								};
+								mustNotArray.push(filterQuery);
+							} else {
+								filterQuery = {
+									terms: {
+										[aggrFilter.field]: aggrFilter.values
+									}
+								};
+								mustArray.push(filterQuery);
+							}
+							dataCheck = null;
+							selectData = [];
+						}
+
+
+					}
+				});
+			}
+
+			return query;
+		}
+
+		function addSortToActionInfo(dataColumn, dataAction, dataLabel) {
+			$(".action-info-holder").find("div.sort-info-box[data-col='" + dataColumn + "']").remove();
+			let sortCtnt = '<div class="alert alert-secondary me-1 sort-info-box" data-sortdir="' + dataAction +
+				'" data-col="' + dataColumn + '">';
+			sortCtnt += '<i class="' + ((dataAction === "desc") ? "fa-light fa-arrow-down-a-z" : "fa-light fa-arrow-up-a-z") +
+				' me-2"></i>';
+			sortCtnt += dataLabel + ((dataAction === "desc") ? " (descending)" : " (ascending)");
+			sortCtnt += '<button data-action="removesort" data-col="' + dataColumn +
+				'" class="btn btn-sm ms-1 px-0 ps-1"><i class="fa-light fa-delete-left"></i></button>';
+			sortCtnt += '</div>';
+			$(".action-info-holder").append(sortCtnt);
+		}
+
+		function addAggrFiltersToActionInfo(filtersCollection) {
+			$(".action-info-holder").find("div.aggrfilters-info-box").remove();
+			if (_.size(filtersCollection) > 0) {
+				_.forEach(filtersCollection, filt => {
+					let fltrTitle = _.join(filt.displayValues, "<br>");
+					let fltrCtnt = '<div class="alert alert-warning me-1 aggrfilters-info-box" data-col="' + filt
+						.field + '" ';
+					fltrCtnt += 'data-bs-toggle="popover" data-bs-trigger="hover" data-bs-customClass="adt-popover" ';
+					fltrCtnt += 'data-bs-placement="bottom" data-bs-html="true"  data-bs-content="Field : <b>' + filt
+						.label + '</b><br>Applied filter values <hr>' + fltrTitle + '">';
+					if (!_.isNil(filt.label)) {
+						fltrCtnt += '<i class="fa-light fa-filters me-2"></i><b>' + filt.label + '</b>: ';
+					} else {
+						fltrCtnt += '<i class="fa-light fa-filters me-2"></i><b>' + filt.field + '</b>: ';
+					}
+					if (_.size(filt.displayValues) > 2) {
+						fltrCtnt += _.join(_.take(filt.displayValues, 2), ", ") + " +" + (_.size(filt.displayValues) -
+							2);
+					} else {
+						fltrCtnt += _.join(filt.displayValues, ", ");
+					}
+					fltrCtnt += '<button data-action="removeAggrFilter" data-col="' + filt.field +
+						'" class="btn btn-sm ms-1 px-0 ps-1"><i class="fa-light fa-delete-left"></i></button>';
+					fltrCtnt += "</div>";
+					$(".action-info-holder").append(fltrCtnt);
+					try {
+						$('div.aggrfilters-info-box[data-bs-toggle="popover"]').popover();
+					} catch (error) {
+						console.log("Popover maker error @ AggrFilter " + error);
+					}
+				});
+			}
+		}
+
+		function addGlobalSearchToActionInfo(searchTerm) {
+			if ((!_.isNil(searchTerm) && _.trim(searchTerm).length > 0)) {
+				$(".action-info-holder").find("div.searchterms-info-box").remove();
+				let srchCtnt = '<div class="alert alert-info me-1 searchterms-info-box">';
+				srchCtnt += '<i class="fa-light fa-sparkles me-2"></i>';
+				srchCtnt += searchTerm;
+				srchCtnt +=
+					'<button data-action="removeSearchTerms" data-col="none" class="btn btn-sm ms-1 px-0 ps-1"><i class="fa-light fa-delete-left"></i></button>';
+				srchCtnt += '</div>';
+				$(".action-info-holder").append(srchCtnt);
+			}
+		}
+
+		function invokeEssentials(evt) {
+			searchTerms = null;
+			valueCount = null;
+			aggrFilters = [];
+			var message;
+			if (evt.origin !== "https://github") {
+				message = "You are not worthy";
+			}
+			console.log("Message \n" + JSON.stringify(evt.data));
+			let configMap = evt.data;
+			selColumns = _.compact(configMap.selectedCols);
+			incConfMap = configMap;
+			baseQuery = configMap.query;
+			if (configMap) {
+				retrieveIndexMappers(configMap);
+			}
+			//console.log("extFieldEngg \n"+JSON.stringify(extFieldEngg));
+			sanitizeBaseQuery();
+			//sanitizeColumns();
+
+			loadTableProps(configMap);
+			loadSearchColumnsMenuDropdown(false);
+			buildRuntimeQuery();
+            buildSpecialLookupobj();
+			triggerDataTable(configMap);
+		}
+
+		function retrieveIndexMappers(configMap) {
+			setTimeout(function () {
+				$("#sdt_wrapper_loader_message").html("Initializing table characteristics")
+			}, 100);
+			let _src = ["entity_name", "entity_label", "entity_nature", "entity_datatype", "entity_specialtypes",
+				"entity_mimics",
+				"entity_runtimes", "entity_formatters", "entity_parent", "entity_icon", "entity_desc"
+			];
+			let fPath = "filter_path=took,hits.hits._id,hits.hits._source";
+			let pQry = {
+				_source: _src,
+				query: {
+					multi_match: {
+						query: configMap.departmentName,
+						fields: ["department"]
+					}
+				}
+			};
+
+			if (_.isNil(configMap.extDataEnggOverride) || _.isEmpty(configMap.extDataEnggOverride)) {
+				$.ajax({
+					headers: configMap.hdr,
+					url: (configMap.downloadData.departmentName == "IndexMapper" || configMap.downloadData.departmentName == "TestMapper" ? configMap.server + "/index_generic_mapper_06022024/_search?size=10000&" + fPath : configMap.server + "/index-fields-generics/_search?size=10000&" + fPath),
+					async: false,
+					type: 'POST',
+					data: JSON.stringify(pQry),
+					crossDomain: true,
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function (response) {
+						extFieldEngg = _.map(response["hits"]["hits"], hit => {
+							return hit._source
+						});
+						extFieldEngg = _.filter(extFieldEngg, conf => {
+							if (typeof conf["entity_parent"] === 'string') {
+								return (conf["entity_parent"] === configMap.ds);
+
+							} else if (Array.isArray(conf["entity_parent"])) {
+								return (conf["entity_parent"].includes(configMap.ds));
+
+							} else {
+								return false;
+							}
+						});
+					}
+				});
+			} else {
+
+				let overrideConfig = configMap.extDataEnggOverride;
+				if (overrideConfig.mode === "hc-utils") {
+					let authheader = configMap.hcutilsauth;
+					console.log(configMap, "authheader")
+					$.ajax({
+						headers: {
+							Authorization: hcUtilsAUTH
+						},
+						url: hcUtilsESURL + "/" + overrideConfig.dataset + "/_search?size=20000&" + fPath,
+						async: false,
+						type: 'POST',
+						data: JSON.stringify(pQry),
+						crossDomain: true,
+						dataType: 'json',
+						contentType: 'application/json',
+						success: function (response) {
+							extFieldEngg = _.map(response["hits"]["hits"], hit => {
+								return hit._source
+							});
+							extFieldEngg = _.filter(extFieldEngg, conf => {
+								console.log(typeof (conf["entity_parent"]));
+								if (typeof (conf["entity_parent"]) === 'string') {
+									return (conf["entity_parent"] === configMap.ds);
+								} else {
+									return (conf["entity_parent"].includes(configMap.ds));
+								}
+
+							});
+						}
+					});
+				}
+			}
+			if (!_.isNil(extFieldEngg)) {
+				extFieldEngg = _.orderBy(extFieldEngg, ['entity_name', 'entity_label'], ['asc', 'asc']);
+				$("#enh_cols_total").html(extFieldEngg.length);
+				_.forEach(extFieldEngg, (fldConfig, iidx) => {
+					if (!(_.isNil(fldConfig.entity_formatters) && _.isEmpty(fldConfig.entity_formatters))) {
+						rowFormatters[fldConfig.entity_name] = fldConfig.entity_formatters;
+					}
+					if (!(_.isNil(fldConfig.entity_runtimes) && _.isEmpty(fldConfig.entity_runtimes))) {
+						runtimeEntities[fldConfig.entity_name] = fldConfig.entity_runtimes;
+					} 
+                    if (!(_.isNil(fldConfig.entity_specialtypes) && _.isEmpty(fldConfig.entity_specialtypes))) {
+                        specialtypesEntities = fldConfig.entity_specialtypes;
+                        var entityName ={"entityName":fldConfig.entity_name}
+                        var mergedObject = Object.assign({}, specialtypesEntities, entityName);
+                        specialtypesEntities1[fldConfig.entity_name] = mergedObject;
+                    }
+					let ctnt = '<div data-sort="' + (iidx + 1) + '" data-entity-id="' + fldConfig.entity_name + '" ';
+					ctnt += 'class="field-item col-md-4 col-lg-3 dt-' + fldConfig.entity_datatype;
+					ctnt += (!_.isNil(fldConfig.entity_label)) ? " dt-labelled" : "";
+					ctnt += '">';
+					ctnt += '<div class="card field-card">';
+					ctnt += '<div data-role="entity_name" class="card-header primary-header">';
+					ctnt += '<i class="fa-light fa-pen-field me-1"></i> Field : ' + fldConfig.entity_name
+					ctnt +=
+						'<div class="card-header-right"><i data-role="col_selector" class="fa-light fa-square cb_muted"></i></div>';
+					ctnt += '</div>';
+					ctnt += '<div data-role="entity_label" class="card-header">';
+					if (!_.isNil(fldConfig.entity_label)) {
+						ctnt += '<span class="text-primary"><i class="fa-light fa-input-text me-1"></i> Label : ' +
+							fldConfig.entity_label + '</span>';
+					} else {
+						ctnt += '<span class="text-muted">unlabelled</span>';
+					}
+					ctnt += '</div>';
+					ctnt += '<div class="card-body" style="padding:0.325rem">';
+					if (!_.isNil(fldConfig.entity_desc) && fldConfig.entity_desc.length > 0) {
+						ctnt += '<span class="text-muted ms-1"> Description : ' + fldConfig.entity_desc + '</span>';
+						ctnt += '<div style="overflow: auto;">';
+					}
+					// ctnt += '<span class="text-muted ms-1 f-13p5"> Data-Type : ' + fldConfig.entity_datatype + '</span>';
+					ctnt += '</div>';
+					ctnt += '</div>';
+					ctnt += '</div>';
+					$("#columns_container").append(ctnt);
+				});
+				_.forEach(selColumns, selCol => {
+					$("#columns_container").find("div.field-item[data-entity-id='" + selCol + "']").trigger("click");
+				});
+
+				/*setTimeout(function(){
+					$grid = $('.isotope-grid').isotope({
+						itemSelector: '.element-item',
+						masonry: { columnWidth: '.col-md-4'},
+						filter: function () { 
+							var $this = $(this);
+							console.log(" filtering rex ["+qsRegex+"] btFilter["+buttonFilter+"] ::: "+$this.text().match(qsRegex));
+							var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+							var buttonResult = buttonFilter ? $this.is(buttonFilter) : true;
+							return searchResult && buttonResult;
+						}
+					});
+					console.log("ISOTOPE populated POST "+$('.element-item').length);
+				},500);*/
+			}
+		}
+
+		function sanitizeColumns() {
+			let scanners = ["range", "terms"];
+			selColumns = _.remove(selColumns, "S_No");
+			if (!_.isNil(baseQuery.query.bool)) {
+				_.forEach(baseQuery.query.bool.must, filter => {
+					_.forEach(scanners, scanner => {
+						if (_.includes(Object.keys(filter), scanner)) {
+							console.log(scanner + " --> " + Object.keys(filter[scanner]));
+							selColumns = _.concat(selColumns, _.map(Object.keys(filter[scanner]), field => {
+								return field.replace(/.keyword/g, "")
+							}))
+						}
+					})
+				})
+			}
+			console.log("Selected Columns " + selColumns);
+		}
+
+		function sanitizeBaseQuery() { }
+
+		function debounce(fn, threshold) {
+			var timeout;
+			threshold = threshold || 100;
+			return function debounced() {
+				clearTimeout(timeout);
+				var args = arguments;
+				var _this = this;
+
+				function delayed() {
+					fn.apply(_this, args);
+				}
+				timeout = setTimeout(delayed, threshold);
+			};
+		}
+
+		function updateFieldItemSelection(fieldItem, isSelect) {
+			if (isSelect && !fieldItem.hasClass("field-item-selected")) {
+				toggleFieldItemSelected(fieldItem);
+			} else if (!isSelect && fieldItem.hasClass("field-item-selected")) {
+				toggleFieldItemSelected(fieldItem);
+			}
+		}
+
+		function toggleFieldItemSelected(fieldItem) {
+			fieldItem.toggleClass("field-item-selected");
+			fieldItem.find("i[data-role='col_selector']").toggleClass("fa-square");
+			fieldItem.find("i[data-role='col_selector']").toggleClass("fa-check");
+			fieldItem.find("i[data-role='col_selector']").toggleClass("fa-solid");
+			fieldItem.find("i[data-role='col_selector']").toggleClass("fa-light");
+			fieldItem.find("i[data-role='col_selector']").toggleClass("cb_selected");
+		}
+
+		$(document).ready(function () {
+			window.parent.postMessage({
+				handshake: true
+			}, "*");
+
+			var previousCheckboxState = null;
+			var isApplyClicked = false;
+
+			$(document).on("click", "#apply-selected-columns", function () {
+				isApplyClicked = true;
+				let applySelCols = [];
+				$('input[data-role="cb-col-selector"]:checked').each(function () {
+					applySelCols.push(this.value);
+				});
+				console.log("applySelCols " + applySelCols + "\n myTable " + myTable);
+				selColumns = applySelCols;
+				colsUpdated = true;
+				$('#example').DataTable().clearPipeline().draw();
+				$('#customize_columns_trigger').trigger('click.bs.dropdown');
+			});
+
+			$(document).on("click", function (event) {
+				var popup = $("#customize_columns");
+				if (!popup.is(event.target) && popup.has(event.target).length === 0) {
+					// Clicked outside the popup
+					if (!isApplyClicked) {
+						resetPopupState();
+					}
+					isApplyClicked = false;
+				}
+			});
+
+			function resetPopupState() {
+				if (isApplyClicked) {
+					previousCheckboxState = getCheckboxState();
+				} else if (previousCheckboxState) {
+					setCheckboxState(previousCheckboxState);
+				} else {
+					setCheckboxState(getDefaultCheckboxState());
+				}
+				doApplySelectedColClasses();
+				updateSelectAllButtonState();
+			}
+
+			$(document).on("click", "#tweak-select-all-columns", function () {
+				var selectAllCheckbox = $(this);
+				var checkboxState = selectAllCheckbox.attr("data-state");
+
+				if (checkboxState === "select-all") {
+					selectAllColumns();
+				} else {
+					deselectAllColumns();
+				}
+			});
+
+			// Function to select all columns
+			function selectAllColumns() {
+				$('input[data-role="cb-col-selector"]').prop("checked", true);
+				updateSelectAllButtonState();
+			}
+
+			// Function to deselect all columns
+			function deselectAllColumns() {
+				$('input[data-role="cb-col-selector"]').prop("checked", false);
+				updateSelectAllButtonState();
+			}
+
+			// Function to update the state and text of the "Select All" button
+			function updateSelectAllButtonState() {
+				var selectAllCheckbox = $("#tweak-select-all-columns");
+				if ($('input[data-role="cb-col-selector"]:checked').length > 0) {
+					selectAllCheckbox.removeClass("btn-outline-primary");
+					selectAllCheckbox.addClass("btn-outline-danger");
+					selectAllCheckbox.find("span").html("Deselect All");
+					selectAllCheckbox.attr("data-state", "deselect-all");
+				} else {
+					selectAllCheckbox.removeClass("btn-outline-danger");
+					selectAllCheckbox.addClass("btn-outline-primary");
+					selectAllCheckbox.find("span").html("Select All");
+					selectAllCheckbox.attr("data-state", "select-all");
+				}
+			}
+
+			// Reset checkbox states and select all button state when clicking outside
+			$(document).on("click", function (event) {
+				var selectAllCheckbox = $("#tweak-select-all-columns");
+				if (!$(event.target).closest("#customize_columns").length) {
+					resetPopupState();
+					if ($('input[data-role="cb-col-selector"]:checked').length > 0) {
+						selectAllCheckbox.removeClass("btn-outline-primary");
+						selectAllCheckbox.addClass("btn-outline-danger");
+						selectAllCheckbox.find("span").html("Deselect All");
+						selectAllCheckbox.attr("data-state", "deselect-all");
+					} else {
+						selectAllCheckbox.removeClass("btn-outline-danger");
+						selectAllCheckbox.addClass("btn-outline-primary");
+						selectAllCheckbox.find("span").html("Select All");
+						selectAllCheckbox.attr("data-state", "select-all");
+					}
+				}
+			});
+
+			// Reset checkbox states when clicking outside
+			$(document).on("click", function (event) {
+				if (!$(event.target).closest("#tweak-select-all-columns").length && !$(event.target).is(
+					'input[data-role="cb-col-selector"]')) {
+					resetPopupState();
+				}
+			});
+
+			// Function to get the current checkbox state
+			function getCheckboxState() {
+				let checkboxStates = [];
+				$('input[data-role="cb-col-selector"]').each(function () {
+					checkboxStates.push(this.checked);
+				});
+				return checkboxStates;
+			}
+
+			// Function to set the checkbox state
+			function setCheckboxState(checkboxStates) {
+				$('input[data-role="cb-col-selector"]').each(function (index) {
+					this.checked = checkboxStates[index];
+				});
+			}
+
+			// Function to get the default checkbox state
+			function getDefaultCheckboxState() {
+				let checkboxStates = [];
+				$('input[data-role="cb-col-selector"]').each(function () {
+					checkboxStates.push(true);
+				});
+				return checkboxStates;
+			}
+
+			$(document).on("click", ".field-item", function () {
+				toggleFieldItemSelected($(this));
+				$("#enh_cols_sel").text($("#columns_container > .field-item.field-item-selected").length);
+			});
+
+			$("#enhanced_col_search_type").selectize({
+				plugins: ['restore_on_backspace', 'remove_button', 'optgroup_columns'],
+				onChange: function (value) {
+					doColumnsSearch()
+				},
+				options: [{
+					id: "keyword",
+					values: "keyword",
+					label: "Keyword",
+					optgrp: "Data-Types"
+				},
+				{
+					id: "number",
+					values: "integer,long,double,float",
+					label: "Numerical",
+					optgrp: "Data-Types"
+				},
+				{
+					id: "date",
+					values: "date",
+					label: "Date",
+					optgrp: "Data-Types"
+				},
+				{
+					id: "text",
+					values: "text",
+					label: "Text",
+					optgrp: "Data-Types"
+				},
+				{
+					id: "labels",
+					values: "labelled",
+					label: "Has Label",
+					optgrp: "Miscellaneous"
+				},
+				],
+				optgroups: [{
+					grpid: "Data-Types",
+					grpname: 'Data-Types'
+				},
+				{
+					grpid: "Miscellaneous",
+					grpname: "Miscellaneous"
+				}
+				],
+				labelField: "label",
+				valueField: "values",
+				optgroupField: "optgrp",
+				optgroupLabelField: "grpname",
+				optgroupValueField: "grpid",
+				optgroupOrder: ["Data-Types", "Miscellaneous"],
+				searchField: ["id", "values"],
+			});
+			if (false) {
+				console.log(configMap, "configMap")
+				if (configMap.downloadData.departmentName == "sarvodhyadept") {
+					let configMap = {
+						hdr: {
+							Authorization: "ApiKey WnY3UEhZWUJSTUpkbW9PbXRpcWk6SGJhVnJBbThRZWlpVGxrSUJvdFJaZw=="
+						},
+						server: 'https://sivies-apsouth.es.ap-south-1.aws.elastic-cloud.com:9243/',
+						url: 'https://sivies-apsouth.es.ap-south-1.aws.elastic-cloud.com:9243/dhmp_rk_clinicalrisk_1/_msearch',
+						ds: "dhmp_rk_clinicalrisk_1",
+						pages: 1
+					};
+				} else {
+					let configMap = {
+						hdr: {
+							Authorization: "ApiKey cXlzZGI0WUJIbDJqZmVpY0RhcGc6RUk0MEFKeVdUd0NSam05b2thNnh6QQ=="
+						},
+						server: 'https://sqml-dhmp.es.us-west-2.aws.found.io:9243/',
+						url: 'https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_rk_claims/_msearch',
+						ds: "dhmp_rk_claims",
+						pages: 1
+					};
+				}
+				retrieveIndexMappers(configMap);
+				//console.log("extFieldEngg \n"+JSON.stringify(extFieldEngg));
+				loadTableProps(configMap);
+				triggerDataTable(configMap);
+			}
+			$(document).on("click", "#apply-selected-columns", function () {
+				let applySelCols = [];
+				$('input[data-role="cb-col-selector"]:checked').each(function () {
+					applySelCols.push(this.value);
+				});
+				console.log("applySelCols " + applySelCols + "\n myTable " + myTable);
+				selColumns = applySelCols;
+				colsUpdated = true;
+				$('#example').DataTable().clearPipeline().draw();
+				$('#customize_columns_trigger').trigger('click.bs.dropdown');
+			});
+			$(document).on("click", "#enhanced-apply-selected-columns", function () {
+				let applySelCols = [];
+				$("#columns_container > .field-item.field-item-selected").each(function () {
+					applySelCols.push($(this).attr("data-entity-id"));
+				});
+				console.log("applySelCols from enc-cols " + applySelCols + "\n myTable " + myTable);
+				// selColumns = applySelCols;  
+				// for maintaining the order of the selcolumns array.
+				let tempArray = _.xor(applySelCols, selColumns);
+				_.forEach(tempArray, fld => {
+					if (!applySelCols.includes(fld) && selColumns.includes(fld)) {
+						let index = selColumns.indexOf(fld);
+						selColumns.splice(index, 1);
+					} else if (applySelCols.includes(fld) && !selColumns.includes(fld)) {
+						selColumns.push(fld);
+					}
+				});
+
+				colsUpdated = true;
+				$('#example').DataTable().clearPipeline().draw();
+				loadSearchColumnsMenuDropdown();
+				$("#enhanced_columns_viewer").modal("hide");
+			});
+
+			$(document).on("click", "#enhanced_columns_trigger", function () {
+				$("#enhanced_columns_viewer").modal("show");
+			});
+
+			$(document).on("click", "#enhanced-select-all-columns", function () {
+				$("#columns_container > .field-item").each(function () {
+					updateFieldItemSelection($(this), true);
+				});
+				$("#enh_cols_sel").text($("#columns_container > .field-item.field-item-selected").length);
+			});
+			$(document).on("click", "#enhanced-deselect-all-columns", function () {
+				$("#columns_container > .field-item").each(function () {
+					updateFieldItemSelection($(this), false);
+				});
+				$("#enh_cols_sel").text($("#columns_container > .field-item.field-item-selected").length);
+			});
+			$(document).on("click", "#enhanced-invert-all-columns", function () {
+				$("#columns_container > .field-item").each(function () {
+					toggleFieldItemSelected($(this), false);
+				});
+				$("#enh_cols_sel").text($("#columns_container > .field-item.field-item-selected").length);
+			});
+
+
+			$(document).on("click", "#tweak-select-all-columns", function () {
+				let state = $(this).attr("data-state");
+				if (state === "select-all") {
+					$(this).addClass("btn-outline-danger");
+					$(this).removeClass("btn-outline-primary");
+					$(this).find("span").html("Deselect All");
+					$(this).attr("data-state", "deselect-all");
+					$('input[data-role="cb-col-selector"]').each(function () {
+						$(this).attr("checked", "checked");
+					});
+				} else {
+					$(this).addClass("btn-outline-primary");
+					$(this).removeClass("btn-outline-danger");
+					$(this).find("span").html("Select All");
+					$(this).attr("data-state", "select-all");
+					$('input[data-role="cb-col-selector"]').each(function () {
+						$(this).removeAttr("checked");
+					});
+				}
+				//console.log(">>>>> changed-state -> "+$(this).attr("data-state")+"\nSELECTED length ::: "
+				//+$('input[data-role="cb-col-selector"]:checked').length);
+
+				//$('input[data-role="cb-col-selector"]:checked')
+				doApplySelectedColClasses();
+			});
+
+			$(document).on("click", "#doKwdSearch", function () {
+				searchTerms = $("#dt_search").val().toUpperCase();
+				searchFilterQuery = searchTerms
+				if (!_.isNil(searchTerms) && searchTerms != "") {
+					$('#example').DataTable().clearPipeline().draw();
+				} else {
+					searchTerms = null;
+					if ($("#dt_search").val() == "") {
+						var errorMsg = document.getElementById("dt_searchValidMsg");
+						errorMsg.innerHTML += "Please enter a search text";
+						document.getElementById('dt_search').reportValidity();
+						setTimeout(function () {
+							$('#dt_searchValidMsg').empty();
+						}, 4000);
+
+					}
+				}
+			});
+
+			$(document).on("click", "#doKwdClear", function () {
+				searchTerms = null;
+				valueCount = null;
+				$("#dt_search").val("");
+				//$('#example').DataTable().clearPipeline().draw();
+				location.reload();
+			});
+
+			$(document).on("click", "button[data-role='aggsfilter']", function () {
+
+			});
+			$(document).on("click", "#close_processing", function () {
+				$("#loadError").hide();
+				$("#example_processing").fadeOut(500);
+			});
+
+			$(document).on("click", "button[data-role='columnfilter']", function () {
+				let _this = $(this);
+				let dataColumn = $(this).attr("data-col");
+				let dataState = $(this).attr("data-state");
+				let dataLabel = $(this).attr("data-label");
+				let dataESType = $(this).attr("data-type");
+
+				// Close any open popovers
+				$("button[data-role='columnfilter']").not(_this).each(function () {
+					let otherState = $(this).attr("data-state");
+					if (otherState === "shown") {
+						$(this).attr("data-state", "none");
+						$(this).popover("hide");
+					}
+				});
+
+				popupFilter = dataColumn;
+				console.log("Yes, trying a POPOVER ---> for " + dataColumn);
+				_this.popover({
+					placement: 'bottom',
+					container: 'body',
+					customClass: 'filter-field-selector',
+					html: true,
+					content: function () {
+						setTimeout(function () {
+							requestAggrFilter(dataColumn, dataESType, dataLabel);
+						}, 100);
+						let retCtnt = '<div class="text-primary p-1 filter-req"';
+						retCtnt += ' id="data-filterreq-' + dataColumn + '">';
+						retCtnt += 'Requesting Data for ' + dataLabel;
+						retCtnt += '<div class="spinner"></div>';
+						retCtnt += '</div>';
+						return retCtnt;
+					}
+				});
+				if (dataState === "none") {
+					_this.attr("data-state", "shown");
+					_this.popover("show");
+				}
+				if (dataState === "shown") {
+					_this.attr("data-state", "none");
+					_this.popover("hide");
+				}
+			});
+
+			$(document).on('click', '#myPopUp', function () {
+				dataCheck = null;
+				selectData = [];
+				$("button[data-role='columnfilter']").each(function () {
+					let dataState = $(this).attr("data-state");
+					if (dataState === "shown") {
+						$(this).attr("data-state", "none");
+						$(this).popover("hide");
+					}
+				});
+			});
+
+			$('[data-toggle=popover]').popover();
+
+			$(document).on("click", "button[data-role='columnsort']", function () {
+				let dataColumn = $(this).attr("data-col");
+				let dataAction = $(this).attr("data-state");
+				let dataLabel = $(this).attr("data-label");
+				console.log("Try Sorting " + dataLabel);
+				if (dataAction === "desc") {
+					$(this).attr("data-state", "asc");
+				} else {
+					$(this).attr("data-state", "desc");
+				}
+				$(this).parent().addClass("th-hdr-right-actioned");
+				addSortToActionInfo(dataColumn, dataAction, dataLabel);
+				sortSelected = _.map($(".action-info-holder").find("div.sort-info-box"), sortElm => {
+					sortElm = $(sortElm);
+					return {
+						[sortElm.attr("data-col")]: {
+							order: sortElm.attr("data-sortdir")
+						}
+					};
+				});
+				console.log(" SORT SELECTED ::::: " + JSON.stringify(sortSelected))
+				sortUpdated = true;
+				$('#example').DataTable().clearPipeline().draw();
+				sortUpdated = false;
+			});
+
+			//data-route="1245264" data-ext-launch="p360"
+			$(document).on("click", "button[data-ext-launch][data-route]", function () {
+				let launcherType = $(this).attr("data-ext-launch");
+				let dataRouter = $(this).attr("data-route");
+				let dataOrigin = $(this).attr("data-origin");
+				window.parent.postMessage({
+					launch: launcherType,
+					data: dataRouter,
+					origin: dataOrigin
+				}, '*');
+			});
+
+			//Removal From Actions Panel
+			// removesort
+			$(document).on("click", "button[data-action='removesort'][data-col]", function () {
+				let dataColumn = $(this).attr("data-col");
+				$("div.th-hdr-right.th-hdr-right-actioned[data-col='" + dataColumn + "']").removeClass(
+					"th-hdr-right-actioned");
+				$(".action-info-holder").find("div[data-col='" + dataColumn + "']").remove();
+				sortSelected = _.map($(".action-info-holder").children(), sortElm => {
+					sortElm = $(sortElm);
+					return {
+						[sortElm.attr("data-col")]: {
+							order: sortElm.attr("data-sortdir")
+						}
+					};
+				});
+				console.log(" SORT SELECTED ::::: " + JSON.stringify(sortSelected))
+				sortUpdated = true;
+				$('#example').DataTable().clearPipeline().draw();
+				sortUpdated = false;
+			});
+			//removeSearchTerms
+			$(document).on("click", "button[data-action='removeSearchTerms'][data-col]", function () {
+				let dataColumn = $(this).attr("data-col");
+				$(".action-info-holder").find("div.searchterms-info-box").remove();
+				searchTerms = null;
+				$("#dt_search").val("");
+				$('#example').DataTable().clearPipeline().draw();
+			});
+
+			//removeAggrFilter
+			$(document).on("click", "button[data-action='removeAggrFilter'][data-col]", function () {
+				displayNoData = "false";
+				datepickerObj = {};
+				fromDatePicker = "";
+				toDatePicker = "";
+				epochFrom = "";
+				epochTo = "";
+				dateSelectionType = "daterange";
+				let dataField = $(this).attr("data-col");
+				try {
+					$('div.aggrfilters-info-box[data-bs-toggle="popover"]').popover("hide");
+				} catch (error) {
+					console.log("Popover maker error @ AggrFilter " + error);
+				}
+				console.log("Clearing the Filter Applied for " + dataField);
+				console.log("B4 Clear " + JSON.stringify(aggrFilters));
+				$(".action-info-holder").find("div[data-col='" + dataField + "']").remove();
+				aggrFilters = _.remove(aggrFilters, filt => {
+					console.log("\t " + filt.field + ", match " + (filt.field === dataField));
+					return !(filt.field === dataField);
+				});
+				if ((_.isNil(aggrFilters) || _.isEmpty(aggrFilters))) {
+					valueCount = null;
+				}
+				console.log("AF Clear " + JSON.stringify(aggrFilters));
+				searchTerms = $("#dt_search").val();
+				$('#example').DataTable().clearPipeline().draw();
+			});
+
+			$(document).on("click", "button[data-role='filter-clear'][data-field]", function () {
+				displayNoData = "false";
+				datepickerObj = {};
+				fromDatePicker = "";
+				toDatePicker = "";
+				epochFrom = "";
+				epochTo = "";
+				dateSelectionType = "daterange";
+				let dataField = $(this).attr("data-field");
+				$(".action-info-holder").find("div[data-col='" + dataField + "']").remove();
+				console.log("Clearing the Filter Applied for " + dataField);
+				console.log("B4 Clear   " + JSON.stringify(aggrFilters));
+				aggrFilters = _.remove(aggrFilters, filt => {
+					console.log("\t " + filt.field + ", match " + (filt.field === dataField));
+					return !(filt.field === dataField);
+				});
+				delete aggrFiltersContext[dataField];
+				console.log("AF Clear " + JSON.stringify(aggrFilters));
+				searchTerms = $("#dt_search").val();
+				$('#example').DataTable().clearPipeline().draw();
+			});
+
+			$(document).on("click", "button[data-role='filter-apply'][data-field]", function () {
+				let outCtnt;
+				let dateSelection = dateSelectionType;
+				let dataField = $(this).attr("data-field");
+				let dataLabel = $(this).attr("data-label");
+				let dataESType = $(this).attr("data-type");
+				let activeTabElement = $(".tab-pane.active[name='filter-tabcontent'][data-field='" +
+					dataField + "']");
+				let activeTab = (activeTabElement != null && activeTabElement.length == 1) ? activeTabElement
+					.attr("data-tab") : "standard";
+				let outArray = [];
+				let displayOutArray = [];
+				if (activeTab === "standard") {
+					outArray = _.map($("i.cb_selected[data-role='filter-field-selector'][data-field='" +
+						dataField + "']"), selected => {
+							return $(selected).attr("data-aggrval");
+						});
+					displayOutArray = _.map($(
+						"i.cb_selected[data-role='filter-field-selector'][data-field='" + dataField +
+						"']"), selected => {
+							return $(selected).attr("data-aggrdisplayval");
+						});
+				} else {
+					if (dateSelection === "daterange") {
+						outArray = []
+						displayOutArray = []
+						let rangeElement = $("#filter-range-" + dataField);
+						let rangeResult = (rangeElement != null && rangeElement.length == 1) ? rangeElement
+							.data("ionRangeSlider").result : null;
+						if (rangeResult != null) {
+							outArray.push(rangeResult.from + RANGE_DELIMITER + rangeResult.to);
+							displayOutArray.push(rangeResult.from_pretty + " to " + rangeResult.to_pretty);
+						}
+					}
+					if (dateSelection === "datepicker") {
+						if (_.isUndefined(datepickerObj.from) || _.isUndefined(datepickerObj.to) || _.isEmpty(
+							datepickerObj.from) || _.isEmpty(datepickerObj.to)) {
+							outCtnt =
+								'<div id="errorMsg" style="display: none;font-size:11px !important;color: red !important;" class="mb-2">please select date from both date picker</div>'
+							$("#filter-custom-tabcontent-" + dataField).append(outCtnt);
+							document.getElementById('errorMsg').style.display = 'block';
+						} else {
+							outArray = []
+							displayOutArray = []
+							outArray.push(datepickerObj.epochFrom + RANGE_DELIMITER + datepickerObj.epochTo);
+							displayOutArray.push(datepickerObj.from + " to " + datepickerObj.to);
+						}
+					}
+				}
+				if (_.size(outArray) > 0) {
+					console.log("\n B4 aggrFilters " + JSON.stringify(aggrFilters));
+					let existFilterScope = _.head(_.filter(aggrFilters, filt => {
+						return (filt.field === dataField);
+					}))
+					if (!_.isNil(existFilterScope)) {
+						aggrFilters = _.map(aggrFilters, filt => {
+							if (filt.field === dataField) {
+								filt.values = outArray;
+								filt.displayValues = displayOutArray;
+								filt.type = dataESType;
+								filt.uiTab = activeTab;
+							}
+							return filt;
+						})
+					} else {
+						aggrFilters.push({
+							field: dataField,
+							values: outArray,
+							displayValues: displayOutArray,
+							label: dataLabel,
+							type: dataESType,
+							uiTab: activeTab
+						});
+					}
+					console.log(" AF aggrFilters " + JSON.stringify(aggrFilters));
+					searchTerms = $("#dt_search").val();
+					$('#example').DataTable().clearPipeline().draw();
+				}
+			});
+
+			//data-role="filter-selector" data-field=  data-aggrval=
+			$(document).on("click", "div[data-role='filter-selector'][data-field][data-aggrval]", function () {
+				//let dataField   = $(this).attr("data-field");
+				let dataAggrVal = $(this).attr("data-aggrval");
+				 if (dataAggrVal == 'SelectAll') {
+                    var children = document.querySelector('.aggr-filter-holder').children;
+                    for (var i = 0; i < children.length; i++) {
+                        console.log("children[i]", children[i].children)
+                        if (children[i].children[0].dataset.aggrval != 'Others') {
+
+                            $(children[i]).children().find("i[data-role='filter-field-selector']")
+                                .toggleClass("fa-square");
+                            $(children[i]).children().find("i[data-role='filter-field-selector']")
+                                .toggleClass("fa-check");
+                            $(children[i]).children().find("i[data-role='filter-field-selector']")
+                                .toggleClass("fa-solid");
+                            $(children[i]).children().find("i[data-role='filter-field-selector']")
+                                .toggleClass("fa-light");
+                            $(children[i]).children().find("i[data-role='filter-field-selector']")
+                                .toggleClass("cb_selected");
+                        }
+
+                    }
+                }
+				if (dataAggrVal == 'Others') {
+					if (selectData.length == 0) {
+
+						$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-square");
+						$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-check");
+						$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-solid");
+						$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-light");
+						$(this).find("i[data-role='filter-field-selector']").toggleClass("cb_selected");
+
+						if (dataCheck == 'Others') {
+							dataCheck = null;
+						} else {
+							dataCheck = dataAggrVal;
+						}
+					}
+				} else if (dataCheck == null) {
+					$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-square");
+					$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-check");
+					$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-solid");
+					$(this).find("i[data-role='filter-field-selector']").toggleClass("fa-light");
+					$(this).find("i[data-role='filter-field-selector']").toggleClass("cb_selected");
+
+					if (selectData.includes(dataAggrVal)) {
+						let index = selectData.indexOf('dataAggrVal');
+						selectData.splice(index, 1);
+					} else {
+						selectData.push(dataAggrVal);
+					}
+				}
+
+			});
+
+			$(document).on("click", "input[data-role='cb-col-selector']", function () {
+				doApplySelectedColClasses();
+			});
+			$(document).on("click", "#searchWildCard", function () {
+				let currState = $(this).attr("data-state");
+				if (currState === "off") {
+					$(this).attr("data-state", "on");
+					$(this).addClass("btn-info");
+					$(this).removeClass("btn-outline-info");
+					searchWCard = true;
+				} else {
+					$(this).attr("data-state", "off");
+					$(this).removeClass("btn-info");
+					$(this).addClass("btn-outline-info");
+					searchWCard = false;
+				}
+			});
+			/*setTimeout(() => {
+				$("#sdt_wrapper_loader").hide();
+				$("#sdt_wrapper").show();
+			}, 300);*/
+		});
+
+		function requestAggrFilter(byField, dataESType, dataLabel) {
+			console.log("\n************************");
+			//console.log("WORK on AJAX >>>>>>>>>>> "+byField+" which type ["+dataESType+"] exist :::: "+JSON.stringify(aggrFiltersContext));
+			//console.log("Available AGGS KEYS ->"+Object.keys(aggrFiltersContext)+"<-");
+			if (!_.isNil(aggrFiltersContext) && !_.isNil(aggrFiltersContext[byField])) {
+				//console.log("FOUND the Aggregation already >>>>>>>>>>>>> \n"+JSON.stringify(aggrFiltersContext[byField]));
+				buildAggFilterGUI(byField, dataESType, dataLabel, aggrFiltersContext[byField]);
+			} else {
+				//console.log("NOT found at REPO >>>>> ");
+				if (!_.isNil(valueCount) && !_.isNil(valueCount.query)) {
+					let queryName = null;
+					let wsDataRequest = valueCount.query;
+					delete wsDataRequest["size"];
+					delete wsDataRequest["from"];
+					delete wsDataRequest["aggs"];
+					delete wsDataRequest["sort"];
+					delete wsDataRequest["track_total_hits"];
+
+					// Build aggregated query filter.  
+					// Optimize future: If no filter exists for this field then this wsDataRequest.query can be just left with value from valueCount.query.
+					/*
+					  Based on discussion we need to display filtered list including the filters applied previoulsy to this column as well.
+					  So passing null instead of 'byField' for filterIgnorefieldName parameter so that previously applied filters are not ignored.
+					*/
+					wsDataRequest.query = getQueryForAppliedSearchAndFilters(baseQuery, searchTerms, aggrFilters, null);
+
+					//console.log("Check the ValueCOUNT object "+JSON.stringify(baseQRY, null, 1));
+					if (_.includes(["keyword", "date"], dataESType)) {
+						if (dataESType === "keyword") {
+							queryName = byField + "~Terms";
+							wsDataRequest["aggs"] = {
+								[queryName]: {
+									terms: {
+										field: byField,
+										size: 1000,
+										min_doc_count: 1,
+										missing: "Others",
+										show_term_doc_count_error: true
+									}
+								}
+							};
+						} else if (dataESType === "date") {
+							queryName = byField + "~DATE-HISTO";
+							wsDataRequest["aggs"] = {
+								[queryName]: {
+									date_histogram: {
+										field: byField,
+										calendar_interval: "month",
+										format: "MM-yyyy",
+										min_doc_count: 1
+									}
+								},
+								[byField + "_min"]: {
+									min: {
+										field: byField
+									}
+								},
+								[byField + "_max"]: {
+									max: {
+										field: byField
+									}
+								}
+							};
+						}
+
+						if (queryName != null) {
+							$.ajax({
+								headers: incConfMap.hdr,
+								url: incConfMap.url.replace("/_msearch", "") +
+									"/_search?size=0&filter_path=aggregations",
+								async: false,
+								type: 'POST',
+								data: JSON.stringify(wsDataRequest),
+								dataType: 'json',
+								contentType: 'application/json',
+								success: function (response) {
+									try {  
+										console.log(response,"######responetest")
+                                            console.log(response
+													.aggregations[queryName].buckets,"######responetest")
+										aggrFiltersContext[byField] = {}
+										aggrFiltersContext[byField].buckets = response.aggregations[queryName]
+											.buckets;
+										aggrFiltersContext[byField].min = response.aggregations[byField + "_min"];
+										aggrFiltersContext[byField].max = response.aggregations[byField + "_max"];
+										buildAggFilterGUI(byField, dataESType, dataLabel, aggrFiltersContext[
+											byField]);
+									} catch (error) {
+										console.log("ERROR while building KWD AGGR [" + byField + "] ::::: " +
+											error);
+									}
+								}
+							});
+						}
+
+					} else if (_.includes(numberTypes, dataESType)) {
+						queryName = byField + "_avg";
+						wsDataRequest["aggs"] = {
+							[byField + "_avg"]: {
+								avg: {
+									field: byField
+								}
+							},
+							[byField + "_min"]: {
+								min: {
+									field: byField
+								}
+							},
+							[byField + "_max"]: {
+								max: {
+									field: byField
+								}
+							}
+						};
+
+						$.ajax({
+							headers: incConfMap.hdr,
+							url: incConfMap.url.replace("/_msearch", "") + "/_search?size=0&filter_path=aggregations",
+							async: false,
+							type: 'POST',
+							data: JSON.stringify(wsDataRequest),
+							dataType: 'json',
+							contentType: 'application/json',
+							success: function (response) {
+								try {
+									 console.log( response,"res########")
+									
+									let minValue = response.aggregations[byField + "_min"].value;
+									let maxValue = response.aggregations[byField + "_max"].value;
+									let avgValue = response.aggregations[byField + "_avg"].value;
+									let intervalValue = getNumericRangeInterval(minValue, maxValue, avgValue);
+									 console.log(intervalValue,"intervalValue########")
+									
+									minValue = Math.floor(minValue / intervalValue) * intervalValue;
+									maxValue = Math.ceil(maxValue / intervalValue) * intervalValue;
+									queryName = byField + "~HISTOGRAM";
+									wsDataRequest["aggs"] = {
+										[queryName]: {
+											histogram: {
+												field: byField,
+												interval: intervalValue,
+												min_doc_count: 1,
+												extended_bounds: {
+													min: minValue,
+													max: maxValue
+												}
+											}
+										},
+										[byField + "_min"]: {
+											min: {
+												field: byField
+											}
+										},
+										[byField + "_max"]: {
+											max: {
+												field: byField
+											}
+										}
+									};
+									$.ajax({
+										headers: incConfMap.hdr,
+										url: incConfMap.url.replace("/_msearch", "") +
+											"/_search?size=0&filter_path=aggregations",
+										async: false,
+										type: 'POST',
+										data: JSON.stringify(wsDataRequest),
+										dataType: 'json',
+										contentType: 'application/json',
+										success: function (response) {
+											try {
+												aggrFiltersContext[byField] = {}
+												aggrFiltersContext[byField].buckets = response
+													.aggregations[queryName].buckets;
+												aggrFiltersContext[byField].rangeInterval =
+													intervalValue;
+												aggrFiltersContext[byField].min = response
+													.aggregations[byField + "_min"];
+												aggrFiltersContext[byField].max = response
+													.aggregations[byField + "_max"];
+												buildAggFilterGUI(byField, dataESType, dataLabel,
+													aggrFiltersContext[byField]);
+											} catch (error) {
+												console.log("ERROR while building KWD AGGR [" +
+													byField + "] ::::: " + error);
+											}
+										}
+									});
+								} catch (error) {
+									console.log("ERROR while building KWD AGGR [" + byField + "] ::::: " + error);
+								}
+							}
+						});
+					}
+				}
+			}
+		}
+
+		function getNumericRangeInterval(minValue, maxValue, avgValue) {
+			/*
+			interval = value is a integer or a decimal number based on data (max - min < 10 will be used for decimel).
+			if integer, (if avg > 100000 then interval with bucket count approx 1000),  (if avg lower than 100000 then use specific numbers)
+			if decimal, interval is with max buckets of 100 count.
+			*/
+			 console.log(minValue, maxValue, avgValue,"intervalValue########")
+			
+			let intervalValue = 1;
+			let referenceValue = (minValue < 0) ? (maxValue - minValue) : avgValue;
+console.log(referenceValue,"referenceValuelue########")
+			
+			if ((maxValue - minValue) > 5 ) {
+				referenceValue = Math.abs(referenceValue);
+				if (referenceValue > 100000) {
+					console.log(referenceValue,"referenceValuelue########")
+
+					intervalValue = referenceValue / 1000;
+					let digitCounts = (Math.log10((intervalValue ^ (intervalValue >> 31)) - (intervalValue >> 31)) | 0) + 1;
+					intervalValue = Math.pow(10, digitCounts);
+				} else if (referenceValue > 0) {
+					console.log(referenceValue,"referenceValuelue########")
+
+					intervalValue = (referenceValue > 1000) ? 100 : (referenceValue > 100) ? 10 : (referenceValue > 20) ? 5 :
+						1;
+					console.log(intervalValue,"intervalValue########")
+
+				}
+			} else {
+				console.log(referenceValue,"referenceValuelue########")
+
+				intervalValue = (referenceValue / 100).toPrecision(3);
+			}
+
+			//Handling error scenario where response is null values from api.  0 or null is bad request.  Set large number to avoid load.
+			intervalValue = (intervalValue == 0) ? 100 : intervalValue;
+
+			return intervalValue;
+		}
+
+		function buildAggFilterGUI(byField, dataESType, dataLabel, aggr = {}) {
+			//data-filterreq-PID_11_3
+			let appliedFilters = _.head(_.filter(aggrFilters, flt => {
+				return flt.field === byField
+			}));
+			let appliedFiltersUITab = null;
+			console.log("Already Applied Filters => " + JSON.stringify(appliedFilters))
+			if (!_.isNil(appliedFilters) && !_.isEmpty(appliedFilters)) {
+				appliedFiltersUITab = appliedFilters.uiTab;
+				appliedFilters = appliedFilters.values;
+			}
+
+			let filterData = prepareFilterData(byField, dataESType, aggr, appliedFilters, appliedFiltersUITab);
+			console.log('[buildAggFilterGUI] filterData : ' + JSON.stringify(filterData));
+
+			//gui content with header having apply and clear buttons, and main content with filter selection.
+			let outCtnt = '<div class="w-100">';
+			outCtnt += '<div class="row g-0 p-0">';
+			outCtnt +=
+				'<div class="popover-right-close"><button id="myPopUp" class="btn btn-sm btn-secondary p-0" style="margin-top:3px;margin-left:4px;"><i class="fa-solid fa-xmark"></i></button></div>';
+			if (_.size(aggr.buckets) > 0) {
+				outCtnt +=
+					'<div class="col-sm-6 text-start"><button class="btn btn-alternate btn-sm filter-apply text-primary" data-role="filter-apply" data-field="' +
+					byField + '" data-label="' + dataLabel + '" data-type="' + dataESType +
+					'" ><i class="fa-solid fa-filter-list mx-2"></i>Apply</button></div>';
+			} else {
+				outCtnt +=
+					'<div class="col-sm-6 text-start"><button style="visibility:hidden"><i class="fa-solid fa-filter-list mx-2"></i>Clear</button></div>';
+			}
+			//custom filter scenario - due to some range selection, aggr.buckets is empty but filter is applied.  The aggr.buckets is empty because filter of field 'byField' is also considered in its result.
+			if (!_.isNil(appliedFilters) && !_.isEmpty(appliedFilters)) {
+				outCtnt +=
+					'<div class="col-sm-6 text-end">  <button class="btn btn-secondary btn-sm filter-clear text-secondary" data-role="filter-clear" data-field="' +
+					byField + '" data-label="' + dataLabel +
+					'" ><i class="fa-solid fa-filter-slash mx-2"></i>Clear</button></div>';
+			}
+			outCtnt += '</div>';
+
+			//main content - tabbed menu.  keyword type has one tab.  date, number types have two tabs.
+			let filterStandardTabLinkId = 'filter-standard-tab-' + byField;
+			let filterStandardTabContentId = 'filter-standard-tabcontent-' + byField;
+			let filterCustomTabLinkId = 'filter1-custom-tab-' + byField;
+			let filterCustomTabContentId = 'filter-custom-tabcontent-' + byField;
+			outCtnt += '<div>';
+			outCtnt += '<div class="row g-0 f-12 pb-2"></div>';
+			outCtnt += '<div id="filter" class="nav nav-tabs nav-justified mb3" role="tablist">';
+			outCtnt += '<div class="nav-item" role="presentation"><button class="nav-link active" id="' +
+				filterStandardTabLinkId + '" data-field="' + byField + '" data-bs-toggle="tab" data-bs-target="#' +
+				filterStandardTabContentId + '" href="#' + filterStandardTabContentId +
+				'" type="button" role="tab" aria-controls="' + filterStandardTabContentId +
+				'" aria-selected="true">Standard</button></div>';
+			if (filterData.showCustomFilterTab) {
+				outCtnt += '<div class="nav-item" role="presentation"><button class="nav-link" id="' + filterCustomTabLinkId +
+					'" data-field="' + byField + '" data-bs-toggle="tab" data-bs-target="#' + filterCustomTabContentId +
+					'" href="' + filterCustomTabContentId + '" type="button" role="tab" aria-controls="' +
+					filterCustomTabContentId + '" aria-selected="true">Custom</button></div>';
+			} else {
+				outCtnt += '<div class="nav-item" role="presentation" style="visibility:hidden"></div>';
+			}
+			outCtnt += '</div>';
+			outCtnt += '<div id="filter-content" class="tab-content">';
+			outCtnt += '<div id="' + filterStandardTabContentId +
+				'" name="filter-tabcontent" class="tab-pane fade show active" data-field="' + byField +
+				'" data-tab="standard" role="tabpanel" aria-labelledby="' + filterStandardTabLinkId + '"></div>';
+			if (filterData.showCustomFilterTab) {
+				outCtnt += '<div id="' + filterCustomTabContentId +
+					'" name="filter-tabcontent" class="tab-pane fade" data-field="' + byField +
+					'" data-tab="custom" role="tabpanel" aria-labelledby="' + filterCustomTabLinkId + '"></div>';
+			}
+			outCtnt += '</div></div></div>'; //close all divs including the top div of filter gui.
+
+			$("#data-filterreq-" + byField).empty();
+			$("#data-filterreq-" + byField).append(outCtnt);
+
+
+			$(".nav-link[data-field=" + byField + "]").on('show.bs.tab', function (e) {
+				$(".nav-link[data-field=" + byField + "]").removeClass("active");
+			})
+
+			buildAggFilterGUIStandardTabContent(byField, aggr, appliedFilters, filterData);
+			if (filterData.showCustomFilterTab) {
+				buildAggFilterGUICustomTabContent(byField, aggr, appliedFilters, filterData);
+				buildAggFilterGUICustomTabDatePicker(byField);
+			}
+		}
+
+		function prepareFilterData(byField, dataESType, aggrResults, appliedFilters, appliedFiltersUITab) {
+			let filterData = {};
+			filterData.fieldName = byField;
+			//filterData.appliedValues = appliedFilters;
+			filterData.appliedSourceUITab = appliedFiltersUITab;
+			filterData.isAppliedSourceCustomTab = (appliedFiltersUITab === "custom");
+			filterData.rangeInterval = (!_.isNil(aggrResults.rangeInterval)) ? aggrResults.rangeInterval : 0;
+
+			filterData.isFieldKeywordType = FieldDataTypeUtil.isKeyword(dataESType);
+			filterData.isFieldDateType = FieldDataTypeUtil.isDate(dataESType);
+			filterData.isFieldNumberType = FieldDataTypeUtil.isNumber(dataESType);
+			filterData.showCustomFilterTab = filterData.isFieldDateType || filterData.isFieldNumberType;
+
+			filterData.custom = {};
+			filterData.standard = {};
+
+			if (!filterData.isFieldKeywordType) {
+				if (!_.isNil(aggrResults) && !_.isEmpty(aggrResults.buckets)) {
+					filterData.custom.rangeStart = aggrResults.buckets[0].key;
+					let endKey = aggrResults.buckets[aggrResults.buckets.length - 1].key;
+					filterData.custom.rangeEnd = (filterData.isFieldDateType) ? moment(endKey).endOf('month').valueOf() : (
+						endKey + filterData.rangeInterval);
+					filterData.custom.rangeFrom = aggrResults.min.value;
+					filterData.custom.rangeTo = aggrResults.max.value;
+				}
+
+				if (!_.isEmpty(appliedFilters)) {
+					if (filterData.isAppliedSourceCustomTab) { // filter applied previously from custom tab
+						let appliedRange = (appliedFilters[0].includes(RANGE_DELIMITER)) ? appliedFilters[0].split(
+							RANGE_DELIMITER) : null;
+						if (appliedRange != null && appliedRange.length > 1) {
+							filterData.custom.rangeFrom = (appliedRange[0] / 1);
+							filterData.custom.rangeTo = (appliedRange[1] / 1);
+
+							if (filterData.isFieldDateType) {
+								filterData.standard.rangeFrom = moment(appliedRange[0] / 1).startOf('month').valueOf();
+								filterData.standard.rangeTo = moment(appliedRange[1] / 1).endOf('month').valueOf();
+							} else {
+								filterData.standard.rangeFrom = (appliedRange[0] / 1);
+								filterData.standard.rangeTo = (appliedRange[1] / 1);
+							}
+							filterData.standard.rangeFromStarted = false;
+							filterData.standard.rangeToEnded = false;
+						}
+					} else { // filter applied previously from standard tab
+						let appliedRangeStart = appliedFilters[0];
+						let appliedRangeEnd = appliedFilters[appliedFilters.length - 1];
+						if (appliedRangeStart.includes(RANGE_DELIMITER) && appliedRangeEnd.includes(RANGE_DELIMITER)) {
+							filterData.custom.rangeFrom = (appliedRangeStart.split(RANGE_DELIMITER)[0] / 1);
+							filterData.custom.rangeTo = (appliedRangeEnd.split(RANGE_DELIMITER)[1] / 1);
+						} else if (filterData.isFieldDateType) {
+							filterData.custom.rangeFrom = moment(appliedRangeStart, "MM-YYYY").startOf('month').valueOf();
+							filterData.custom.rangeTo = moment(appliedRangeEnd, "MM-YYYY").endOf('month').valueOf();
+						} else {
+							filterData.custom.rangeFrom = appliedRangeStart;
+							filterData.custom.rangeTo = appliedRangeEnd;
+						}
+					}
+
+					//filterData.custom.rangeStart = (filterData.custom.rangeFrom < filterData.custom.rangeStart) ? filterData.custom.rangeFrom : filterData.custom.rangeStart;
+					//filterData.custom.rangeEnd = (filterData.custom.rangeTo < filterData.custom.rangeEnd) ? filterData.custom.rangeTo : filterData.custom.rangeEnd;
+					filterData.custom.rangeStart = filterData.custom.rangeFrom;
+					filterData.custom.rangeEnd = filterData.custom.rangeTo;
+				}
+			}
+			return filterData;
+		}
+
+		function buildAggFilterGUIStandardTabContent(byField, aggr, appliedFilters, filterData) {
+			console.log(aggr,"#######aggr")
+			let outCtnt = '';
+			let labelTxt = (filterData.isFieldDateType) ? "Month-Year" : (filterData.isFieldNumberType) ?
+				"Range (Start-End)" : "Values";
+			//outCtnt += '<div class="row g-0 f-12 pb-2">';
+			if (_.size(aggr.buckets) > 999 && filterData.isFieldKeywordType) {
+				outCtnt += '<div class="row g-0 f-12">';
+				outCtnt += '<span>top 1000 entries.  Use wild card search to check more than 1000 records.</span>'
+				outCtnt += '</div>';
+			}
+			//outCtnt += '</div>';
+			outCtnt += '<div class="row g-0">';
+			outCtnt += '<div class="aggr-filter-hdr d-inline-flex gray-1-border col-sm-8 text-dark">' + labelTxt;
+			outCtnt += '<div class="aggr-search-box d-inline-flex ms-3">';
+			outCtnt += '<input type="text" class="form-control f-13 ms-2 p-1 py-0 aggr-inner-search" data-field="' + byField +
+				'" placeholder="Search"></input></div></div>';
+			outCtnt += '<div class="aggr-filter-hdr d-inline-flex gray-1-border col-sm-4 text-dark">Count</div></div>';
+			outCtnt += '<div style="min-height:30vh !important;max-height:38vh !important;overflow-y: auto;">';
+			outCtnt += '<div class="aggr-filter-holder" data-field="' + byField + '">';
+			 outCtnt +=
+                '<div class="row g-0 gray-1-border iso-aggr-filter-entry" data-key="SelectAll"><div class="col-sm-8" data-role="filter-selector" data-field="' +
+                byField +
+                '" data-aggrval="SelectAll" data-aggrdisplayval="SelectAll"><i data-role="filter-field-selector" data-field="' +
+                byField +
+                '" data-aggrval="SelectAll" data-aggrdisplayval="SelectAll" class="fa-light fa-square cb_muted mx-1" aria-hidden="true"></i>Select/Deselect All</div></div>';
+			if (_.size(aggr.buckets) > 0) {
+				_.forEach(aggr.buckets, aggrEnt => {
+					let entKey = getFormattedValue(rowFormatters, byField, aggrEnt.key, aggrEnt.key);
+					let aggrvalue = aggrEnt.key;
+					let rangeStart = null;
+					let rangeEnd = null;
+					if (!_.isNil(aggrEnt["key_as_string"])) {
+						entKey = aggrEnt["key_as_string"];
+						aggrvalue = entKey;
+						if (filterData.isFieldDateType && filterData.isAppliedSourceCustomTab) {
+							rangeStart = aggrEnt.key;
+							rangeEnd = moment(aggrEnt.key).endOf('month').valueOf();
+						}
+					}else if (filterData.isFieldNumberType) {
+						console.log("aggrEnt.key##",aggrEnt.key);
+						rangeStart = aggrEnt.key / 1;
+						console.log("rangeStart##",rangeStart);
+						console.log("aggr##",aggr);
+						rangeEnd = rangeStart + (aggr.rangeInterval / 1);
+						console.log("rangeEnd##",rangeEnd);
+						console.log("rowFormatters##",rowFormatters);
+						console.log("byField##",byField);
+
+						entKey = getFormattedValue(rowFormatters, byField, rangeStart, rangeStart) + " to " +
+							getFormattedValue(rowFormatters, byField, rangeEnd, rangeEnd);
+						aggrvalue = rangeStart + RANGE_DELIMITER + rangeEnd;
+					}
+					outCtnt += '<div class="row g-0 gray-1-border iso-aggr-filter-entry" data-key="' + _.trim(
+						entKey) + '" data-val="' + aggrEnt.doc_count + '">';
+					outCtnt += '<div class="col-sm-8" data-role="filter-selector" data-field="' + byField +
+						'" data-aggrval="' + _.trim(aggrvalue) + '" data-aggrdisplayval="' + _.trim(entKey) + '">';
+					outCtnt += '<i data-role="filter-field-selector" data-field="' + byField + '" data-aggrval="' +
+						aggrvalue + '" data-aggrdisplayval="' + entKey + '" ';
+
+					if (isStandardFilterRangeinAppliedFilters(appliedFilters, filterData, aggrvalue, rangeStart,
+						rangeEnd)) {
+						if (aggrvalue === "Others") {
+							outCtnt += 'class="fa-solid fa-check cb_muted cb_selected mx-1"></i>';
+						} else {
+							outCtnt += 'class="fa-solid fa-check cb_muted cb_selected mx-1"></i>';
+						}
+					} else {
+						if (aggrvalue === "Others") {
+							outCtnt += 'class="fa-light fa-square cb_muted mx-1"></i>';
+						} else {
+							outCtnt += 'class="fa-light fa-square cb_muted mx-1"></i>';
+						}
+					}
+					outCtnt += entKey + '</div>';
+					outCtnt += '<div class="col-sm-4"><span class="ms-3">' + aggrEnt.doc_count + '</span></div>';
+					outCtnt += '</div>';
+				});
+			} else {
+				outCtnt += '<div class="row g-0">No data available</div>';
+			}
+			outCtnt += '</div></div>';
+			$("#filter-standard-tabcontent-" + byField).empty();
+			$("#filter-standard-tabcontent-" + byField).append(outCtnt);
+		}
+
+		function isStandardFilterRangeinAppliedFilters(appliedFilters, filterData, aggrBucketValue, aggrBucketStart,
+			aggrBucketEnd) {
+			let isRangeInAppliedFilters = false;
+
+			if (filterData != null) {
+				if (filterData.isAppliedSourceCustomTab) {
+					if (!filterData.standard.rangeToEnded) {
+						filterData.standard.rangeFromStarted = filterData.standard.rangeFromStarted || (aggrBucketStart >=
+							filterData.standard.rangeFrom);
+						if (!filterData.standard.rangeFromStarted && filterData
+							.isFieldNumberType
+						) { //First partial bucket selection.  For date type this is taken care in filter data.
+							filterData.standard.rangeFromStarted = (aggrBucketEnd >= filterData.standard.rangeFrom &&
+								aggrBucketEnd <= filterData.standard.rangeTo);
+						}
+						filterData.standard.rangeToEnded = (filterData.standard.rangeToEnded || (aggrBucketEnd > filterData
+							.standard.rangeTo));
+						if (filterData.standard.rangeToEnded && filterData
+							.isFieldNumberType) { //Last partial bucket selection
+							filterData.standard.rangeToEnded = !(aggrBucketStart >= filterData.standard.rangeFrom &&
+								aggrBucketStart <= filterData.standard.rangeTo);
+						}
+						isRangeInAppliedFilters = filterData.standard.rangeFromStarted && !filterData.standard.rangeToEnded;
+					}
+				} else {
+					isRangeInAppliedFilters = _.includes(appliedFilters, aggrBucketValue);
+				}
+			}
+
+			return isRangeInAppliedFilters;
+		}
+
+		function buildAggFilterGUICustomTabDatePicker(byField) {
+			console.log("displayNoData", displayNoData);
+			if (displayNoData === "false") {
+				let outCtnt = '';
+				let value1;
+				let value2;
+				if (_.isEmpty(datepickerObj)) {
+					value1 = "";
+					value2 = "";
+				} else {
+					value1 = moment(datepickerObj.from, "DD-MM-YYYY").format("YYYY-MM-DD");
+					value2 = moment(datepickerObj.to, "DD-MM-YYYY").format("YYYY-MM-DD");
+				}
+				outCtnt +=
+					'<div class="row g-0 pt-2 pb-2"><span>  <input type="radio" class="dp" id="datepicker" name="dateselection" value="datepicker" ><label style="margin:5px" for="datepicker">Select the desired date from date picker and apply.</label></span></div>';
+				outCtnt += '<div class="row"><div class="col-md-6"><input class="form-control" value="' + value1 +
+					'"  type="date" id="fromDate"></div><div class="col-md-6"><input class="form-control" value="' + value2 +
+					'"  type="date" id="toDate" ></div></div>';
+				$("#filter-custom-tabcontent-" + byField).append(outCtnt);
+				document.getElementById("fromDate").addEventListener("change",
+					function () {
+						let fromValue = this.value;
+						fromDatePicker = moment(fromValue).format('DD-MM-YYYY');
+						epochFrom = moment(fromDatePicker, "DD-MM-YYYY").valueOf();
+						datepickerObj = {
+							from: fromDatePicker,
+							epochFrom: epochFrom,
+							to: toDatePicker,
+							epochTo: epochTo
+						}
+					});
+				document.getElementById("toDate").addEventListener("change",
+					function () {
+						let toValue = this.value;
+						toDatePicker = moment(toValue).format('DD-MM-YYYY');
+						epochTo = moment(toDatePicker, "DD-MM-YYYY").valueOf();
+						datepickerObj = {
+							from: fromDatePicker,
+							epochFrom: epochFrom,
+							to: toDatePicker,
+							epochTo: epochTo
+						}
+					});
+
+				$(document).ready(function () {
+					$('input[type="radio"]').click(function () {
+						var value = $(this).val();
+						dateSelectionType = value;
+					});
+				});
+				if (dateSelectionType === "datepicker") {
+					$(".dp").attr("checked", true);
+				} else {
+					$(".dp").attr("checked", false);
+				}
+			} else {
+				outCtnt += '<div class="row g-0">No data available</div>';
+				$("#filter-custom-tabcontent-" + byField).empty();
+				$("#filter-custom-tabcontent-" + byField).append(outCtnt);
+			}
+
+		}
+
+		function buildAggFilterGUICustomTabContent(byField, aggr, appliedFilterValues, filterData) {
+			let rangeSliderId = 'filter-range-' + byField;
+			let outCtnt = '';
+			outCtnt +=
+				'<div class="row g-0"><div class="aggr-filter-hdr d-inline-flex gray-1-border col-sm-12 text-dark">Custom Filter</div></div>';
+
+			if (_.size(aggr.buckets) > 0) {
+				outCtnt +=
+					'<div class="row g-0 pt-2 pb-2"><span><input type="radio" class="dr" id="daterange" name="dateselection" value="daterange"><label style="margin:5px" for="daterange">Select the desired range and apply.</label></span></div>';
+				outCtnt += '<div class="ion-range-slider"><input type="hidden" id="' + rangeSliderId +
+					'" name="filter-range" class="js-range-slider"/></div>';
+				$("#filter-custom-tabcontent-" + byField).empty();
+				$("#filter-custom-tabcontent-" + byField).append(outCtnt);
+
+				//Apply the range slide configuration
+				let rangeSlideConfig = applyCustomeFilterRangeSliderConfig(byField, aggr, appliedFilterValues, filterData);
+				$("#" + rangeSliderId).ionRangeSlider(rangeSlideConfig);
+
+			} else {
+				outCtnt += '<div class="row g-0">No data available</div>';
+				$("#filter-custom-tabcontent-" + byField).empty();
+				$("#filter-custom-tabcontent-" + byField).append(outCtnt);
+			}
+			$(document).ready(function () {
+				$('input[type="radio"]').click(function () {
+					var value = $(this).val();
+					dateSelectionType = value;
+				});
+			});
+			if (dateSelectionType === "daterange") {
+				$(".dr").attr("checked", true);
+			} else {
+				$(".dr").attr("checked", false);
+			}
+		}
+
+		function applyCustomeFilterRangeSliderConfig(byField, aggr, appliedFilterValues, filterData) {
+			//Important: For date type field, the handling has been to use epoch in milliseconds.
+			let rangeSlideConfig = {};
+			if (!_.isEmpty(aggr.buckets) && !filterData.isFieldKeywordType) {
+				rangeSlideConfig = {
+					type: (filterData.isFieldNumberType) ? "double" : "date",
+					grid: true,
+					min: filterData.custom.rangeStart,
+					max: filterData.custom.rangeEnd,
+					from: filterData.custom.rangeFrom,
+					to: filterData.custom.rangeTo,
+					prettify: function (num) {
+						return getFormattedValue(rowFormatters, byField, num, num);
+					}
+				}
+			}
+			return rangeSlideConfig;
+		}
+
+		function loadSearchColumnsMenuDropdown(isReloadMenuItemsOnly = true) {
+			if (!isReloadMenuItemsOnly && !_.isEmpty(extFieldEngg)) {
+				//Populate the search columns menu
+				let htmlMenuItems = [];
+				let visibleSearchColumnsList = _.intersection(selColumns, mappingProps["kwdFields"]);
+				visibleSearchColumnsList = visibleSearchColumnsList || [];
+				_.forEach(extFieldEngg, field => {
+					if (field.entity_datatype === "keyword") {
+						let displayStyle = (visibleSearchColumnsList.includes(field.entity_name)) ? "display:block" :
+							"display:none";
+						let fieldLabel = field.entity_label || field.entity_name || '';
+						let checkBoxHtml = '<i data-role="col_selector" data-name="' + field.entity_name +
+							'" class="simple-dropdown-cb-muted mx-1 fa-square fa-light" type="checkbox" value="' +
+							field.entity_name + '"></i>'
+						htmlMenuItems.push('<div name="searchColumnsMenuItem" data-name="' + field.entity_name +
+							'" class="form-check simple-dropdown-menu-item" style="' + displayStyle + '">' +
+							checkBoxHtml + '<span>' + fieldLabel + '</span></div>');
+					}
+				});
+				$("#searchColumnsMenuItems").empty();
+				$("#searchColumnsMenuItems").append(htmlMenuItems.join(""));
+
+				//Handle search column selection event in menu
+				$('div[name="searchColumnsMenuItem"]').on('click', function (e) {
+					let selectedColumnName = $(this).attr('data-name');
+					let isSelect = !selSearchColumns.includes(selectedColumnName);
+					if (isSelect) {
+						selSearchColumns.push(selectedColumnName);
+					} else {
+						let index = selSearchColumns.indexOf(selectedColumnName);
+						selSearchColumns.splice(index, 1);
+					}
+					updateFieldItemSelection($(this), isSelect);
+				});
+
+				//Handle close button in search column menu
+				$("#searchColumnsMenuClose").on('click', function (e) {
+					$('#selectSearchColumn').dropdown('toggle');
+				});
+			} else if (isReloadMenuItemsOnly) {
+				//Reload visible columns and selection in search columns menu.  extFieldEngg is null at this time.
+				let visibleSearchColumnsList = _.intersection(selColumns, mappingProps["kwdFields"]);
+				visibleSearchColumnsList = visibleSearchColumnsList || [];
+				let newSelSearchColumns = [];
+				$('div[name="searchColumnsMenuItem"]').each(function (index, element) {
+					let columnName = $(this).attr("data-name");
+					let isColumnVisible = visibleSearchColumnsList.includes(columnName);
+					element.style.display = isColumnVisible ? "block" : "none";
+					let isSelect = (isColumnVisible && selSearchColumns.includes(columnName));
+					if (isSelect) {
+						newSelSearchColumns.push(columnName);
+					}
+					updateFieldItemSelection($(this), isSelect);
+				});
+				selSearchColumns = newSelSearchColumns;
+			}
+		}
+
+		function doApplySelectedColClasses() {
+			$('input[data-role="cb-col-selector"]').each(function () {
+				$(this).parent().removeClass("active");
+			});
+			$('input[data-role="cb-col-selector"]:checked').each(function () {
+				$(this).parent().addClass("active");
+			});
+		}
+
+		function loadTableProps(conf) {
+			if (_.isNil(mappingProps)) {
+				mappingProps = {};
+				$.ajax({
+					headers: conf.hdr,
+					url: conf.url.replace("/_msearch", "") + "/_mapping",
+					async: false,
+					type: 'GET',
+					crossDomain: true,
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function (response) {
+						//console.log("\n MAPPINGS "+JSON.stringify(response)); 
+						mappingProps["properties"] = response[conf.ds].mappings.properties;;
+						mappingProps["numFields"] = _.keys(_.pickBy(mappingProps["properties"], o => _.includes([
+							"long", "double", "float", "integer"
+						], o.type)));
+						mappingProps["kwdFields"] = _.keys(_.pickBy(mappingProps["properties"], o => o.type ===
+							"keyword"));
+						mappingProps["dtsFields"] = _.keys(_.pickBy(mappingProps["properties"], o => o.type ===
+							"date"));
+						mappingProps["txtFields"] = _.keys(_.pickBy(mappingProps["properties"], o => o.type ===
+							"text"));
+
+						let innHTMLs = [];
+						$("#kwd_cols").empty();
+						_.forEach(mappingProps["kwdFields"], fld => {
+							innHTMLs.push(
+								'<div class="form-check cb-col-selector"><input data-role="cb-col-selector" class="form-check-input" '
+							);
+							innHTMLs.push(_.includes(selColumns, fld) ? 'checked="checked" ' : ' ');
+							innHTMLs.push('type="checkbox" value="' + fld + '">');
+							innHTMLs.push('<label class="form-check-label" for="gridCheck">' + fld +
+								'</label></div>');
+						});
+						$("#kwd_cols").append(innHTMLs.join(""));
+
+						innHTMLs = [];
+						$("#num_cols").empty();
+						_.forEach(mappingProps["numFields"], fld => {
+							innHTMLs.push(
+								'<div class="form-check cb-col-selector"><input data-role="cb-col-selector" class="form-check-input" '
+							);
+							innHTMLs.push(_.includes(selColumns, fld) ? 'checked="checked" ' : ' ');
+							innHTMLs.push('type="checkbox" value="' + fld + '">');
+							innHTMLs.push('<label class="form-check-label" for="gridCheck">' + fld +
+								'</label></div>');
+						});
+						$("#num_cols").append(innHTMLs.join(""));
+
+						innHTMLs = [];
+						$("#dts_cols").empty();
+						_.forEach(mappingProps["dtsFields"], fld => {
+							innHTMLs.push(
+								'<div class="form-check cb-col-selector"><input data-role="cb-col-selector" class="form-check-input" '
+							);
+							innHTMLs.push(_.includes(selColumns, fld) ? 'checked="checked" ' : ' ');
+							innHTMLs.push('type="checkbox" value="' + fld + '">');
+							innHTMLs.push('<label class="form-check-label" for="gridCheck">' + fld +
+								'</label></div>');
+						});
+						$("#dts_cols").append(innHTMLs.join(""));
+
+						innHTMLs = [];
+						$("#txt_cols").empty();
+						_.forEach(mappingProps["txtFields"], fld => {
+							innHTMLs.push(
+								'<div class="form-check cb-col-selector"><input data-role="cb-col-selector" class="form-check-input" '
+							);
+							innHTMLs.push(_.includes(selColumns, fld) ? 'checked="checked" ' : ' ');
+							innHTMLs.push('type="checkbox" value="' + fld + '">');
+							innHTMLs.push('<label class="form-check-label" for="gridCheck">' + fld +
+								'</label></div>');
+						});
+						$("#txt_cols").append(innHTMLs.join(""));
+						doApplySelectedColClasses();
+					}
+				});
+			}
+			//console.log("BUILT TABLE PROPS :::: "+JSON.stringify(mappingProps));
+		}
+
+		function buildColumnTitle(iidx, colKey, label) {
+			let titleStr =
+				' '; //This should not be null or empty string.  Some of the fields not in extEngg will result in errors as data-bs-content is set empty.
+			let extEnggFiltered = _.last(_.filter(extFieldEngg, fieldDef => {
+				return fieldDef.entity_name === colKey;
+			}));
+			//console.log("\nFor column "+colKey+" config ::: "+JSON.stringify(extEnggFiltered));
+			if (!_.isNil(extEnggFiltered)) {
+				let title = [];
+				if (!_.isNil(extEnggFiltered.entity_label) && extEnggFiltered.entity_label.length > 0) {
+					title.push("<b>Label</b> : " + extEnggFiltered.entity_label);
+					label = extEnggFiltered.entity_label;
+				}
+				if (!_.isNil(extEnggFiltered.entity_desc) && extEnggFiltered.entity_desc.length > 0) {
+					title.push("<b>Description</b> : " + extEnggFiltered.entity_desc);
+				}
+				title.push("<b>Data-Type</b> : " + extEnggFiltered.entity_datatype);
+				title.push("<b>Sorting</b> : " + ((extEnggFiltered.entity_datatype === "text") ? "Not Available" :
+					"Available"));
+				titlStr = title.join("<br>");
+			}
+			if (_.isNil(label)) {
+				label = colKey
+			}
+			let outString = '<div class="w-100" style="position:relative" >';
+			outString += "<div data-col='" + colKey + "' data-label='" + label + "' class='th-hdr-right text-nowrap'>";
+			if (!_.isNil(extEnggFiltered) && extEnggFiltered.entity_datatype !== "text") {
+				outString += '<button id="closeButton" data-role="columnfilter" data-state="none" data-label="' + label +
+					'" data-col="' + colKey + '" data-type="' + extEnggFiltered.entity_datatype + '"';
+				outString +=
+					' class="btn btn-sm p-0 me-2"><i class="fa-duotone fa-filter" style="color:slateblue"></i></button>';
+				outString += '<button data-role="columnsort" data-state="desc" data-label="' + label + '" data-col="' +
+					colKey + '" data-col="' + extEnggFiltered.entity_datatype + '"';
+				outString +=
+					' class="btn btn-sm p-0 me-1"><i class="fa-duotone fa-sort" style="color:slateblue"></i></button>';
+			}
+			outString += '</div>';
+			outString += '<br/><div class="rowHDR text-nowrap" title=" Field : ' + colKey +
+				'" data-bs-toggle="popover" data-bs-trigger="click" ';
+			outString +=
+				'data-bs-customClass="adt-popover" data-bs-placement="bottom" data-bs-html="true"  data-bs-content="' +
+				titleStr + '">';
+			if (!_.isNil(extEnggFiltered)) {
+				let colKeyConf = _.head(_.filter(extFieldEngg, obj => {
+					return obj["entity_name"] === colKey
+				}));
+				if (!_.isNil(colKeyConf)) {
+					outString += '<i class="' + colKeyConf["entity_icon"] +
+						' mr-2 text-primary fw-light"></i><span class="fw-bold">';
+					outString += (!_.isNil(colKeyConf["entity_label"])) ?label : colKey;
+					outString += '</span>';
+				}
+			} else {
+				if (!_.isNil(label)) {
+					outString += label;
+				} else {
+					outString += colKey;
+				}
+			}
+			outString += '</div></div>';
+			return outString;
+		}
+
+		// Close popovers when clicking outside or on another column's description
+		$(document).on('click', function (e) {
+			$('[data-bs-toggle="popover"]').each(function () {
+				// Check if the clicked element is the popover toggle button or inside the popover content
+				if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target)
+					.length === 0) {
+					$(this).popover('hide');
+				}
+			});
+		});
+
+		function customizePropKeyAsClass(colKey) {
+			//return "class_"+colKey.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+			// return "class_" + _.toLower(_.snakeCase(colKey));
+			return "class_" + _.toLower(colKey);
+		}
+
+		function getFormattedValue(formatters, propKey, propValue,
+			defaultValue = null, renderCallbackOnError = (propKey, propValue, defaultValue) => {
+				return defaultValue || propValue
+			}) {
+			let formattedValue = defaultValue;
+			if (formatters[propKey] && !_.isNil(propValue) && formatters[propKey]["DEFAULT"]) {
+				try {
+					if (formatters[propKey]["DEFAULT"]["type"] === "MOMENT_Date") {
+						formattedValue = moment(propValue).format(formatters[propKey]["DEFAULT"]["config"]["opts"]["format"]);
+					} else if (formatters[propKey]["DEFAULT"]["type"] === "INTL_Date") {
+						let dateObject = new Date(propValue);
+						formattedValue = new Intl.DateTimeFormat(formatters[propKey]["DEFAULT"]["config"]["locale"],
+							formatters[propKey]["DEFAULT"]["config"]["opts"]).format(dateObject).replaceAll("/", "-");
+					} else if (formatters[propKey]["DEFAULT"]["type"] === "INTL") {
+						formattedValue = new Intl.NumberFormat(formatters[propKey]["DEFAULT"]["config"]["locale"], formatters[
+							propKey]["DEFAULT"]["config"]["opts"]).format(propValue);
+					} else if (formatters[propKey]["DEFAULT"]["type"] === "RoundOff") {
+						let conf = formatters[propKey]["DEFAULT"]["config"]["opts"]
+						formattedValue = parseFloat(propValue.toFixed(conf.length));
+					} else if (formatters[propKey]["DEFAULT"]["type"] === "Format_Date") {
+						let formatdate = propValue;
+						let trimValue = formatdate.slice(0, -3);
+						let dateObject = new Date(trimValue);
+						formattedValue = new Intl.DateTimeFormat(formatters[propKey]["DEFAULT"]["config"]["locale"],
+							formatters[propKey]["DEFAULT"]["config"]["opts"]).format(dateObject).replaceAll("/", "-");
+					}
+				} catch (error) {
+					formattedValue = renderCallbackOnError(propKey, propValue, defaultValue);
+				}
+			}
+			if (formatters[propKey] && formatters[propKey]["MASK"]) {
+				formattedValue = doMask(propKey, (formattedValue || propValue), formatters[propKey]["MASK"]["config"]["opts"]);
+			}
+			//console.log('[propKey='+propKey+'][propValue='+propValue+'][defaultValue='+defaultValue+']'+'[formattedValue='+formattedValue+']');
+			return formattedValue;
+		}
+
+		function doMask(propKey, propValue, maskConf) {
+			try {
+				if (typeof propValue !== "undefined" && propValue != null && maskConf.char != null) {
+					if (_.isNumber(propValue)) {
+						propValue = _.toString(propValue);
+					}
+					if ((maskConf.direction === "both") && ((maskConf.length * 2) < propValue.length)) {
+						propValue = _.repeat(maskConf.char, maskConf.length) +
+							propValue.substring(maskConf.length, (propValue.length - maskConf.length)) + _.repeat(
+								maskConf.char, maskConf.length);
+					} else if ((maskConf.direction === "left") && (maskConf.length < propValue.length)) {
+						propValue = _.repeat(maskConf.char, maskConf.length) + propValue.substring(maskConf.length,
+							propValue.length);
+					} else if ((maskConf.direction === "right") && (maskConf.length < propValue.length)) {
+						propValue = propValue.substring(0, (propValue.length - maskConf.length)) + _.repeat(maskConf
+							.char, maskConf.length);
+					} else {
+						propValue = _.repeat(maskConf.char, propValue.length);
+					}
+				}
+			} catch (error) {
+				console.log("ERROR while masking " + propKey);
+				propValue = "";
+			}
+			return propValue;
+		}
+
+		function buildRuntimeQuery() {
+			let runtimeMapping = {};
+			_.forEach(runtimeEntities, (runtimeEntitity, iidx) => {
+				if (_.size(runtimeEntitity) > 0) {
+					_.forEach(runtimeEntitity, entity => {
+						runtimeMapping[entity['runtime_field']] = {}
+						runtimeMapping[entity['runtime_field']]['type'] = entity['type']
+						runtimeMapping[entity['runtime_field']]['script'] = entity['script']
+					});
+				}
+			});
+			runtimeColumns = Object.keys(runtimeMapping);
+			runtimeMappings = runtimeMapping;
+			console.log("RUNTIME MAPPING SCRIPT>>>>>>>", runtimeMapping)
+
+		}
+        function buildSpecialLookupobj() {
+            _.forEach(specialtypesEntities1, (specialtypeEntitity, iidx) => {
+                console.log(specialtypeEntitity, "runtimeEntities")
+                if (_.size(specialtypeEntitity) > 0) {
+
+                    console.log(specialtypeEntitity, "runtimeEntities")
+                    // runtimeMapping[entity['runtime_field']] = {}
+                    // runtimeMapping[entity['runtime_field']]['type'] = entity['type']
+                    // runtimeMapping[entity['runtime_field']]['script'] = entity['script']
+
+
+                    let pQuery = {
+                        "query": {
+                            "bool": {
+                                "must": [
+
+
+                                ]
+                            }
+                        },
+                        "aggs": {
+                            "terms-aggs": {
+                                terms: {
+                                    field: specialtypeEntitity["entityName"],
+                                    size: 10000,
+                                    show_term_doc_count_error: true
+                                }
+                            }
+                        }
+                    };
+                    $.ajax({
+                        headers: incConfMap.hdr,
+                        url: incConfMap.url.replace("/_msearch", "") +
+                            "/_search?size=0&filter_path=aggregations",
+                        async: false,
+                        type: 'POST',
+                        data: JSON.stringify(pQuery),
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function (response) {
+
+                           
+                            const buckets = response.aggregations["terms-aggs"].buckets;
+                           
+                            buckets.forEach(bucket => {
+                                const key = bucket.key;
+                             
+                                resultArray.push(key);
+                            });
+
+                        }
+                    });
+                    // console.log(resultArray, "responsetest")
+                    //   let envConfig = Helpers.getElasticCredentials();;
+                    let dataURL;
+                    let authHeader;
+                    dataURL = "https://sivi-healthcare-utilities.es.us-east4.gcp.elastic-cloud.com";
+                    //   authHeader = envConfig.authhdr;
+                    //   //Replace the below with Usual Elastic Way. FOr now, hardcoded to DHMP
+                    let column=specialtypeEntitity['lookup-by']
+                    lookupColumns.push(specialtypeEntitity);
+                    lookupTarget.push(specialtypeEntitity['target'])
+                    let pURL = dataURL + "/" + specialtypeEntitity.type + "/_search?size=" + 10000;
+                    let compactMappings = null;
+                    let pQuery1 = {
+                        "query": {
+                            "bool": {
+                                "must": [{
+                                    "terms": {
+                                        [column]:resultArray
+                                    }
+                                }
+
+                                ]
+                            }
+                        }
+
+                    };
+                    $.ajax(
+                        {
+                            headers: {
+                                Authorization: hcUtilsAUTH
+                            },
+                            url: pURL, async: false, data: JSON.stringify(pQuery1),
+                            type: 'POST', crossDomain: true, dataType: 'json', contentType: 'application/json',
+                            success: function (response) {
+                                // console.log(response, "responsecompactMappings")
+                                if (response && response.hits && response.hits.hits) {
+                                    response.hits.hits.forEach(hit => {
+                                        // console.log(hit, "lookupValuecompactMappings")
+                                        lookupValue.push(hit._source);
+                                    });
+                                }
+
+                                // console.log(lookupValue, "lookupValuecompactMappings")
+                            },
+                            error: function (error) {
+                                console.log("ERROR happened >>>> " + error);
+                                return null;
+                            }
+                        });
+
+                }
+            });
+
+        }
+   
+		function getMergedSource(fields, source) {
+			_.forEach(fields, (field, iidx) => {
+				source[iidx] = field[0];
+			});
+			return source
+		}
+
+        function getMergedSources(fields, source) {
+           
+            _.forEach(fields, (field, iidx) => {
+                source._source[iidx] = field[0];
+            });
+            return source._source
+
+        }
+        function containsDisplayValue(srcDataS) {
+            if (srcDataS.hasOwnProperty('displayValue')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+		function buildLoadContainer() {
+			let retHTML = '<div id="loadTimer" style="display:none"></div>';
+			retHTML += '<div id="loadError" style="display:none" class="alert alert-danger">';
+			retHTML += '<div class="row">';
+			retHTML += '<div class="col-sm-3">&nbsp;</div>';
+			retHTML += '';
+			retHTML += '<div id="dt_error_message" class="text-danger col-sm-6 text-center">';
+			retHTML += '</div>';
+			retHTML += '';
+			retHTML += '<div class="col-sm-3 text-end">';
+			retHTML += '<button id="close_processing" style="background:transparent;color:#3f67b0;" type="button">';
+			retHTML += '<i class="fa-solid fa-circle-xmark" style="font-size:25px"></i></button>';
+			retHTML += '</div>';
+			retHTML += '</div>';
+			retHTML += '</div>';
+			retHTML += '<div id="loadSpinner" class="spinner"></div>';
+			retHTML += '';
+			retHTML += '';
+			//<button style="background:transparent;color:#3f67b0;" type="button"><i class="fa-solid fa-circle-xmark" style="font-size:25px"></i></button>
+			//'<div id="loadTimer" style="display:none"></div><div id="loadError" style="display:none" class="alert alert-danger"></div><div id="loadSpinner" class="spinner"></div>'
+			return retHTML;
+		}
+
+		function triggerDataTable(configMap) {
+
+			//if (!_.isEmpty(runtimeColumns)) {
+			//selColumns = selColumns.concat(runtimeColumns);
+			//}	
+			console.log("Incoming Config JSON MAP " + JSON.stringify(configMap, null, 1));
+			if (configMap.downloadOption) {
+				$("#downloadButton").show();
+			} else {
+				$("#downloadButton").hide();
+			}
+
+			$("#loadSpinner").show();
+			$("#loadError").hide();
+			console.log("Re-Triggerr DataTable >>>>> ");
+			if ($.fn.DataTable.isDataTable('#example')) {
+				$('#example').DataTable().destroy();
+			}
+			$('#example thead').empty();
+			$('#example tbody').empty();
+			let heighCal = (65 * $("#sdt_wrapper").height()) / 100;
+			console.log("sdt_wrapper " + $("#sdt_wrapper").height() + " vs 75% --> " + heighCal);
+			$('#example > thead > tr ').html(_.map(Object.keys(mappingProps["properties"]), colDef => {
+				return "<th></th>"
+			}).join(""));
+			let invisibles = [];
+			let diffs = _.union(selColumns, runtimeColumns, Object.keys(mappingProps["properties"]));
+			//let diffs = _.union(selColumns,runtimeColumns);
+			myTable = $('#example')
+				.on("draw.dt", function () {
+					$("#example_processing").fadeOut(100);
+				})
+				.DataTable({
+					pageLength: 20,
+					lengthMenu: [10, 20, 25, 50, 100, 500, 1000, 5000, 10000],
+					bInfo: true,
+					stateSave: false,
+					ordering: false,
+					//fixedColumns: { left: 2 },
+					fixedHeader: true,
+					pagingType: "simple_numbers",
+					dom: "<'row'<'col-sm-2 h-45px'l><'col-sm-7 action-info-holder d-inline-flex'><'col-sm-3'p>><'row'<'col-sm-12 dtbody'tr>><'row'<'col-sm-6'i><'col-sm-6'p>>",
+					columns: _.map(diffs, (propKey, iidx) => {
+						let retData = {
+							data: propKey,
+							defaultContent: "",
+							visible: _.includes(selColumns, propKey),
+							render: function (data, type, row, meta) {
+								if (type === "display") {
+									downlodDetails = configMap
+									//console.log(downlodDetails,"downlodDetails");
+									let propDefaultValue = (!_.isNil(row[propKey])) ? row[propKey] :
+										""; //Set this to empty string after refactoring based on the current behavior of application.
+									let propValue = getFormattedValue(rowFormatters, propKey, row[
+										propKey], propDefaultValue);
+									if (!_.isNil(propValue)) {
+										displayValue = propValue;
+									} else {
+										displayValue = data;
+									}
+									if (configMap.downloadData.departmentName === "sarvodhyadept" &&
+										configMap.origin && configMap.map360 && propKey ===
+										"RegistrationNo") {
+										let outHTML = '<div class="d-inline-flex">';
+										outHTML += '<button class="btn btn-sm mr-2" data-origin="' +
+											configMap.origin + '" data-route="' + data +
+											'" data-ext-launch="p360">';
+										outHTML +=
+											'<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
+										outHTML +=
+											'<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
+										outHTML += '</div></button>';
+										outHTML +=
+											'<button class="btn btn-sm btn-outline-primary" data-origin="' +
+											configMap.origin +
+											'" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
+											data + '" ';
+										outHTML += 'data-ext-launch="journey"><i class="' + data +
+											' mr-1"></i>';
+										outHTML += data;
+										outHTML += '</button>';
+										return outHTML;
+									}
+									if (configMap.origin && configMap.map360 && propKey === "sqml_pat_mrn" || propKey === "ent_rid" ||propKey === "pat_mrn" ||propKey === "patient_id") {
+										let outHTML = '<div class="d-inline-flex">';
+										outHTML += '<button class="btn btn-sm mr-2" data-origin="' +
+											configMap.origin + '" data-route="' + data +
+											'" data-ext-launch="p360">';
+										outHTML +=
+											'<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
+										outHTML +=
+											'<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
+										outHTML += '</div></button>';
+										outHTML +=
+											'<button class="btn btn-sm btn-outline-primary" data-origin="' +
+											configMap.origin +
+											'" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
+											data + '" ';
+										outHTML += 'data-ext-launch="journey"><i class="' + data +
+											' mr-1"></i>';
+										outHTML += displayValue;
+										outHTML += '</button>';
+										return outHTML;
+									}
+									if (configMap.origin && configMap.map360 && propKey === "PatientPKid") {
+										let outHTML = '<div class="d-inline-flex">';
+										outHTML += '<button class="btn btn-sm mr-2" data-origin="' +
+											configMap.origin + '" data-route="' + data +
+											'" data-ext-launch="p360">';
+										outHTML +=
+											'<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
+										outHTML +=
+											'<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
+										outHTML += '</div></button>';
+										outHTML +=
+											'<button class="btn btn-sm btn-outline-primary" data-origin="' +
+											configMap.origin +
+											'" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
+											data + '" ';
+										outHTML += 'data-ext-launch="journey"><i class="' + data +
+											' mr-1"></i>';
+										outHTML += data;
+										outHTML += '</button>';
+										return outHTML;
+									}
+									if (configMap.origin && configMap.map360 && propKey === "AccountNumber") {
+										let outHTML = '<div class="d-inline-flex">';
+										outHTML += '<button class="btn btn-sm mr-2" data-origin="' +
+											configMap.origin + '" data-route="' + data +
+											'" data-ext-launch="p360">';
+										outHTML +=
+											'<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
+										outHTML +=
+											'<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
+										outHTML += '</div></button>';
+										outHTML +=
+											'<button class="btn btn-sm btn-outline-primary" data-origin="' +
+											configMap.origin +
+											'" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
+											data + '" ';
+										outHTML += 'data-ext-launch="journey"><i class="' + data +
+											' mr-1"></i>';
+										outHTML += data;
+										outHTML += '</button>';
+										return outHTML;
+									}
+									if (configMap.downloadData.departmentName === "ramachandra" &&
+										configMap.origin && configMap.map360 && propKey ===
+										"sqml_applicant_id") {
+										let outHTML = '<div class="d-inline-flex">';
+										outHTML += '<button class="btn btn-sm mr-2" data-origin="' +
+											configMap.origin + '" data-route="' + data +
+											'" data-ext-launch="p360">';
+										outHTML +=
+											'<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
+										outHTML +=
+											'<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
+										outHTML += '</div></button>';
+										outHTML +=
+											'<button class="btn btn-sm btn-outline-primary" data-origin="' +
+											configMap.origin +
+											'" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
+											data + '" ';
+										outHTML += 'data-ext-launch="journey"><i class="' + data +
+											' mr-1"></i>';
+										outHTML += data;
+										outHTML += '</button>';
+										return outHTML;
+									}
+									if (configMap.origin && configMap.map360 && (propKey ===
+										"memberID" || propKey === configMap.map360.field)) {
+										let outHTML = '<div class="d-inline-flex">';
+										outHTML += '<button class="btn btn-sm mr-2" data-origin="' +
+											configMap.origin + '" data-route="' + data +
+											'" data-ext-launch="p360">';
+										outHTML +=
+											'<div class="circle-orbit-container"><div class="inner-orbit"><div class="inner-orbit-cirlces">&nbsp;</div></div>';
+										outHTML +=
+											'<i class="fa-duotone fa-360-degrees" style="left:6px;top:10px;"></i>';
+										outHTML += '</div></button>';
+										outHTML +=
+											'<button class="btn btn-sm btn-outline-primary" data-origin="' +
+											configMap.origin +
+											'" style="height:35px;padding:0.15rem 0.25rem" data-route="' +
+											data + '" ';
+										outHTML += 'data-ext-launch="journey"><i class="' + data +
+											' mr-1"></i>';
+										outHTML += displayValue;
+										outHTML += '</button>';
+										return outHTML;
+									} else {
+										let propDefaultValue = (!_.isNil(row[propKey])) ? row[propKey] :
+											""; //Set this to empty string after refactoring based on the current behavior of application.
+										let propValue = getFormattedValue(rowFormatters, propKey, row[
+											propKey], propDefaultValue, (propKey, propValue,
+												defaultValue) => {
+											//return '<div class="value-row text-danger" data-col="' + propKey + '">***' + propValue + '</div>';
+											return propValue;
+										});
+										return propValue;
+									}
+								}
+							},
+							className: customizePropKeyAsClass(propKey),
+							title: buildColumnTitle(iidx, propKey)
+						}
+						return retData;
+					}),
+					infoCallback: function (settings, start, end, max, total, pre) {
+						totalRecord = total
+						console.log(total,end,"total")
+						if (total == 0) return "Showing 0 to 0 of 0 entries";
+
+						let info = `Showing ${start} to ${end} of ${total} entries`;
+
+						if (!isNaN(max) && max !== total) {
+							info += ` (${max} Unique entries)`;
+						}
+						return info;
+					},
+					processing: true,
+					serverSide: true,
+					language: {
+						loadingRecords: '&nbsp;',
+						processing: buildLoadContainer()
+					},
+					ajax: $.fn.dataTable.pipeline({
+						pages: 1,
+						hdr: configMap.hdr,
+						url: configMap.url,
+						ds: configMap.ds,
+						qry: configMap.query
+					}),
+					scrollY: heighCal + "px",
+					scrollX: true,
+					sScrollXInner: "100%",
+					scrollCollapse: true,
+					drawCallback: function (settings) {
+						//adding runtime columns to table...
+						// if (!_.isEmpty(runtimeEntities)) {
+						// _.forEach(runtimeEntities, (runtimeEntitity, iidx) => {
+						// if (_.includes(selColumns, iidx)) {
+						// 	if (_.size(runtimeEntitity) > 0) {
+						// 		_.forEach(runtimeEntitity, entity => {
+						// 			if (!_.includes(selColumns, entity['runtime_field'])) {
+						// 				selColumns = selColumns.concat(entity['runtime_field']);
+						// 				if (entity['disableParent']) {
+						// 					let index = selColumns.indexOf(iidx);
+						// 					selColumns.splice(index, 1);
+						// 				}
+						// 			}
+						// 		});
+						// 	}
+						// }
+						// });
+						// }	
+						let drawCallbackStart = moment().valueOf();
+						$("#loadError").hide();
+						$("#loadSpinner").show();
+						myTable.columns().visible(false)
+						_.forEach(selColumns, selCol => {
+							myTable.columns("." + customizePropKeyAsClass(selCol)).visible(true);
+						});
+						if (myTable.data().length === 0) {
+							displayNoData = "true";
+							if ($("#dt_search").val().trim() !== "") {
+								$("#example tbody").html('<tr><td  class="dataTables_empty" colspan="' + myTable
+									.columns().visible().count() + '">No Matching Records Found</td></tr>');
+							} else {
+								$("#example tbody").html('<tr><td  colspan="' + myTable.columns().visible().count() +
+									'"><div class ="noDataTables">No Data Available</div></td></tr>');
+							}
+						}
+						console.log("Draw Callback Done " + (moment().valueOf() - drawCallbackStart) + " ms");
+					},
+					"fnInitComplete": function (oSettings, json) {
+						$("#sdt_wrapper_loader").hide();
+						$("#sdt_wrapper").show();
+						myTable.columns.adjust().draw();
+						try {
+							$('[data-bs-toggle="popover"]').popover();
+						} catch (error) {
+							console.log("Popover error " + error);
+						}
+					}
+				});
+			setTimeout(function () {
+				$("#sdt_wrapper").show();
+				extFieldEngg = null;
+			}, 100)
+		}
+		$(document).ready(function () {
+			function checkConditionsAndDownload() {
+				let maxRecord;
+				// Get the total number of records in the whole DataTable
+				let indexDetails = {
+					"index_name": downlodDetails.ds
+				}
+				let dataset = indexDetails.index_name
+				$.ajax({
+					headers: downlodDetails.hdr,
+					url: downlodDetails.url.replace("/_msearch", "") + "/_settings",
+					async: false,
+					type: 'GET',
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function (response) {
+
+						if (dataset != undefined || dataset != "") {
+							if (response[dataset].settings.index.max_result_window) {
+								maxRecord = response[indexDetails.index_name].settings.index
+									.max_result_window;
+							}
+						}
+					}
+				});
+				var totalRecordsCount = myTable.page.info().recordsTotal;
+				// var totalRecordsCount = 1000;
+				if (searchFilterQuery != null || popupFilter != null) {
+					totalRecordsCount = myTable.page.info().recordsTotal;
+					if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
+						.length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >= 26 &&
+						selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
+							.length <= 36 && totalRecord > 1500) {
+						document.getElementById('limitColumns').style.display = 'block';
+						document.getElementById('limit37Columns').style.display = 'none';
+					}
+					if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns.length <=
+						36) {
+						$("#myModal").modal("show");
+					} else if (totalRecord == 0 || totalRecord < 10000 && selColumns.length < 14 || totalRecord <
+						4000 && selColumns.length >= 26 && selColumns.length <= 30 || totalRecord < 5000 && selColumns
+							.length >= 18 && selColumns.length <= 25 || selColumns.length >= 14 && selColumns.length <=
+							17 && totalRecord < 7000 || totalRecord < 2000 && selColumns.length >= 31 && selColumns
+								.length <= 36 || selColumns.length >= 37) {
+						$("#DownloadNoModel").modal("show");
+					} else if (totalRecord > 10000 && totalRecord != 0 && selColumns.length < 14) {
+						$("#DownloadFilterModel").modal("show");
+					}
+
+				} else {
+					totalRecordsCount = myTable.page.info().recordsTotal;
+					if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
+						.length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >= 26 &&
+						selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
+							.length <= 36 && totalRecord > 1500) {
+						document.getElementById('limitColumns').style.display = 'block';
+						document.getElementById('limit37Columns').style.display = 'none';
+					}
+					if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns.length <=
+						36) {
+						$("#myModal").modal("show");
+					} else if (totalRecord == 0 || totalRecord < 10000 && selColumns.length < 14 || totalRecord <
+						4000 && selColumns.length >= 26 && selColumns.length <= 30 || totalRecord < 5000 && selColumns
+							.length >= 18 && selColumns.length <= 25 || selColumns.length >= 14 && selColumns.length <=
+							17 && totalRecord < 7000 || totalRecord < 2000 && selColumns.length >= 31 && selColumns
+								.length <= 36 || selColumns.length > 36) {
+						$("#DownloadNoModel").modal("show");
+					} else if (totalRecord > 10000 && totalRecord != 0 && selColumns.length < 14) {
+						$("#DownloadModel").modal("show");
+					}
+				}
+			}
+
+			function checkConditionsCSVAndDownload(buttonElement, modalId) {
+				// Get the total number of records in the whole DataTable
+				var totalRecordsCount = myTable.page.info().recordsTotal;
+				// var totalRecordsCount = 1000;
+				$("#totalRecordsCount").text(totalRecordsCount);
+				if (searchFilterQuery != null || popupFilter != null) {
+					query = searchQuery;
+					query["_source"] = selColumns.filter(e => e !== 'S_No');
+				} else {
+					query = downlodDetails.query;
+					delete query["runtime_mappings"];
+					// for getting the runtime columns 
+					if (!_.isEmpty(runtimeEntities) && !_.isEmpty(runtimeMappings)) {
+						query["runtime_mappings"] = runtimeMappings;
+						query["fields"] = runtimeColumns;
+					}
+					query["_source"] = selColumns.filter(e => e !== 'S_No');
+				}
+				let title = downlodDetails.downloadData.title;
+				datasExport = {
+					"department_name": downlodDetails.downloadData.departmentName,
+					"es_query": query,
+					"file_name": downlodDetails.downloadData.title,
+					"file_type": "csv",
+					"index_name": downlodDetails.ds
+				}
+				var modalBody = buttonElement.closest(".modal-content").find(".modal-body");
+				showLoader(modalBody);
+				let envUrl = downlodDetails.downloadData.environmentUrl
+				$.ajax({
+					type: 'POST',
+					url: envUrl + 'downloadfile',
+					data: JSON.stringify(datasExport),
+					async: false,
+					dataType: 'text',
+					contentType: 'application/text',
+					success: function (response) {
+						let blob = new Blob([response], {
+							type: 'application/octet-stream'
+						});
+						let link = document.createElement("a");
+						let fileName = title;
+						fileName += '.csv';
+						if (link.download !== undefined) {
+							let url = URL.createObjectURL(blob);
+							link.setAttribute("href", url);
+							link.setAttribute("download", fileName);
+							document.body.appendChild(link);
+							link.click();
+							document.body.removeChild(link);
+						}
+						hideLoader(modalBody);
+					},
+					error: function (error) {
+						console.log("ERROR happened >>>> ", error);
+						hideLoader(modalBody);
+						return null;
+					},
+					complete: function () {
+						hideLoader(modalBody);
+					}
+				});
+
+				// if (searchTerms) {
+				// 		if (totalFilterCount < 10000 ) {
+				// 			$("#DownloadModel").modal("show");
+				// 	} 
+				// 	}
+				// else{
+				// 	if((totalRecordsCount < 10000) ){
+				// 		console.log(totalRecordsCount, "totalRecordsCount")
+
+				// 		$("#DownloadModel").modal("show");
+
+				// 	} else if (totalRecordsCount > 10000) {
+
+				// 		$("#myModal").modal("show");
+
+				// 	}
+				// }
+			}
+
+			function checkConditionsJSONAndDownload(buttonElement, modalId) {
+				var totalRecordsCount = myTable.page.info().recordsTotal;
+				// var totalRecordsCount = 1000;
+				$("#totalRecordsCount").text(totalRecordsCount);
+				if (searchFilterQuery != null || popupFilter != null) {
+					query = searchQuery;
+					query["_source"] = selColumns.filter(e => e !== 'S_No');
+				} else {
+					query = downlodDetails.query;
+					delete query["runtime_mappings"];
+					// for getting the runtime columns 
+					if (!_.isEmpty(runtimeEntities) && !_.isEmpty(runtimeMappings)) {
+						query["runtime_mappings"] = runtimeMappings;
+						query["fields"] = runtimeColumns;
+					}
+					query["_source"] = selColumns.filter(e => e !== 'S_No');
+				}
+
+				let title = downlodDetails.downloadData.title;
+				datasExport = {
+					"department_name": downlodDetails.downloadData.departmentName,
+					"es_query": query,
+					"file_name": downlodDetails.downloadData.title,
+					"file_type": "xlsx",
+					"index_name": downlodDetails.ds
+				}
+				var modalBody = buttonElement.closest(".modal-content").find(".modal-body");
+				showLoader(modalBody);
+				let envUrl = downlodDetails.downloadData.environmentUrl
+				$.ajax({
+					type: 'POST',
+					url: envUrl + 'downloadfile',
+					data: JSON.stringify(datasExport),
+					async: false,
+					dataType: "text",
+					contentType: "application/json",
+					xhrFileds: {
+						responseType: 'blob'
+					},
+					beforeSend: function (request) {
+						request.overrideMimeType('text/plain; charset=x-user-defined');
+					},
+					success: function (response) {
+						console.log(response);
+						let fileName = title;
+						fileName += '.xlsx';
+						var i = 0,
+							dataArray = new Uint8Array(response.length);
+						for (; i < response.length; i++) {
+							dataArray[i] = response.charCodeAt(i)
+						}
+						var blob = new Blob([dataArray.buffer], {
+							type: "application/octet-stream"
+						});
+						let link = document.createElement('a');
+						link.download = fileName;
+
+						let reader = new FileReader();
+						reader.readAsDataURL(blob);
+
+						reader.onload = function () {
+							link.href = reader.result;
+							link.click();
+						};
+						hideLoader(modalBody);
+					},
+					error: function (error) {
+						console.log("ERROR happened >>>> ", error);
+						hideLoader(modalBody);
+						return null;
+					},
+					complete: function () {
+						hideLoader(modalBody);
+					}
+				});
+
+				// if (searchTerms) {
+				// 		if (totalFilterCount < 10000 ) {
+				// 			$("#DownloadModel").modal("show");
+				// 	}  else{
+
+				// 		$("#myModal").modal("show");
+
+				// 	}
+				// }
+				// else{
+				// 	if((totalRecordsCount < 10000) ){
+				// 	   $("#DownloadModel").modal("show");
+				// 	} else if (totalRecordsCount > 10000) {
+				// 		$("#myModal").modal("show");
+				// 	}
+				// }
+			}
+
+			$("#closePopupButton").on("click", function () {
+				$("#myModal").modal("hide");
+			});
+
+			$("#closeFilterButton").on("click", function () {
+				$("#DownloadFilterModel").modal("hide");
+			});
+
+			$("#closeDownloadButton").on("click", function () {
+				$("#DownloadModel").modal("hide");
+			});
+			$("#closeNODownloadButton").on("click", function () {
+				$("#DownloadNoModel").modal("hide");
+			});
+
+			$("#downloadButton").on("click", function () {
+				// document.getElementById('limitColumns').style.display = 'none';
+				// document.getElementById('limitColumnsandrows').style.display = 'none';
+				checkConditionsAndDownload();
+			});
+
+			$(document).on("click", "#downloadCSV", function () {
+				var modalBody = $(this).closest(".modal-content").find(".modal-body");
+				var modalId = "#myModal";
+				var originalContent = showLoader(modalBody);
+				setTimeout(function () {
+					checkConditionsCSVAndDownload(modalBody, modalId);
+					modalBody.html(originalContent);
+					$(modalId).modal("hide");
+				}, 100);
+
+			});
+
+			$(document).on("click", "#downloadCSVFilter", function () {
+				var modalBody = $(this).closest(".modal-content").find(".modal-body");
+				var modalId = "#DownloadFilterModel";
+				var originalContent = showLoader(modalBody);
+				setTimeout(function () {
+					checkConditionsCSVAndDownload(modalBody, modalId);
+					modalBody.html(originalContent);
+					$(modalId).modal("hide");
+				}, 100);
+
+			});
+			$(document).on("click", "#downloadNOCSVRecords", function () {
+				console.log(selColumns.length, "selColumns.length")
+				if (selColumns.length >= 37) {
+					document.getElementById('limit37Columns').style.display = 'block';
+				} else {
+					document.getElementById('limit37Columns').style.display = 'none';
+					var modalBody = $(this).closest(".modal-content").find(".modal-body");
+
+					var modalId = "#DownloadNoModel";
+					var originalContent = showLoader(modalBody);
+					setTimeout(function () {
+						checkConditionsCSVAndDownload(modalBody, modalId);
+						modalBody.html(originalContent);
+						$(modalId).modal("hide");
+					}, 100);
+				}
+			});
+			$(document).on("click", "#downloadCSVRecords", function () {
+				var modalBody = $(this).closest(".modal-content").find(".modal-body");
+				var modalId = "#DownloadModal";
+				var originalContent = showLoader(modalBody);
+				setTimeout(function () {
+					checkConditionsCSVAndDownload(modalBody, modalId);
+					modalBody.html(originalContent);
+					$(modalId).modal("hide");
+				}, 100);
+
+			});
+
+			$(document).on("click", "#downloadJSON", function () {
+				// commenting for testing in dev 
+				var modalBody = $(this).closest(".modal-content").find(".modal-body");
+				var modalId = "#myModal";
+				var originalContent = showLoader(modalBody);
+				setTimeout(function () {
+					checkConditionsJSONAndDownload(modalBody, modalId);
+					modalBody.html(originalContent);
+					$(modalId).modal("hide");
+				}, 100);
+
+
+			});
+
+
+			$(document).on("click", "#downloadJSONFilter", function () {
+				var modalBody = $(this).closest(".modal-content").find(".modal-body");
+				var modalId = "#DownloadFilterModel";
+				var originalContent = showLoader(modalBody);
+				setTimeout(function () {
+					checkConditionsJSONAndDownload(modalBody, modalId);
+					modalBody.html(originalContent);
+					$(modalId).modal("hide");
+				}, 100);
+
+			});
+			$(document).on("click", "#downloadNOJSONRecords", function () {
+				if (selColumns.length >= 37) {
+					document.getElementById('limit37Columns').style.display = 'block';
+				} else {
+					document.getElementById('limit37Columns').style.display = 'none';
+					var modalBody = $(this).closest(".modal-content").find(".modal-body");
+					var modalId = "#DownloadNoModel";
+					var originalContent = showLoader(modalBody);
+					setTimeout(function () {
+						checkConditionsJSONAndDownload(modalBody, modalId);
+						modalBody.html(originalContent);
+						$(modalId).modal("hide");
+					}, 100);
+				}
+			});
+
+			$(document).on("click", "#downloadJSONRecords", function () {
+				// commenting for testing in dev 
+				var modalBody = $(this).closest(".modal-content").find(".modal-body");
+				var modalId = "#DownloadModal";
+				var originalContent = showLoader(modalBody);
+				setTimeout(function () {
+					checkConditionsJSONAndDownload(modalBody, modalId);
+					modalBody.html(originalContent);
+					$(modalId).modal("hide");
+				}, 100);
+
+			});
+
+
+		});
+
+		function showLoader(modalBody) {
+			// Store the original content of the modal body
+			var originalContent = modalBody.html();
+
+			var loaderHTML = `
+					<div class="loader-container modal-loader">
+						<div class="loader"></div>
+						<div class="csvLoaderMessage">Please wait while downloading...</div>
+					</div>
+				`;
+			modalBody.html(loaderHTML);
+
+			// Return the original content so you can restore it later
+			return originalContent;
+		}
+
+		function hideLoader(modalBody) {
+			modalBody.find(".modal-loader").remove();
+		}
+	</script>
+</head>
+
+<body style="position:relative;overflow-x:hidden !important">
+	<div id="sdt_wrapper_loader" class="my-2 w-100 text-center alert alert-light">
+		<div id="sdt_wrapper_loader_message" class="text-center" style="height:30px;line-height:30px;">Loading</div>
+		<div class="spinner-border text-info" role="status">
+			<span class="sr-only"></span>
+		</div>
+	</div>
+	<div id="sdt_wrapper" class="w-100"
+		style="display:none;margin:10px; border:0px solid #CCC;border-radius:4px;padding:0px 10px; width:100% !important; height: 95% !important">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group fill mb-0 px-0 w-100 d-inline-flex " style="margin-left:-10px">
+					<div class="w-100 esstyle d-inline-flex ">
+						<input type="text" class="form-control f-13" id="dt_search" placeholder="Enter Search"
+							style="min-width:80%;min-height:35px;border-radius: 0px;border-color: transparent;background-color: transparent;">
+						<button title="WildCard Search" id="searchWildCard" data-state="off"
+							class="mt-1 btn btn-sm btn-outline-info wildcard-btn"
+							style="position: relative;height: 28px;">
+							<i class="fa-solid fa-star-shooting ml-2"></i>
+						</button>
+						<div class="dropdown">
+							<button title="Customize Column Search" id="selectSearchColumn"
+								class="mt-1 btn btn-sm btn-outline-info dropdown-toggle has-ripple mr-2" type="button"
+								data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false" style="position: relative;height:28px;">
+								<i class="fa-light fa-columns-3"></i>
+							</button>
+							<div id="searchColumnsMenu"
+								class="dropdown-menu esstyle customize-columns simple-dropdown-menu p-3"
+								x-placement="bottom-end">
+								<div class="h-100 overflow-hidden">
+									<div class="simple-dropdown-menu-header">
+										<div class="row text-end">
+											<div class="col-sm-10 text-start">
+												<span style="font-size: 13px;">Select the column(s) to apply wild card
+													search /search.</span>
+											</div>
+											<div class="col-sm-2 text-end">
+												<button id="searchColumnsMenuClose" type="button" class="btn-close"
+													aria-label="Close"></button>
+											</div>
+										</div>
+									</div>
+									<div class="overflow-auto simple-dropdown-menu-content">
+										<div class="row h-100">
+											<div class="alert alert-primary simple-dropdown-menu-items"
+												id="searchColumnsMenuItems">&nbsp;</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button id="doKwdSearch" class="btn btn-sm btn-primary"
+						style="height:35px;padding:2px 10px">Search</button>
+					&nbsp;&nbsp;
+					<button id="doKwdClear" class="btn btn-sm btn-secondary shadow-none"
+						style="height:35px;padding:2px 10px">Reset</button>
+					<button id="downloadButton" class="btn btn-sm btn-primary 
+						cursor-pointer" style="height: 35px; padding: 2px 10px;margin:0px 8px">Download</button>
+					<div class="col-sm-3 text-right text-end">
+						<div id="col-selector-panel" class="btn-group mb-2 mr-2 col-selector-panel">
+							<button id="enhanced_columns_trigger" class="btn btn-sm btn-primary mr-1" type="button"
+								aria-haspopup="true" aria-expanded="false"
+								style="border-radius: 3px !important;height: 32px !important;">
+								Customize Columns
+							</button>
+							<!---<button id="customize_columns_trigger" class="btn btn-sm btn-primary dropdown-toggle has-ripple mr-2" 
+							type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" 
+							aria-haspopup="true" aria-expanded="false">
+							<i class="fa-light fa-columns-3"></i>
+						</button>-->
+							<div id="customize_columns" class="dropdown-menu esstyle customize-columns p-3"
+								x-placement="bottom-end">
+								<div class="h-100 overflow-hidden">
+									<div style="min-height: 5vh !important;max-height: 5vh !important;">
+										<div class="row text-end">
+											<div class="col-sm-8 text-start">
+												<button data-state="select-all" id="tweak-select-all-columns"
+													class="btn btn-sm btn-outline-primary f-13"
+													style="padding: 0.1rem 0.5rem;">
+													<i class="fa-duotone fa-bars me-2"></i>
+													<span>Select All</span></button>
+											</div>
+											<div class="col-sm-4 text-end">
+												<button id="apply-selected-columns" class="btn btn-sm btn-primary f-13"
+													style="padding: 0.1rem 0.5rem;">
+													<i class="fa-solid fa-play me-2"></i>Apply</button>
+											</div>
+										</div>
+									</div>
+									<div class="overflow-auto"
+										style="min-height: 65vh !important;max-height: 65vh !important;">
+										<div class="row h-100">
+											<div class="col-sm-12 f-13"><i
+													class="fa-light fa-object-ungroup mr-2"></i>Categorical</div>
+											<div class="alert alert-primary col-selector" id="kwd_cols">&nbsp;</div>
+											<div class="col-sm-12 f-13"><i
+													class="fa-light fa-hashtag mr-2"></i>Numericals</div>
+											<div class="alert alert-primary col-selector" id="num_cols">&nbsp;</div>
+											<div class="col-sm-12 f-13"><i class="fa-light fa-calendar mr-2"></i>Dates
+											</div>
+											<div class="alert alert-primary col-selector" id="dts_cols">&nbsp;</div>
+											<div class="col-sm-12 f-13"><i class="fa-light fa-calendar mr-2"></i>Text
+											</div>
+											<div class="alert alert-primary col-selector" id="txt_cols">&nbsp;</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						&nbsp;
+					</div>
+					<!-- Modal for more than 1 lakhs-->
+					<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modalTitle">Export Data</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true" id="closePopupButton">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<!--<div class="mb-3 mt-2">
+																			Currently, you can only export 10K records by choosing the below option.
+																		</div>-->
+
+									<div id="limitColumns" class="mb-2">
+										To download the data, please add more filters as per below limits:
+										<ol>
+											<li>Less than 14 Fields with 10000 records</li>
+											<li>14 to 17 Fields with 7000 records</li>
+											<li>18 to 25 Fields with 5000 records</li>
+											<li>26 to 30 Fields with 4000 records</li>
+											<li>31 to 36 Fields with 2000 records</li>
+
+										</ol>
+
+									</div>
+
+									<button id="downloadCSV" class="btn btn-sm btn-primary 
+																						 cursor-pointer" style="height: 35px; padding: 2px 10px">Download as CSV</button>
+									<button id="downloadJSON" class="btn btn-sm btn-primary  
+																						 cursor-pointer" style="height: 35px; padding: 2px 10px">Download as
+										Excel</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Model for less than 1 lakhs records-->
+					<div class="modal" id="DownloadModel" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modalTitle">Export Data</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true" id="closeDownloadButton">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="mb-3 mt-2">
+										Currently, you can only export 10K records by choosing the below option.
+									</div>
+									<button id="downloadCSVRecords" class="btn btn-sm btn-primary shadow-none 
+																							cursor-pointer" style="height: 35px; padding: 2px 10px">Download as CSV</button>
+									<button id="downloadJSONRecords" class="btn btn-sm btn-primary shadow-none 
+																							cursor-pointer" style="height: 35px; padding: 2px 10px">Download as
+										Excel</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal" id="DownloadFilterModel" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modalTitle">Export Data</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true" id="closeDownloadButton">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div class="mb-2">
+										Download the filtered datas.
+									</div>
+
+									<button id="downloadCSVFilter" class="btn btn-sm btn-primary shadow-none 
+																							cursor-pointer" style="height: 35px; padding: 2px 10px">Download as CSV</button>
+									<button id="downloadJSONFilter" class="btn btn-sm btn-primary shadow-none 
+																							cursor-pointer" style="height: 35px; padding: 2px 10px">Download as
+										Excel</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal" id="DownloadNoModel" tabindex="-1" role="dialog" aria-labelledby="modalTitle"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="modalTitle">Export Data</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true" id="closeNODownloadButton">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<div id="limit37Columns"
+										style="display: none;font-size:11px !important;color: red !important;"
+										class="mb-2">
+										Please choose only 37 columns to download
+									</div>
+									<div class="mb-3 mt-2">
+										Currently, you can only export 10K records by choosing the below option.
+									</div>
+									<button id="downloadNOCSVRecords" class="btn btn-sm btn-primary shadow-none 
+																						cursor-pointer" style="height: 35px; padding: 2px 10px">Download as CSV</button>
+									<button id="downloadNOJSONRecords" class="btn btn-sm btn-primary shadow-none 
+																						cursor-pointer" style="height: 35px; padding: 2px 10px">Download as Excel</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div id="dt_searchValidMsg"></div>
+			</div>
+		</div>
+
+		<table id="example" class="table table-hover table-hover dataTable no-footer"
+			style="width: 100%;height: inherit;">
+			<thead>
+				<tr> </tr>
+			</thead>
+			<tbody>
+				<tr> </tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="enhanced_columns_viewer" class="modal fade" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable modal-fullscreen" style="padding:4px">
+			<div class="modal-content">
+				<div class="modal-header" style="padding:0px">
+					<div class="row w-100"
+						style="padding:7px 10px;background-image:linear-gradient(to bottom, #fff, #7cb1e036);padding-right: 0px;">
+						<div class="col-sm-12 pe-0">
+							<div class="row" style="background-image: linear-gradient(to bottom, #fff, #7cb1e036);">
+								<div class="col-sm-11">
+									<h6 class="modal-title" style="display: inline-flex;height: 25px;">
+										<i class="fa-duotone fa-diagram-lean-canvas me-2"
+											style="font-size:large;--fa-primary-color: slateblue;--fa-secondary-color: orange;"></i>
+										<div style="margin-top:-1.5px;">Advanced Column Selection</div>
+									</h6>
+								</div>
+								<div class="col-sm-1 text-end">
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+							</div>
+							<div class="row">
+								<div id="columns_search" class="col-sm-8 alert alert-primary"
+									style="padding:2px 8px;margin-bottom:-9px;padding-bottom:6px;border-radius: 0px;display: inline-flex;">
+									<label class="text-muted me-2">&nbsp;<span
+											style="font-size: 14px;font-weight: 400;">Search</span>
+										<input id="enhanced_col_search_term" type="text" class="form-control w-50 me-2"
+											style="min-width:20vw;height: 60%;" placeholder="Search columns">
+									</label>
+									<label class="text-secondary"><span
+											style="font-size: 14px;font-weight: 400;">Filters</span>
+										<select multiple="multiple" id="enhanced_col_search_type" class="w-20vw">
+											<optgroup label="Data-Types">
+												<option value="keyword">Category</option>
+												<option value="integer,long,double,float">Numerical</option>
+												<option value="date">Date</option>
+												<option value="text">Text</option>
+											</optgroup>
+											<optgroup label="Miscellaneous">
+												<option value="labelled">Has Label</option>
+											</optgroup>
+										</select>
+									</label>
+								</div>
+								<div id="columns_sort" class="col-sm-4 alert alert-primary"
+									style="padding: 8px;margin-bottom:-9px;border-radius: 0px;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-body" style="padding:0px;padding-right:20px">
+					<div id="columns_container" class="row">
+					</div>
+				</div>
+				<div class="modal-footer"
+					style="padding:3px;border-top: 1px solid #AAA;background-image: linear-gradient(to top, #fff, #7cb1e036);">
+					<div class="row w-100">
+						<div class="col-md-8">
+							<span class="text_muted">Total : </span>
+							<span id="enh_cols_total" class="text_secondary"></span>
+							<span class="text_muted ms-2">Selected : </span>
+							<span id="enh_cols_sel" class="text_secondary">0</span>
+							&emsp;&emsp;&emsp;&emsp;
+							<button id="enhanced-select-all-columns" type="button" class="btn btn-sm btn-info">Select
+								All</button>
+							<button id="enhanced-invert-all-columns" type="button"
+								class="btn btn-sm btn-warning">Invert</button>
+							<button id="enhanced-deselect-all-columns" type="button"
+								class="btn btn-sm btn-secondary">Deselect All</button>
+						</div>
+						<div class="col-md-4 text-end">
+							<button type="button" class="btn btn-sm btn-secondary"
+								data-bs-dismiss="modal">Close</button>
+							<button id="enhanced-apply-selected-columns" type="button"
+								class="btn btn-sm btn-primary">Apply</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script id="rendered-js">
+		var $quicksearch = $('#enhanced_col_search_term').keyup(debounce(function () {
+			doColumnsSearch();
+		}));
+
+		function doColumnsSearch() {
+			console.log("While searching, check the types dt[" + typeof $("#enhanced_col_search_type").val() + "] ::: " + $(
+				"#enhanced_col_search_type").val());
+			let childClasses = _.concat([], _.map($("#enhanced_col_search_type").val(), clsType => {
+				if (clsType.includes(",")) {
+					return _.map(_.split(clsType, ","), item => {
+						return " .dt-" + item
+					})
+				} else {
+					return [" .dt-" + clsType];
+				}
+			}));
+			console.log("childClasses " + childClasses.join(", "));
+			childClasses = childClasses.join(", ");
+			if ($quicksearch.val().length > 2) {
+				$("#columns_container .field-item").hide();
+				$("#columns_container").findByContentText($quicksearch.val(), childClasses).show();
+			} else if ($quicksearch.val().length == 0) {
+				if (childClasses.length > 0) {
+					$("#columns_container .field-item").hide();
+					$("#columns_container").contents().filter(childClasses).show();
+				} else {
+					$("#columns_container .field-item").show();
+				}
+			}
+		}
+
+		$.fn.sortDivs = function sortDivs() {
+			$("> div", this[0]).sort(dec_sort).appendTo(this[0]);
+
+			function dec_sort(a, b) {
+				return ($(b).data("data-sort")) < ($(a).data("data-sort")) ? 1 : -1;
+			}
+		}
+		$.fn.findByContentText = function (text, childClasses) {
+			if (!_.isNil(childClasses) && !_.isEmpty(childClasses) && childClasses.length > 0) {
+				return $(this).contents().filter(childClasses).filter(function () {
+					return $(this).text().toLowerCase().indexOf(text.toLowerCase()) >= 0;
+				});
+			} else {
+				return $(this).contents().filter(function () {
+					return $(this).text().toLowerCase().indexOf(text.toLowerCase()) >= 0;
+				});
+			}
+		};
+		$(document).ready(function () {
+
+			Isotope.Item.prototype._create = function () {
+				// assign id, used for original-order sorting
+				this.id = this.layout.itemGUID++;
+				// transition objects
+				this._transn = {
+					ingProperties: {},
+					clean: {},
+					onEnd: {}
+				};
+				this.sortData = {};
+			};
+
+			Isotope.Item.prototype.layoutPosition = function () {
+				this.emitEvent('layout', [this]);
+			};
+
+			Isotope.prototype.arrange = function (opts) {
+				// set any options pass
+				this.option(opts);
+				this._getIsInstant();
+				// just filter
+				this.filteredItems = this._filter(this.items);
+				// flag for initalized
+				this._isLayoutInited = true;
+			};
+
+			// layout mode that does not position items
+			Isotope.LayoutMode.create('none');
+
+			$(document).on('preInit.dt', function (e, settings) {
+				$("#sdt_wrapper_loader").show();
+				$("#sdt_wrapper").hide();
+				setTimeout(function () {
+					$("#sdt_wrapper_loader_message").html("Gathering data")
+				}, 100);
+			});
+
+			//On-Key-Up of Aggr Filters Search Box
+			let typingTimer;
+			let doneTypingInterval = 500; // Adjust the delay as needed
+
+			$(document).on("keyup", "input.aggr-inner-search[data-field]", function () {
+				clearTimeout(typingTimer);
+
+				let dataFld = $(this).attr("data-field");
+				let srcTerm = $(this).val().toLowerCase();
+				console.log("onKeyUp event fired " + srcTerm);
+
+				let $filterHolder = $('div.aggr-filter-holder[data-field="' + dataFld + '"]');
+				let $entries = $filterHolder.find('.iso-aggr-filter-entry');
+
+				$filterHolder.isotope({
+					itemSelector: '.iso-aggr-filter-entry',
+					layoutMode: 'none',
+					filter: function () {
+						let entryText = $(this).text().toLowerCase();
+						return entryText.indexOf(srcTerm) >= 0;
+					}
+				});
+
+				typingTimer = setTimeout(function () {
+					let $filteredEntries = $filterHolder.find('.iso-aggr-filter-entry:visible');
+
+					// Show or hide the "No data available" message while typing
+					if (srcTerm.length > 0 && $filteredEntries.length === 0) {
+						if ($filterHolder.find('.no-data-message').length === 0) {
+							$filterHolder.append(
+								'<div class="no-data-message" style="text-align:center">No Data Available</div>'
+							);
+						}
+					} else {
+						$filterHolder.find('.no-data-message').remove();
+					}
+				}, doneTypingInterval);
+			});
+
+			$(document).on("click", "button[data-filter]", function () {
+				buttonFilter = $(this).attr('data-filter');
+				/*console.log("YES, clicked "+$(this).attr('data-filter')+"& ISOTOPE is "+$grid);
+				$grid.isotope();*/
+			});
+			// debounce so filtering doesn't happen every millisecond
+			function debounce(fn, threshold) {
+				var timeout;
+				threshold = threshold || 1000;
+				return function debounced() {
+					clearTimeout(timeout);
+					var args = arguments;
+					var _this = this;
+
+					function delayed() {
+						fn.apply(_this, args);
+					}
+					timeout = setTimeout(delayed, threshold);
+				};
+			}
+		});
+	</script>
+</body>
+
+</html>
