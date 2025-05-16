@@ -8096,26 +8096,41 @@
                             html +=
                                 '<tr><th><i class="fa fa-calendar" aria-hidden="true"></i> Assign Date</th><th><i class="fa fa-calendar" aria-hidden="true"></i> Admit Date</th><th><i class="fa fa-calendar" aria-hidden="true"></i> Discharge Date</th><th><i class="fa fa-user" aria-hidden="true"></i> TOC Program Current Status</th><th><i class="fa fa-user" aria-hidden="true"></i> TOC Comments</th><th><i class="fa fa-user" aria-hidden="true"></i> Status</th><th><i class="fa fa-user" aria-hidden="true"></i> Assigned To</th></tr>';
                             
-                            item = responseHistorys;
-                            
-                                newformatdate = moment(item.assigned_date)
-                                    .format('MM-DD-YYYY');
-                                    if(item.cc_PV1_44_asDate){
-                                admitdate = moment.utc(item
-                                .cc_PV1_44_asDate)
-                            .format(
-                                "MM-DD-YYYY");
-                                    }else{
-                                admitdate ="";	
+                                    item = responseHistorys;
+									
+                                    newformatdate = moment(item.assigned_date)
+                                        .format('MM-DD-YYYY');
+                                    if(item.PV1_44_asDate){
+                                                const epochDate = new Date(item.PV1_44_asDate);
+                                        const day1 = String(epochDate.getUTCDate()).padStart(2, '0');
+                                        const month1 = String(epochDate.getUTCMonth() + 1).padStart(2, '0');
+                                        const year1 = epochDate.getUTCFullYear();
+                                            
+                                            // Format as DD-MM-YYYY
+                                        const admitformattedDate = `${month1}-${day1}-${year1}`;
+                                        admitdate = admitformattedDate
+
+                                    } else {
+                                        admitdate = "";
                                     }
-                                    
-                                    if(item.cc_PV1_45_asDate){
-                                dischargedate = moment.utc(item
-                                        .cc_PV1_45_asDate)
-                                    .format('MM-DD-YYYY');	
-                                    }else {
-                                dischargedate ="";	
+                                    if (item.PV1_45_asDate) {
+                                        const discrgeepochDate = new Date(item.PV1_45_asDate);
+                                        const discrgeday1 = String(discrgeepochDate.getUTCDate()).padStart(2, '0');       // UTC day
+                                        const discrgemonth1 = String(discrgeepochDate.getUTCMonth() + 1).padStart(2, '0'); // UTC month
+                                        const discrgeyear1 = discrgeepochDate.getUTCFullYear();                           // UTC year
+
+                                        // Format as MM-DD-YYYY
+                                        const discrgeformattedDate = `${discrgemonth1}-${discrgeday1}-${discrgeyear1}`;
+
+                                        dischargedate = discrgeformattedDate;
+                                    } else {
+                                        dischargedate = "";
                                     }
+                                    if (item.TOC_Comments) {
+                                        item.TOC_Comments=item.TOC_Comments
+                                    } else {
+                                        item.TOC_Comments=""
+                                    } 
                                     
                                  if (item.assigned_date) {
                                     html += '<tr>';
