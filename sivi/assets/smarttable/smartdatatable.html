@@ -48444,86 +48444,76 @@ else{
             }
 
             function checkConditionsAndDownload() {
-                let maxRecord;
-                // Get the total number of records in the whole DataTable
-                let indexDetails = {
-                    "index_name": downlodDetails.ds
-                }
-                let dataset = indexDetails.index_name
-                $.ajax({
-                    headers: downlodDetails.hdr,
-                    url: downlodDetails.url.replace("/_msearch", "") + "/_settings",
-                    async: false,
-                    type: 'GET',
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    success: function (response) {
+				let maxRecord;
+				// Get the total number of records in the whole DataTable
+				let indexDetails = {
+					"index_name": downlodDetails.ds
+				}
+				let dataset = indexDetails.index_name
+				$.ajax({
+					headers: downlodDetails.hdr,
+					url: downlodDetails.url.replace("/_msearch", "") + "/_settings",
+					async: false,
+					type: 'GET',
+					dataType: 'json',
+					contentType: 'application/json',
+					success: function (response) {
 
-                        if (dataset != undefined || dataset != "") {
-                            if (response[dataset].settings.index.max_result_window) {
-                                maxRecord = response[indexDetails.index_name].settings.index
-                                    .max_result_window;
-                            }
-                        }
-                    }
-                });
-                var totalRecordsCount = myTable.page.info().recordsTotal;
-                // var totalRecordsCount = 1000;
-                if (searchFilterQuery != null || popupFilter != null) {
-                    totalRecordsCount = myTable.page.info().recordsTotal;
-                    if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
-                        .length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >=
-                        26 &&
-                        selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
-                        .length <= 36 && totalRecord > 1500) {
-                        document.getElementById('limitColumns').style.display = 'block';
-                        document.getElementById('limit37Columns').style.display = 'none';
-                    }
-                    if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns
-                        .length <=
-                        36) {
-                        $("#myModal").modal("show");
-                    } else if (totalRecord == 0 || totalRecord < 10000 && selColumns.length < 14 ||
-                        totalRecord <
-                        4000 && selColumns.length >= 26 && selColumns.length <= 30 || totalRecord < 5000 &&
-                        selColumns
-                        .length >= 18 && selColumns.length <= 25 || selColumns.length >= 14 && selColumns
-                        .length <=
-                        17 && totalRecord < 7000 || totalRecord < 2000 && selColumns.length >= 31 && selColumns
-                        .length <= 36 || selColumns.length >= 37) {
-                        $("#DownloadNoModel").modal("show");
-                    } else if (totalRecord > 10000 && totalRecord != 0 && selColumns.length < 14) {
-                        $("#DownloadFilterModel").modal("show");
-                    }
+						if (dataset != undefined || dataset != "") {
+							if (response[dataset].settings.index.max_result_window) {
+								maxRecord = response[indexDetails.index_name].settings.index
+									.max_result_window;
+							}
+						}
+					}
+				});
+				var totalRecordsCount = myTable.page.info().recordsTotal;
+				// var totalRecordsCount = 1000;
+				if (searchFilterQuery != null || popupFilter != null) {
+					totalRecordsCount = myTable.page.info().recordsTotal;
+					if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
+						.length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >= 26 &&
+						selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
+							.length <= 36 && totalRecord > 1500) {
+						document.getElementById('limitColumns').style.display = 'block';
+						document.getElementById('limit37Columns').style.display = 'none';
+					}
+					if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns.length <=
+						36) {
+						$("#myModal").modal("show");
+					} else if (totalRecord == 0 || totalRecord < 10000 && selColumns.length < 14 || totalRecord <
+						4000 && selColumns.length >= 26 && selColumns.length <= 30 || totalRecord < 5000 && selColumns
+							.length >= 18 && selColumns.length <= 25 || selColumns.length >= 14 && selColumns.length <=
+							17 && totalRecord < 7000 || totalRecord < 2000 && selColumns.length >= 31 && selColumns
+								.length <= 36 || selColumns.length >= 37) {
+						$("#DownloadNoModel").modal("show");
+					} else if (totalRecord > 10000 && totalRecord != 0 && selColumns.length < 14) {
+						$("#DownloadFilterModel").modal("show");
+					}
 
-                } else {
-                    totalRecordsCount = myTable.page.info().recordsTotal;
-                    if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
-                        .length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >=
-                        26 &&
-                        selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
-                        .length <= 36 && totalRecord > 1500) {
-                        document.getElementById('limitColumns').style.display = 'block';
-                        document.getElementById('limit37Columns').style.display = 'none';
-                    }
-                    if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns
-                        .length <=
-                        36) {
-                        $("#myModal").modal("show");
-                    } else if (totalRecord == 0 || totalRecord < 10000 && selColumns.length < 14 ||
-                        totalRecord <
-                        4000 && selColumns.length >= 26 && selColumns.length <= 30 || totalRecord < 5000 &&
-                        selColumns
-                        .length >= 18 && selColumns.length <= 25 || selColumns.length >= 14 && selColumns
-                        .length <=
-                        17 && totalRecord < 7000 || totalRecord < 7500 && selColumns.length >= 31 && selColumns
-                        .length <= 36 || selColumns.length > 36) {
-                        $("#DownloadNoModel").modal("show");
-                    } else if (totalRecord > 10000 && totalRecord != 0 && selColumns.length < 14) {
-                        $("#DownloadModel").modal("show");
-                    }
-                }
-            }
+				} else {
+					totalRecordsCount = myTable.page.info().recordsTotal;
+					if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
+						.length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >= 26 &&
+						selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
+							.length <= 36 && totalRecord > 1500) {
+						document.getElementById('limitColumns').style.display = 'block';
+						document.getElementById('limit37Columns').style.display = 'none';
+					}
+					if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns.length <=
+						36) {
+						$("#myModal").modal("show");
+					} else if (totalRecord == 0 || totalRecord < 10000 && selColumns.length < 14 || totalRecord <
+						4000 && selColumns.length >= 26 && selColumns.length <= 30 || totalRecord < 5000 && selColumns
+							.length >= 18 && selColumns.length <= 25 || selColumns.length >= 14 && selColumns.length <=
+							17 && totalRecord < 7000 || totalRecord < 7500 && selColumns.length >= 31 && selColumns
+								.length <= 36 || selColumns.length > 36) {
+						$("#DownloadNoModel").modal("show");
+					} else if (totalRecord > 10000 && totalRecord != 0 && selColumns.length < 14) {
+						$("#DownloadModel").modal("show");
+					}
+				}
+			}
 
             function checkConditionsCSVAndDownload(buttonElement, modalId) {
                 // Get the total number of records in the whole DataTable
