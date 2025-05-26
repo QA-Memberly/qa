@@ -3858,9 +3858,12 @@ console.log(referenceValue,"referenceValuelue########")
 					if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
 						.length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >= 26 &&
 						selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
-							.length <= 36 && totalRecord > 1500) {
+							.length <= 36 && totalRecord > 6500) {
 						document.getElementById('limitColumns').style.display = 'block';
 						document.getElementById('limit37Columns').style.display = 'none';
+						document.getElementById('downloadCSV').style.display = 'none';
+						document.getElementById('downloadJSON').style.display = 'none';
+						$("#myModal").modal("show");
 					}
 					if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns.length <=
 						36) {
@@ -3880,9 +3883,12 @@ console.log(referenceValue,"referenceValuelue########")
 					if (selColumns.length >= 14 && selColumns.length <= 17 && totalRecord > 7000 || selColumns
 						.length >= 18 && selColumns.length <= 25 && totalRecord > 5000 || selColumns.length >= 26 &&
 						selColumns.length <= 30 && totalRecord > 4000 || selColumns.length >= 31 && selColumns
-							.length <= 36 && totalRecord > 1500) {
+							.length <= 36 && totalRecord > 6500) {
 						document.getElementById('limitColumns').style.display = 'block';
 						document.getElementById('limit37Columns').style.display = 'none';
+						document.getElementById('downloadCSV').style.display = 'none';
+						document.getElementById('downloadJSON').style.display = 'none';
+						$("#myModal").modal("show");
 					}
 					if (totalRecord > 10000 && totalRecord != 0 && selColumns.length >= 14 && selColumns.length <=
 						36) {
@@ -4364,7 +4370,7 @@ console.log(referenceValue,"referenceValuelue########")
 											<li>14 to 17 Fields with 7000 records</li>
 											<li>18 to 25 Fields with 5000 records</li>
 											<li>26 to 30 Fields with 4000 records</li>
-											<li>31 to 36 Fields with 2000 records</li>
+											<li>31 to 36 Fields with 6500 records</li>
 
 										</ol>
 
