@@ -1,0 +1,74 @@
+[ 
+  {
+    "id": "6899176e-0ea5-48d7-add9-fb0d3f79e9ac",
+    "url": "https://es.servicedx.com",
+    "port": "3300",
+    "auth": "ZWxhc3RpYzpJNUVDNmJ3NFhmNXNoTnZ2eFc0Nmg5U3k="
+  },
+  {
+    "id": "a98d22e1-4281-491b-9070-1c52421520ac",
+    "url": "https://sivies.es.us-east-1.aws.found.io:9243",
+    "port": "9243",
+    "auth": "ApiKey QTlENnQ0WUJzdHFySHFNeFRnN086Q3Vwc295WHFSZTZKcjZBSG5MdDdkQQ=="
+  },
+  {
+    "id": "de52b96e-63ad-453f-88a1-7a207c31e7ce",
+    "url": "https://sivies-apsouth.es.ap-south-1.aws.elastic-cloud.com:9243",
+    "port": "9243",
+    "auth": "ApiKey WnY3UEhZWUJSTUpkbW9PbXRpcWk6SGJhVnJBbThRZWlpVGxrSUJvdFJaZw=="
+  },
+    {
+    "id": "30b5f857-175b-43fb-a269-6ab7de46b295",
+    "url": "https://sivies-apsouth.es.ap-south-1.aws.elastic-cloud.com:9243",
+    "port": "9243",
+    "auth": "ApiKey WnY3UEhZWUJSTUpkbW9PbXRpcWk6SGJhVnJBbThRZWlpVGxrSUJvdFJaZw=="
+  },
+  {
+    "id": "9283f548-c3fd-11ed-afa1-0242ac120002",
+    "url": "https://sqml-dhmp.es.us-west-2.aws.found.io:9243",
+    "port": "9243",
+    "auth": "ApiKey UHBNSHg0MEJUWjFtdGpKbTJENzI6X2dIVlN5Z3BTa2lBaWFyOXBPOERpdw=="
+  },
+  {
+    "id": "3fae0fb9-cabf-44ab-ace1-a18334f47165",
+    "url": "https://sivies.es.us-east-1.aws.found.io:9243",
+    "port": "9243",
+    "auth": "ApiKey Q0MtVlc0Y0JwRnBlZDAtcU9OYWo6WTBsd2NibEFSMUdkSmhUa1pBS2tDQQ=="
+  },
+  {
+    "id": "f0c3e0c3-73bf-45e2-88cf-6977b21850fc",
+    "url": "https://raizesqml3e3a.es.us-east1.gcp.elastic-cloud.com",
+    "port": "9243",
+    "auth": "ApiKey TnpjV1lZY0J3ZHZvX0xvclhTRG46S2w4MV84RkZRZUNoX0xSLVZlQlB4UQ=="
+  },
+  {
+    "id": "d1c3b15c-9bad-4995-9110-658d1640506a",
+    "url": "https://sivi-recordai-es.us-east-1.servicedx.com:9243",
+    "port": "9243",
+    "auth": "ApiKey Q0MtVlc0Y0JwRnBlZDAtcU9OYWo6WTBsd2NibEFSMUdkSmhUa1pBS2tDQQ=="
+  },
+  {
+    "id": "3e087fcb-f542-4894-ac77-ac2b619bfd64",
+    "url": "https://sqml-wm-int-uat.es.us-central1.gcp.cloud.es.io",
+    "port": "9243",
+    "auth": "ApiKey U1RwMG9Ja0JuaWtIbl9ULUZjSm46YzRteWtqYm5TbjZZWTJ2Tl9iRkxOQQ=="
+  },
+    {
+    "id": "ad56c984-f68d-46c0-9c9f-04d585d02e14",
+    "url": "https://sqml-nova-prod.es.centralindia.azure.elastic-cloud.com",
+    "port": "9243",
+    "auth": "Basic ZWxhc3RpYzpVdGpXNjBudWR4VFRocEhLUlBVdzZZdHo="
+  },
+     {
+    "id": "z435622-f68d-46c0-9c9f-04d585d02e14",
+    "url": "https://sqml-nova-prod-mig.es.us-east-1.aws.found.io",
+    "port": "9243",
+    "auth": "ApiKey blJrLXJKRUJSYjlia2JtblV3dFM6MjVRQnZMcHhTcnF5Rm9zczgzX1VEdw=="
+  },
+  {
+    "id": "f003de55-7026-471c-bdca-efd98486d538",
+    "url": "https://sqml-womba-prism-uat.es.eastus2.azure.elastic-cloud.com",
+    "port": "9243",
+    "auth": "Basic ZWxhc3RpYzpDWHRDTXhpc1lXMkczODNmTDEyTnBNeXA="
+  }
+] 
