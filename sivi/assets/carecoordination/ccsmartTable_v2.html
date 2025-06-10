@@ -45622,7 +45622,7 @@
 					let dataset = 'dhmp_cc_adt_trial';
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/" + dataset +
+                            url: ccData.server+"/" + dataset +
                                 "/_search?size=1000",
                             async: false,
                             type: 'POST',
@@ -45729,7 +45729,7 @@
 					   
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/" + dataset +
+                            url:ccData.server+"/" + dataset +
                                 "/_search?size=1000",
                             async: false,
                             type: 'POST',
@@ -45837,7 +45837,7 @@ if(assignDate!=null){
 					   
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_qa_cc_adt_trial_history/_search?size=1",
+                            url: ccData.server+"/dhmp_qa_cc_adt_trial_history/_search?size=1",
                             async: false,
                             type: 'POST',
                             data: JSON.stringify(oldQry),
@@ -45858,8 +45858,8 @@ if(assignDate!=null){
                           
                         }, 2000);
                         $.ajax({
-                            headers: {"Authorization":"Basic ZWxhc3RpYzpmN1ZVNEZjT3ZzbnJZcjRwb2o5SDRMRzA="},
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_qa_cc_adt_trial_history/_doc/"+olddata[0].composite_Key,
+                            headers: ccData.hdr,
+                            url: ccData.server+"/dhmp_qa_cc_adt_trial_history/_doc/"+olddata[0].composite_Key,
                             async: false,
                             type: 'DELETE',
                           
@@ -45876,7 +45876,7 @@ if(assignDate!=null){
                      
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_qa_cc_adt_trial_history/_doc/"+
+                            url: ccData.server+"/dhmp_qa_cc_adt_trial_history/_doc/"+
                             composite_Key,
                             async: false,
                             type: 'POST',
@@ -45921,7 +45921,7 @@ updateDoc.PID_5_1 = editlastNamePriority;
                           $.ajax({
                             headers: ccData.hdr,
                            
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_qa_cc_adt_trial_history/_update/"+composite_Key,
+                                url: ccData.server+"/dhmp_qa_cc_adt_trial_history/_update/"+composite_Key,
                                 async: false,
                             type: 'POST',
                             data: JSON.stringify({doc: updateDoc }),
@@ -45941,7 +45941,7 @@ updateDoc.PID_5_1 = editlastNamePriority;
                         $.ajax({
                             headers: ccData.hdr,
                            
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_update/"+MemberId,
+                                url: ccData.server+"/dhmp_cc_adt_trial/_update/"+MemberId,
                                 async: false,
                             type: 'POST',
                             data: JSON.stringify({doc: updateDoc }),
@@ -45965,7 +45965,7 @@ else{
     if (isValid) {
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_doc/" +
+                            url: ccData.server+"/dhmp_cc_adt_trial/_doc/" +
                                 MemberId,
                             async: false,
                             type: 'POST',
@@ -45975,7 +45975,7 @@ else{
                             success: function (response) {
                                 $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_qa_cc_adt_trial_history/_doc/" +
+                            url:ccData.server+"/dhmp_qa_cc_adt_trial_history/_doc/" +
                                 compositeKeyPriorityValue,
                             async: false,
                             type: 'POST',
@@ -49127,7 +49127,7 @@ else{
                                 newObject);
                             $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_update_by_query",
+                                url: ccData.server+"/dhmp_cc_data/_update_by_query",
                             async: false,
                                 type: 'POST',
                                 data: JSON.stringify(query),
@@ -49255,7 +49255,7 @@ else{
                         }
                         $.ajax({
                         headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_search?size=1",
+                        url: ccData.server+"/dhmp_cc_adt_trial/_search?size=1",
                         async: false,
                         type: 'POST',
                         data: JSON.stringify(dataQuery),
@@ -49317,7 +49317,7 @@ else{
 			     dhmpCcDataPayload["modified_on"] = newValue1;
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_doc/" +
+                            url: ccData.server+"/dhmp_cc_data/_doc/" +
                                 uuid,
                             async: false,
                             type: 'PUT',
@@ -49360,7 +49360,7 @@ else{
                             }
                             $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial,dhmp_qa_cc_adt_trial_history/_update_by_query",
+                                url: ccData.server+"/dhmp_cc_adt_trial,dhmp_qa_cc_adt_trial_history/_update_by_query",
                                 async: false,
                                 type: 'POST',
                                 data: JSON.stringify(query),
@@ -50555,7 +50555,7 @@ else{
                             }
                             $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_update_by_query",
+                                url: ccData.server+"/dhmp_cc_adt_trial/_update_by_query",
                                 async: false,
                                 type: 'POST',
                                 data: JSON.stringify(query),
@@ -50734,7 +50734,7 @@ else{
     }}}
                 $.ajax({
                     headers: ccData.hdr,
-                    url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_update_by_query",
+                    url: ccData.server+"/dhmp_cc_data/_update_by_query",
                     async: false,
                     type: 'POST',
                     data: JSON.stringify(revertQuery),
@@ -50775,7 +50775,7 @@ else{
                         }
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial,dhmp_qa_cc_adt_trial_history/_update_by_query",
+                            url: ccData.server+"/dhmp_cc_adt_trial,dhmp_qa_cc_adt_trial_history/_update_by_query",
                             async: false,
                             type: 'POST',
                             data: JSON.stringify(query),
@@ -50888,7 +50888,7 @@ else{
                                 newObject);
                             $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_doc/" +
+                                url: ccData.server+"/dhmp_cc_adt_trial/_doc/" +
                                     responseDatas,
                                 async: false,
                                 type: 'PUT',
@@ -50958,7 +50958,7 @@ else{
                     var combinedObject = $.extend({}, oldData, newObject);
                     $.ajax({
                         headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_doc/" +
+                        url:ccData.server+"/dhmp_cc_data/_doc/" +
                             responseDatas,
                         async: false,
                         type: 'PUT',
@@ -51015,7 +51015,7 @@ else{
 
                                 var ajaxCall = $.ajax({
                                     headers: ccData.hdr,
-                                    url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_search",
+                                    url: ccData.server+"/dhmp_cc_data/_search",
                                     async: true, // Make sure this is async
                                     type: 'POST',
                                     dataType: 'json',
@@ -51156,7 +51156,7 @@ else{
                         }
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial,dhmp_qa_cc_adt_trial_history/_update_by_query",
+                            url: ccData.server+"/dhmp_cc_adt_trial,dhmp_qa_cc_adt_trial_history/_update_by_query",
                             async: false,
                                 type: 'POST',
                                 data: JSON.stringify(querys),
@@ -51241,7 +51241,7 @@ else{
                         var combinedObject = $.extend({}, oldData, newObject);
                         $.ajax({
                             headers: ccData.hdr,
-                            url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_update_by_query",
+                            url: ccData.server+"/dhmp_cc_data/_update_by_query",
                             async: false,
                                 type: 'POST',
                                 data: JSON.stringify(query),
@@ -51311,7 +51311,7 @@ else{
                     };
                     $.ajax({
                         headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_search",
+                        url: ccData.server+"/dhmp_cc_data/_search",
                         async: false,
                         type: 'POST',
                         dataType: 'json',
@@ -51431,7 +51431,7 @@ else{
 					
                     $.ajax({
                         headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_search",
+                        url: ccData.server+"/dhmp_cc_data/_search",
                         async: false,
                         type: 'POST',
                         dataType: 'json',
@@ -51782,7 +51782,7 @@ else{
 
                     $.ajax({
                         headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_search?size=10000",
+                        url: ccData.server+"/dhmp_cc_data/_search?size=10000",
                         async: false,
                         type: 'POST',
                         data: JSON.stringify(ccSaveQuery),
@@ -51808,7 +51808,7 @@ else{
 
                             $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_data/_doc/" +
+                                url: ccData.server+"/dhmp_cc_data/_doc/" +
                                     compositeKeyValue,
                                 async: false,
                                 type: 'PUT',
@@ -52119,7 +52119,7 @@ else{
 
                     $.ajax({
                         headers: ccData.hdr,
-                        url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_search?size=10000",
+                        url: ccData.server+"/dhmp_cc_adt_trial/_search?size=10000",
                         async: false,
                         type: 'POST',
                         data: JSON.stringify(ccSaveQueryPriority),
@@ -52147,7 +52147,7 @@ else{
 
                             $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_cc_adt_trial/_doc/" +
+                                url: ccData.server+"/dhmp_cc_adt_trial/_doc/" +
                                     compositeKeyPriorityValue,
                                 async: false,
                                 type: 'PUT',
@@ -52157,7 +52157,7 @@ else{
                                 success: function (response) {
                                    $.ajax({
                                 headers: ccData.hdr,
-                                url: "https://sqml-dhmp.es.us-west-2.aws.found.io:9243/dhmp_qa_cc_adt_trial_history/_doc/" +
+                                url: ccData.server+"/dhmp_qa_cc_adt_trial_history/_doc/" +
                                     compositeKeyPriorityValue,
                                 async: false,
                                 type: 'PUT',
