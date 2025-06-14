@@ -3804,8 +3804,12 @@ console.log(referenceValue,"referenceValuelue########")
 								$("#example tbody").html('<tr><td  class="dataTables_empty" colspan="' + myTable
 									.columns().visible().count() + '">No Matching Records Found</td></tr>');
 							} else {
-								$("#example tbody").html('<tr><td  colspan="' + myTable.columns().visible().count() +
-									'"><div class ="noDataTables">No Data Available</div></td></tr>');
+								if(myTable.columns().visible().count() >0){
+								   $("#example tbody").html('<tr><td  colspan="' + myTable.columns().visible().count() +
+									'"></td></tr>');
+									}else{
+									$("#example tbody").html('<div class ="noDataTables">No Data Available</div></td></tr>');
+									}
 							}
 						}
 						console.log("Draw Callback Done " + (moment().valueOf() - drawCallbackStart) + " ms");
