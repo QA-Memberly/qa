@@ -897,6 +897,7 @@
         let lookupValue = [];
         let lookupColumns = [];
         let lookupTarget = [];
+		let footerValue =[]
 		$.fn.dataTable.pipeline = function (opts) {
 			//console.log(" PREPARING Pipeline OPTS  "+JSON.stringify(opts));
 			var conf = $.extend({
@@ -1560,6 +1561,7 @@
 			if (configMap) {
 				retrieveIndexMappers(configMap);
 			}
+				injectFooterIfNeeded(configMap);
 			//console.log("extFieldEngg \n"+JSON.stringify(extFieldEngg));
 			sanitizeBaseQuery();
 			//sanitizeColumns();
@@ -1569,7 +1571,40 @@
 			buildRuntimeQuery();
             buildSpecialLookupobj();
 			triggerDataTable(configMap);
+		
 		}
+// Build and inject <tfoot> if needed
+function injectFooterIfNeeded(configMap) {
+  const footerValue = [];
+console.log("cominginn")
+  if (configMap && Array.isArray(configMap.cDefs)) {
+    configMap.cDefs.forEach(hit => {
+      if (hit.footer === true && hit.columnName) {
+        footerValue.push(hit.columnName);
+      }
+    });
+  }
+console.log("footerValue.length",footerValue.length)
+  if (footerValue.length === 0) return; // Skip if no footer fields
+console.log("footerValue.length",footerValue.length)
+ const diffs = configMap.cDefs.map(col => col.columnName);
+  const colCount = diffs.length;
+  let tfootHtml = '<tfoot><tr>';
+
+  for (let i = 0; i < colCount; i++) {
+    if (i === 0) {
+      tfootHtml += '<th colspan="8" style="text-align:right">Grand Total:</th>';
+      i += 7;
+    } else {
+      tfootHtml += '<th></th>';
+    }
+  }
+
+  tfootHtml += '</tr></tfoot>';
+console.log("cominginn",tfootHtml)
+  // Inject into table BEFORE DataTables is initialized
+  $('#example').append(tfootHtml);
+}
 
 		function retrieveIndexMappers(configMap) {
 			setTimeout(function () {
@@ -1985,10 +2020,12 @@
 						pages: 1
 					};
 				}
+					injectFooterIfNeeded(configMap);
 				retrieveIndexMappers(configMap);
 				//console.log("extFieldEngg \n"+JSON.stringify(extFieldEngg));
 				loadTableProps(configMap);
 				triggerDataTable(configMap);
+				
 			}
 			$(document).on("click", "#apply-selected-columns", function () {
 				let applySelCols = [];
@@ -3563,12 +3600,18 @@ console.log(referenceValue,"referenceValuelue########")
 			let invisibles = [];
 			let diffs = _.union(selColumns, runtimeColumns, Object.keys(mappingProps["properties"]));
 			//let diffs = _.union(selColumns,runtimeColumns);
+			let pageLength
+			if(configMap && configMap.pageLength){
+			   pageLength=configMap.pageLength
+		    } else {
+				pageLength= 20
+			}
 			myTable = $('#example')
 				.on("draw.dt", function () {
 					$("#example_processing").fadeOut(100);
 				})
 				.DataTable({
-					pageLength: 20,
+					pageLength:pageLength,
 					lengthMenu: [10, 20, 25, 50, 100, 500, 1000, 5000, 10000],
 					bInfo: true,
 					stateSave: false,
@@ -3743,9 +3786,48 @@ console.log(referenceValue,"referenceValuelue########")
 						}
 						return retData;
 					}),
+	                footerCallback: function (row, data, start, end, display) {
+						console.log(row, data, start, end, display, "test")
+						const api = this.api();
+						const footerValue = [];
+
+						// 1. Get footer columns from config
+						if (configMap && Array.isArray(configMap.cDefs)) {
+							configMap.cDefs.forEach(hit => {
+								if (hit.footer === true && hit.columnName) {
+									footerValue.push(hit.columnName);
+								}
+							});
+						}
+
+						// 2. Safe parse
+						const parseFloatSafe = val =>
+							typeof val === 'string'
+								? parseFloat(val.replace(/[\$,]/g, '')) || 0
+								: typeof val === 'number'
+									? val
+									: 0;
+
+						// 3. Loop over footer columns and calculate totals
+						footerValue.forEach((colKey) => {
+							// Dynamically find column index by data field name
+							const colIndex = api.columns().indexes().filter(function (idx) {
+								return api.column(idx).dataSrc() === colKey;
+							})[0];
+
+							if (colIndex !== undefined) {
+								const total = api
+									.column(colIndex, { search: 'applied', page: 'all' })
+									.data()
+									.reduce((a, b) => parseFloatSafe(a) + parseFloatSafe(b), 0);
+
+								$(api.column(colIndex).footer()).html('$' + total.toFixed(2));
+							}
+						});
+					},
 					infoCallback: function (settings, start, end, max, total, pre) {
 						totalRecord = total
-						console.log(total,end,"total")
+						console.log(total, end, "total")
 						if (total == 0) return "Showing 0 to 0 of 0 entries";
 
 						let info = `Showing ${start} to ${end} of ${total} entries`;
@@ -3755,7 +3837,7 @@ console.log(referenceValue,"referenceValuelue########")
 						}
 						return info;
 					},
-					processing: true,
+processing: true,
 					serverSide: true,
 					language: {
 						loadingRecords: '&nbsp;',
@@ -3804,12 +3886,13 @@ console.log(referenceValue,"referenceValuelue########")
 								$("#example tbody").html('<tr><td  class="dataTables_empty" colspan="' + myTable
 									.columns().visible().count() + '">No Matching Records Found</td></tr>');
 							} else {
-								if(myTable.columns().visible().count() >0){
-								   $("#example tbody").html('<tr><td  colspan="' + myTable.columns().visible().count() +
-									'"></td></tr>');
-									}else{
+								if (myTable.columns().visible().count() > 0) {
+									$("#example tbody").html('<tr><td  colspan="' + myTable.columns().visible().count() +
+										'"></td></tr>');
+								} else {
 									$("#example tbody").html('<div class ="noDataTables">No Data Available</div></td></tr>');
-									}
+								}
+							
 							}
 						}
 						console.log("Draw Callback Done " + (moment().valueOf() - drawCallbackStart) + " ms");
@@ -4470,11 +4553,12 @@ console.log(referenceValue,"referenceValuelue########")
 			</div>
 		</div>
 
-		<table id="example" class="table table-hover table-hover dataTable no-footer"
+		<table id="example" class="table table-hover table-hover dataTable"
 			style="width: 100%;height: inherit;">
 			<thead>
 				<tr> </tr>
 			</thead>
+			 
 			<tbody>
 				<tr> </tr>
 			</tbody>
