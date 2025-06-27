@@ -70,5 +70,12 @@
     "url": "https://sqml-womba-prism-uat.es.eastus2.azure.elastic-cloud.com",
     "port": "9243",
     "auth": "Basic ZWxhc3RpYzpDWHRDTXhpc1lXMkczODNmTDEyTnBNeXA="
+  },
+  
+  {
+     "id": "1f003de55-7026-471c-bdca-efd98486d538",
+    "url": "https://nonprod-es.servicedx.com",
+    "port": "9243",
+    "auth": "ApiKey MzlUb2dwY0JzUXlDRHFDQjJRdnE6Z01zamhTZEhSMUNzS2RJRlVYZjhSQQ=="
   }
 ] 
