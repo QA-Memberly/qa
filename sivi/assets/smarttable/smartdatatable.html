@@ -2717,8 +2717,19 @@ let totalRecord;
                         formattedValue = new Intl.DateTimeFormat(formatters[propKey]["DEFAULT"]["config"]["locale"], formatters[propKey]["DEFAULT"]["config"]["opts"]).format(dateObject).replaceAll("/", "-");
                     } else if (formatters[propKey]["DEFAULT"]["type"] === "INTL") {
                         formattedValue = new Intl.NumberFormat(formatters[propKey]["DEFAULT"]["config"]["locale"], formatters[propKey]["DEFAULT"]["config"]["opts"]).format(propValue);
-                    }
-                    else if (formatters[propKey]["DEFAULT"]["type"] === "RoundOff") {
+                    }  else if (formatters[propKey]["DEFAULT"]["type"] === "INTLDecimal") {
+
+						const hasDecimals = propValue % 1 !== 0;
+						const baseOpts = formatters[propKey]["DEFAULT"]["config"]["opts"];
+						const locale = formatters[propKey]["DEFAULT"]["config"]["locale"];
+						const opts = {
+							...baseOpts,  
+							maximumFractionDigits: hasDecimals ? 2 : 0,
+							...(hasDecimals ? { minimumFractionDigits: 1 } : {})
+						};
+						formattedValue = new Intl.NumberFormat(locale, opts).format(propValue);
+
+					} else if (formatters[propKey]["DEFAULT"]["type"] === "RoundOff") {
                         let conf = formatters[propKey]["DEFAULT"]["config"]["opts"]
                         formattedValue = parseFloat(propValue.toFixed(conf.length));
                     }
