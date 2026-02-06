@@ -47495,11 +47495,7 @@ else{
                         } else if (formatters[propKey]["DEFAULT"]["type"] === "INTL") {
                             formattedValue = new Intl.NumberFormat(formatters[propKey]["DEFAULT"]["config"]["locale"],
                                 formatters[propKey]["DEFAULT"]["config"]["opts"]).format(propValue);
-                        } new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  maximumFractionDigits: 2
-}).format(32);     // "$32"
+                        } 
 
 
 
@@ -49312,7 +49308,7 @@ else{
                         let dhmpCcDataPayload = {
                             ...assignedData,
                             "assigned_history": history,
-                            "Discharge_Notification_Date": Discharge_Notification_Date
+                            "discharge_notification_date": Discharge_Notification_Date
                         };
 
                         let {
@@ -51222,7 +51218,13 @@ else{
                         // let utcDateToc = tocDate.toISOString();
                         let ccValue = ccData.loginContext
                         let dataNew = ccValue.replace(/^\s+|\s+$/g, "")
-                        var newObject = {
+                            let discharge_notficationDate
+                        if(careCordinatorData.TOC_Program_Current_Status ==  "CONFIRMED DC - OUTREACH WITHIN 2 DAYS" ||
+                                careCordinatorData.TOC_Program_Current_Status == "REFERRED OUTREACH PENDING", "PLANNED ADMISSION"
+                            ){
+                                  discharge_notficationDate=modifiedDate
+                            }
+                              var newObject = {
                             "TOC_Program_Current_Date": careCordinatorData.TOC_Program_Current_Date,
                             "TOC_Program_Current_Status": careCordinatorData
                                 .TOC_Program_Current_Status,
@@ -51230,7 +51232,8 @@ else{
                             "Status": careCordinatorData.Status,
                             "created_by": dataNew,
                             "modified_by": dataNew,
-                            "modified_on": modifiedDate
+                            "modified_on": modifiedDate,
+                            "discharge_notification_date": discharge_notficationDate
                         };
                            
                         let query = {
