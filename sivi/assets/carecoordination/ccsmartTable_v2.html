@@ -47495,7 +47495,14 @@ else{
                         } else if (formatters[propKey]["DEFAULT"]["type"] === "INTL") {
                             formattedValue = new Intl.NumberFormat(formatters[propKey]["DEFAULT"]["config"]["locale"],
                                 formatters[propKey]["DEFAULT"]["config"]["opts"]).format(propValue);
-                        }
+                        } new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 2
+}).format(32);     // "$32"
+
+
+
                     } catch (error) {
                         formattedValue = renderCallbackOnError(propKey, propValue, defaultValue);
                     }
@@ -49269,9 +49276,11 @@ else{
                       
                         let TOC_Status
                         let Status
+                        let Discharge_Notification_Date
                         if (element.PV1_45_asDate != null && element.PV1_44_asDate != null) {
                             TOC_Status = "CONFIRMED DC - OUTREACH WITHIN 2 DAYS",
-                                Status = "Pending"
+                            Status = "Pending"
+                            Discharge_Notification_Date = newValue1;   
                         } else if (element.PV1_44_asDate != null && (element.PV1_45_asDate ==
                                 null || element.PV1_45_asDate == '')) {
                             TOC_Status = "MEMBER IP"
@@ -49279,7 +49288,8 @@ else{
                         } else if (element.PV1_45_asDate != null && (element.PV1_44_asDate ==
                                 null || element.PV1_44_asDate == '')) {
                             TOC_Status = "CONFIRMED DC - OUTREACH WITHIN 2 DAYS",
-                                Status = "Pending"
+                            Status = "Pending";
+                            Discharge_Notification_Date = newValue1;  
                         } else {
                             Status = "Assigned"
                         }
@@ -49301,7 +49311,8 @@ else{
 
                         let dhmpCcDataPayload = {
                             ...assignedData,
-                            "assigned_history": history
+                            "assigned_history": history,
+                            "Discharge_Notification_Date": Discharge_Notification_Date
                         };
 
                         let {
