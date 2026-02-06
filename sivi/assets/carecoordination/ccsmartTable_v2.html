@@ -51216,27 +51216,15 @@ else{
                         // let tocDate = new Date(careCordinatorData
                         //     .TOC_Program_Current_Date);
                         // let utcDateToc = tocDate.toISOString();
+                        let query
                         let ccValue = ccData.loginContext
                         let dataNew = ccValue.replace(/^\s+|\s+$/g, "")
                             let discharge_notficationDate
                         if(careCordinatorData.TOC_Program_Current_Status ==  "CONFIRMED DC - OUTREACH WITHIN 2 DAYS" ||
                                 careCordinatorData.TOC_Program_Current_Status == "REFERRED OUTREACH PENDING"
                             ){
-                                  discharge_notficationDate=modifiedDate
-                            }
-                              var newObject = {
-                            "TOC_Program_Current_Date": careCordinatorData.TOC_Program_Current_Date,
-                            "TOC_Program_Current_Status": careCordinatorData
-                                .TOC_Program_Current_Status,
-                            "TOC_Comments": careCordinatorData.TOC_Comments,
-                            "Status": careCordinatorData.Status,
-                            "created_by": dataNew,
-                            "modified_by": dataNew,
-                            "modified_on": modifiedDate,
-                           
-                        };
-                           
-                        let query = {
+                                  discharge_notficationDate= date
+                                    query = {
                             "query": {
                                 "bool": {
                                     "must": [{
@@ -51252,6 +51240,37 @@ else{
                                 "lang": "painless"
                             }
                         }
+                            }  else {
+                                     query = {
+                            "query": {
+                                "bool": {
+                                    "must": [{
+                                        "term": {
+                                            "composite_Key": careCordinatorData.composite_Key
+                                        }
+                                    }]
+                                }
+                            },
+                            "script": {
+                                "source": "ctx._source.TOC_Program_Current_Date ='"+careCordinatorData.TOC_Program_Current_Date+"'; ctx._source.TOC_Program_Current_Status ='"+careCordinatorData
+                                .TOC_Program_Current_Status+"';ctx._source.TOC_Comments='"+careCordinatorData.TOC_Comments+"';ctx._source.Status='"+careCordinatorData.Status+"';ctx._source.created_by='"+dataNew+"';ctx._source.modified_by='"+dataNew+"';ctx._source.modified_on='"+modifiedDate+"';",
+                                "lang": "painless"
+                            }
+                        }
+                            }
+                              var newObject = {
+                            "TOC_Program_Current_Date": careCordinatorData.TOC_Program_Current_Date,
+                            "TOC_Program_Current_Status": careCordinatorData
+                                .TOC_Program_Current_Status,
+                            "TOC_Comments": careCordinatorData.TOC_Comments,
+                            "Status": careCordinatorData.Status,
+                            "created_by": dataNew,
+                            "modified_by": dataNew,
+                            "modified_on": modifiedDate,
+                           
+                        };
+                           
+                      
                         var combinedObject = $.extend({}, oldData, newObject);
                         $.ajax({
                             headers: ccData.hdr,
