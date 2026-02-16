@@ -6375,9 +6375,11 @@
                     });
                     let TOC_Status
                     let Status
+                     let Discharge_Notification_Date
                     if (element.PV1_45_asDate != null && element.PV1_44_asDate != null) {
                         TOC_Status = "CONFIRMED DC - OUTREACH WITHIN 2 DAYS",
-                            Status = "Pending"
+                           Status = "Pending"
+                            Discharge_Notification_Date = newValue1;  
                     } else if (element.PV1_44_asDate != null && (element.PV1_45_asDate ==
                         null || element.PV1_45_asDate == '')) {
                         TOC_Status = "MEMBER IP"
@@ -6386,6 +6388,7 @@
                         null || element.PV1_44_asDate == '')) {
                         TOC_Status = "CONFIRMED DC - OUTREACH WITHIN 2 DAYS",
                             Status = "Pending"
+                            Discharge_Notification_Date = newValue1;  
                     } else {
                         Status = "Assigned"
                     }
@@ -6410,7 +6413,8 @@
 
                     let dhmpCcDataPayload = {
                         ...assignedData,
-                        "assigned_history": history
+                        "assigned_history": history,
+                         "discharge_notification_date": Discharge_Notification_Date
                     };
 
                     let {
@@ -7858,17 +7862,11 @@
                         // let utcDateToc = tocDate.toISOString();
                         let ccValue = ccData.loginContext
                         let dataNew = ccValue.replace(/^\s+|\s+$/g, "")
-                        var newObject = {
-                            "TOC_Program_Current_Date": careCordinatorData.TOC_Program_Current_Date,
-                            "TOC_Program_Current_Status": careCordinatorData
-                                .TOC_Program_Current_Status,
-                            "TOC_Comments": careCordinatorData.TOC_Comments,
-                            "Status": careCordinatorData.Status,
-                            "created_by": dataNew,
-                            "modified_by": dataNew,
-                            "modified_on": modifiedDate
-                        };
-                        let query = {
+                        if(careCordinatorData.TOC_Program_Current_Status ==  "CONFIRMED DC - OUTREACH WITHIN 2 DAYS" ||
+                                careCordinatorData.TOC_Program_Current_Status == "REFERRED OUTREACH PENDING"
+                            ){
+                                  discharge_notficationDate= date
+                                    query = {
                             "query": {
                                 "bool": {
                                     "must": [{
@@ -7879,11 +7877,41 @@
                                 }
                             },
                             "script": {
-                                "source": "ctx._source.TOC_Program_Current_Date ='" + careCordinatorData.TOC_Program_Current_Date + "'; ctx._source.TOC_Program_Current_Status ='" + careCordinatorData
-                                    .TOC_Program_Current_Status + "';ctx._source.TOC_Comments='" + careCordinatorData.TOC_Comments + "';ctx._source.Status='" + careCordinatorData.Status + "';ctx._source.created_by='" + dataNew + "';ctx._source.modified_by='" + dataNew + "';ctx._source.modified_on='" + modifiedDate + "';",
+                                "source": "ctx._source.TOC_Program_Current_Date ='"+careCordinatorData.TOC_Program_Current_Date+"'; ctx._source.TOC_Program_Current_Status ='"+careCordinatorData
+                                .TOC_Program_Current_Status+"';ctx._source.discharge_notification_date='"+discharge_notficationDate+"';ctx._source.TOC_Comments='"+careCordinatorData.TOC_Comments+"';ctx._source.Status='"+careCordinatorData.Status+"';ctx._source.created_by='"+dataNew+"';ctx._source.modified_by='"+dataNew+"';ctx._source.modified_on='"+modifiedDate+"';",
                                 "lang": "painless"
                             }
                         }
+                            }  else {
+                                     query = {
+                            "query": {
+                                "bool": {
+                                    "must": [{
+                                        "term": {
+                                            "composite_Key": careCordinatorData.composite_Key
+                                        }
+                                    }]
+                                }
+                            },
+                            "script": {
+                                "source": "ctx._source.TOC_Program_Current_Date ='"+careCordinatorData.TOC_Program_Current_Date+"'; ctx._source.TOC_Program_Current_Status ='"+careCordinatorData
+                                .TOC_Program_Current_Status+"';ctx._source.TOC_Comments='"+careCordinatorData.TOC_Comments+"';ctx._source.Status='"+careCordinatorData.Status+"';ctx._source.created_by='"+dataNew+"';ctx._source.modified_by='"+dataNew+"';ctx._source.modified_on='"+modifiedDate+"';",
+                                "lang": "painless"
+                            }
+                        }
+                            }
+                              var newObject = {
+                            "TOC_Program_Current_Date": careCordinatorData.TOC_Program_Current_Date,
+                            "TOC_Program_Current_Status": careCordinatorData
+                                .TOC_Program_Current_Status,
+                            "TOC_Comments": careCordinatorData.TOC_Comments,
+                            "Status": careCordinatorData.Status,
+                            "created_by": dataNew,
+                            "modified_by": dataNew,
+                            "modified_on": modifiedDate,
+                           
+                        };
+                           
                         var combinedObject = $.extend({}, oldData, newObject);
                         $.ajax({
                             headers: ccData.hdr,
