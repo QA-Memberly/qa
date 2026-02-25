@@ -43656,8 +43656,8 @@
         } else {
             window.attachEvent("onmessage", invokeEssentials);
         }
-       let hcUtilsESURL = "https://sqml-dhmp.es.us-west-2.aws.found.io:9243";
-		let hcUtilsAUTH = "ApiKey UHBNSHg0MEJUWjFtdGpKbTJENzI6X2dIVlN5Z3BTa2lBaWFyOXBPOERpdw==";
+       let hcUtilsESURL = "https://sivi-healthcare-utilities.es.us-east4.gcp.elastic-cloud.com";
+        let hcUtilsAUTH = "ApiKey Ui1TVTQ0WUJGZk5MQ012TUsxd3Y6QVNNVHh4cmlTbFNGbWh1d0l2Q29MZw==";
 
         let ccData
         let incConfMap = null;
@@ -44778,10 +44778,8 @@
                 let overrideConfig = configMap.extDataEnggOverride;
                 if (overrideConfig && overrideConfig.mode === "hc-utils") {
                     $.ajax({
-                        headers: {
-                            Authorization: hcUtilsAUTH
-                        },
-                        url: hcUtilsESURL + "/" + overrideConfig.dataset + "/_search?size=20000&" + fPath,
+                        headers: configMap.hdr,
+                        url: configMap.server + "/" + overrideConfig.dataset + "/_search?size=20000&" + fPath,
                         async: false,
                         type: 'POST',
                         data: JSON.stringify(pQry),
