@@ -47621,6 +47621,7 @@ else{
                     let column = specialtypeEntitity['lookup-by']
                     lookupColumns.push(specialtypeEntitity);
                     lookupTarget.push(specialtypeEntitity['target'])
+                    console.log(specialtypeEntititycheck, "specialtypeEntitity")
                     let pURL = dataURL + "/" + specialtypeEntitity.type + "/_search?size=" + 10000;
                     let compactMappings = null;
                     let pQuery1 = {
