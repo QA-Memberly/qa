@@ -2519,11 +2519,9 @@
                 };
 
                 let dataset = 'hcutils_facility_description';
-                $.ajax({
-                    headers: {
-                        Authorization: hcUtilsAUTH
-                    },
-                    url: hcUtilsESURL + "/" + dataset +
+                 $.ajax({
+                            headers: conf.hdr,
+                            url: conf.url +   "/" + dataset +
                         "/_search?size=1000",
                     async: false,
                     type: 'POST',
@@ -2551,11 +2549,9 @@
                 };
 
                 let datasetBenefit = 'hcutils_benefitplandesc_name';
-                $.ajax({
-                    headers: {
-                        Authorization: hcUtilsAUTH
-                    },
-                    url: hcUtilsESURL + "/" + datasetBenefit +
+                  $.ajax({
+                            headers: conf.hdr,
+                            url: conf.url +    "/" + datasetBenefit +
                         "/_search?size=1000",
                     async: false,
                     type: 'POST',
