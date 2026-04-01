@@ -1205,14 +1205,14 @@
             var cacheUpper = null;
             var cacheLastRequest = null;
             var cacheLastJson = null;
-            console.log(conf, "ccData")
+            // console.log(conf, "ccData")
 
             return function (request, drawCallback, settings) {
                 //console.log("SEARCH TERMS is changed :::: "+searchTerms); 
                 //console.log("PREPARING Pipeline REQT :::: "+JSON.stringify(request)); 
-                console.log("conf.url " + conf.url);
+                // console.log("conf.url " + conf.url);
                 if (colsUpdated || sortUpdated) {
-                    console.log("YES, cols/sort Updated >>> invalidate cache ");
+                    // console.log("YES, cols/sort Updated >>> invalidate cache ");
                     settings.clearCache = true;
                 }
                 var ajax = false;
@@ -1233,7 +1233,7 @@
                     ajax = true;
                 }
                 cacheLastRequest = $.extend(true, {}, request);
-                console.log("AJAX is needed >>>>> " + ajax, ccData);
+                // console.log("AJAX is needed >>>>> " + ajax, ccData);
                 if (ajax) {
                     if (requestStart < cacheLower) {
                         requestStart = requestStart - requestLength * (conf.pages - 1);
@@ -1290,7 +1290,7 @@
                         }
 
                     }
-                    console.log(baseQuery, "baseQuery.runtimeMappings")
+                    // console.log(baseQuery, "baseQuery.runtimeMappings")
                     if (!_.isNil(baseQuery)) {
                         wsDataRequest.query = _.cloneDeep(baseQuery.query);
                         if (!_.isNil(baseQuery.aggregations)) {
@@ -1309,7 +1309,7 @@
                     if (!_.isEmpty(runtimeEntities)) {
                         wsDataRequest["runtime_mappings"] = runtimeMappings;
                         wsDataRequest["fields"] = runtimeColumns;
-                        console.log("runtimeColumns", runtimeColumns);
+                        // console.log("runtimeColumns", runtimeColumns);
 
                     }
                     if (!_.isNil(sortSelected) && sortSelected.length > 0) {
@@ -1319,24 +1319,24 @@
                         _
                             .isEmpty(aggrFilters) && _.size(aggrFilters) > 0)) {
 
-                        console.log("EITHER searchTerm or AggrFilter is NOT null ---> ");
+                        // console.log("EITHER searchTerm or AggrFilter is NOT null ---> ");
 
-                        console.log("\tAGGREGATION FILTERS are not null -> " + JSON.stringify(aggrFilters));
+                        // console.log("\tAGGREGATION FILTERS are not null -> " + JSON.stringify(aggrFilters));
                         wsDataRequest.query = getQueryForAppliedSearchAndFilters(baseQuery, searchTerms,
                             aggrFilters);
                         addAggrFiltersToActionInfo(aggrFilters);
                         addGlobalSearchToActionInfo(searchTerms);
-                        console.log("\tThe aggregated query " + JSON.stringify(wsDataRequest.query, null, 1));
+                        // console.log("\tThe aggregated query " + JSON.stringify(wsDataRequest.query, null, 1));
 
                         setTimeout(function () {
                             $(".filter-field-selector").popover("dispose");
                             $("button[data-role='columnfilter'][data-state]").attr("data-state",
                                 "none");
                         }, 100);
-                        console.log("\tThen the WSQuery is " + JSON.stringify(wsDataRequest));
+                        // console.log("\tThen the WSQuery is " + JSON.stringify(wsDataRequest));
                         searchQuery = wsDataRequest
                         let pAggQry = _.cloneDeep(wsDataRequest);
-                        console.log("\tThe aggregated query " + JSON.stringify(pAggQry));
+                        // console.log("\tThe aggregated query " + JSON.stringify(pAggQry));
 
                         if (!pAggQry.aggregations && !pAggQry.aggs) {
                             pAggQry["aggs"] = {};
@@ -1346,7 +1346,7 @@
                                 }
                             };
                         }
-                        console.log(conf, "testconf")
+                        // console.log(conf, "testconf")
                         $.ajax({
 
                             headers: conf.hdr,
@@ -1384,7 +1384,7 @@
                                 } else {
                                     response = response.aggregations.value_count.value;
                                 }
-                                console.log("VALUE count KEY >>>>>>> " + response)
+                                // console.log("VALUE count KEY >>>>>>> " + response)
                                 totalFilterCount = response
                                 valueCount = {
                                     recordsTotal: rawCount,
@@ -1423,8 +1423,8 @@
                                 }
                             };
                         }
-                        console.log(JSON.stringify(pAggQry), "tetstttttt")
-                        console.log(conf, "testconf")
+                        // console.log(JSON.stringify(pAggQry), "tetstttttt")
+                        // console.log(conf, "testconf")
                         $.ajax({
                             headers: conf.hdr,
                             url: conf.url.replace("/_msearch", "") +
@@ -1462,7 +1462,7 @@
                                 ] && response["aggregations"]["cardinality"]["value"]) {
                                     response = response["aggregations"]["cardinality"].value;
                                 }
-                                console.log("VALUE count KEY valueCount Null >>>>> " + response)
+                                // console.log("VALUE count KEY valueCount Null >>>>> " + response)
                                 valueCount = {
                                     recordsTotal: response,
                                     recordsFiltered: response,
@@ -1478,7 +1478,7 @@
                         $(".filter-field-selector").popover("dispose");
                         $("button[data-role='columnfilter'][data-state]").attr("data-state", "none");
                     }, 100);
-                    console.log(conf, "testconf")
+                    // console.log(conf, "testconf")
                     return $.ajax({
                         headers: conf.hdr,
                         type: conf.method,
@@ -1492,7 +1492,7 @@
                         async: true,
                         success: function (json) {
                             //console.log("GOT Response for QUERY "+JSON.stringify(this.data));
-                            console.log("Response timing " + json.took);
+                            // console.log("Response timing " + json.took);
 
                             try {
                                 let hitsTotal = json["responses"][0]["hits"]["total"]["value"];
@@ -1722,7 +1722,7 @@
                                         json[vKey] = valueCount[vKey]
                                     });
                                 }
-                                console.log("POST JSON valueCount " + JSON.stringify(valueCount));
+                                // console.log("POST JSON valueCount " + JSON.stringify(valueCount));
                                 cacheLastJson = $.extend(true, {}, json);
                                 if (cacheLower != drawStart) {
                                     json.data.splice(0, drawStart - cacheLower);
@@ -1733,7 +1733,7 @@
                                 //console.log("Reach DrawCallBack ==> ");
                                 drawCallback(json);
                             } catch (err) {
-                                console.log("RESPONSE ACCESS ISSUES " + err.stack);
+                                // console.log("RESPONSE ACCESS ISSUES " + err.stack);
                                 //console.log("mSearch REQUEST "+this.data);
                                 //console.log("mSearch RESPONSE KEYS "+Object.keys(json["responses"][0]));
                                 try {
@@ -2055,7 +2055,7 @@
                                 return hit._source
                             });
                             extFieldEngg = _.filter(extFieldEngg, conf => {
-                                console.log(typeof (conf["entity_parent"]));
+                                // console.log(typeof (conf["entity_parent"]));
                                 if (typeof (conf["entity_parent"]) === 'string') {
                                     return (conf["entity_parent"] === configMap.ds);
                                 } else {
@@ -2142,7 +2142,7 @@
                 _.forEach(baseQuery.query.bool.must, filter => {
                     _.forEach(scanners, scanner => {
                         if (_.includes(Object.keys(filter), scanner)) {
-                            console.log(scanner + " -> " + Object.keys(filter[scanner]));
+                            // console.log(scanner + " -> " + Object.keys(filter[scanner]));
                             selColumns = _.concat(selColumns, _.map(Object.keys(filter[scanner]),
                                 field => {
                                     return field.replace(/.keyword/g, "")
@@ -2253,7 +2253,7 @@
                 $('input[data-role="cb-col-selector"]:checked').each(function () {
                     applySelCols.push(this.value);
                 });
-                console.log("applySelCols " + applySelCols + "\n myTable " + myTable);
+                // console.log("applySelCols " + applySelCols + "\n myTable " + myTable);
                 selColumns = applySelCols;
                 colsUpdated = true;
                 $('#example').DataTable().clearPipeline().draw();
@@ -2568,7 +2568,7 @@
 
                 });
                 function populateDropdownsForcreate(benefitplanDesclist, facilitylist) {
-                    console.log("::::facilitylist", facilitylist);
+                    // console.log("::::facilitylist", facilitylist);
                     benefitplanDesclist.sort(function (a, b) {
                         return a.benefit_name.localeCompare(b.benefit_name);
                     });
@@ -2767,7 +2767,7 @@
                     var editBirthDatePriority = $('#BirthDate').val();
                     var dateofDOBPriority = new Date(editBirthDatePriority).getTime();
                     var prioritybuttonValue = $(this).siblings('button.btn-outline-primary');
-                    console.log(":::::::::::::edit", prioritybuttonValue);
+                    // console.log(":::::::::::::edit", prioritybuttonValue);
                     var los = 0;
                     if (editDischargeDate != "" && editDischargeDate != null &&
                         editAdmissionDate != null && editAdmissionDate != "") {
@@ -2866,9 +2866,9 @@
                                 const month1 = String(epochDate.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed (0 = January)
                                 const year1 = epochDate.getFullYear();
                                 const formattedDate = `${day1}-${month1}-${year1}`;
-                                console.log(formattedDate, "formattedDate");
+                                // console.log(formattedDate, "formattedDate");
                                 if (formattedDate > assignDate) {
-                                    console.log("test")
+                                    // console.log("test")
                                 } else {
                                     displayToastrError('Member Data Already Exist with Latest Admission Date');
                                     isValid = false;
@@ -2879,7 +2879,7 @@
                             if (!isNaN(dateofAdmissionPriority) && !_.isUndefined(olddata[0].PV1_44_asDate)) {
                                 if (dateofAdmissionPriority > olddata[0].PV1_44_asDate) {
                                 } else {
-                                    console.log("::::error");
+                                    // console.log("::::error");
                                     displayToastrError('Member Data Already Exist with Latest Admission Date');
                                     isValid = false;
                                     return;
@@ -3413,8 +3413,8 @@
                 } catch (error) {
                     console.log("Popover maker error @ AggrFilter " + error);
                 }
-                console.log("Clearing the Filter Applied for " + dataField);
-                console.log("B4 Clear " + JSON.stringify(aggrFilters));
+                // console.log("Clearing the Filter Applied for " + dataField);
+                // console.log("B4 Clear " + JSON.stringify(aggrFilters));
                 $(".action-info-holder").find("div[data-col='" + dataField + "']").remove();
                 aggrFilters = _.remove(aggrFilters, filt => {
                     console.log("\t " + filt.field + ", match " + (filt.field === dataField));
@@ -3556,7 +3556,7 @@
                 if (dataAggrVal == 'SelectAll') {
                     var children = document.querySelector('.aggr-filter-holder').children;
                     for (var i = 0; i < children.length; i++) {
-                        console.log("IIIIIII", children[i].children)
+                        // console.log("IIIIIII", children[i].children)
                         if (children[i].children[0].dataset.aggrval != 'Others') {
                             $(children[i]).children().find("i[data-role='filter-field-selector']")
                                 .toggleClass("fa-square");
@@ -4138,7 +4138,7 @@
         }
 
         function buildAggFilterGUICustomTabDatePicker(byField) {
-            console.log("displayNoData", displayNoData);
+            // ("displayNoData", displayNoData)console.log;
             if (displayNoData === "false") {
                 let outCtnt = '';
                 let value1;
@@ -4593,30 +4593,30 @@
                 return defaultValue || propValue
             }) {
             let formattedValue = defaultValue;
-		console.log(formatters[propKey],"formatterspropKey")
-			console.log(propValue,"propValue")
-            console.log(formatters[propKey],"formattedValue")
+		// console.log(formatters[propKey],"formatterspropKey")
+		// 	console.log(propValue,"propValue")
+        //     console.log(formatters[propKey],"formattedValue")
             if (formatters[propKey] && !_.isNil(propValue)) {
                 if (formatters[propKey]["DEFAULT"]) {
                     try {
                         if (formatters[propKey]["DEFAULT"]["type"] === "MOMENT_Date") {
-				console.log(formatters[propKey]["DEFAULT"]["config"]
-                                ["opts"][
-                                    "format"
-                                ],"testt")
+				// console.log(formatters[propKey]["DEFAULT"]["config"]
+                                // ["opts"][
+                                //     "format"
+                                // ],"testt")
                             if (formatters[propKey]["DEFAULT"]["config"]["opts"]["utc"]) {
                                 formattedValue = moment(propValue).utc().format(formatters[propKey]["DEFAULT"]["config"]
                                 ["opts"][
                                     "format"
                                 ]);
-					console.log(formattedValue,"formattedValue")
+					// console.log(formattedValue,"formattedValue")
                             } else {
                                 formattedValue = moment(propValue).format(formatters[propKey]["DEFAULT"]["config"][
                                     "opts"
                                 ][
                                     "format"
                                 ]);
-				    console.log(formattedValue,"formattedValue1")
+				    // console.log(formattedValue,"formattedValue1")
                             }
                         } else if (formatters[propKey]["DEFAULT"]["type"] === "INTL_Date") {
                             let dateObject = new Date(propValue);
@@ -4682,16 +4682,16 @@
             });
             runtimeColumns = Object.keys(runtimeMapping);
             runtimeMappings = runtimeMapping;
-            console.log("RUNTIME MAPPING SCRIPT>>>>>>>", runtimeMapping)
+            // console.log("RUNTIME MAPPING SCRIPT>>>>>>>", runtimeMapping)
 
         }
 
         function buildSpecialLookupobj() {
             _.forEach(specialtypesEntities1, (specialtypeEntitity, iidx) => {
-                console.log(specialtypeEntitity, "runtimeEntities")
+                // console.log(specialtypeEntitity, "runtimeEntities")
                 if (_.size(specialtypeEntitity) > 0) {
 
-                    console.log(specialtypeEntitity, "runtimeEntities")
+                    // console.log(specialtypeEntitity, "runtimeEntities")
                     // runtimeMapping[entity['runtime_field']] = {}
                     // runtimeMapping[entity['runtime_field']]['type'] = entity['type']
                     // runtimeMapping[entity['runtime_field']]['script'] = entity['script']
@@ -4779,7 +4779,7 @@
                         dataType: 'json',
                         contentType: 'application/json',
                         success: function (response) {
-                            console.log(response, "responsecompactMappings")
+                            // console.log(response, "responsecompactMappings")
                             if (response && response.hits && response.hits.hits) {
                                 response.hits.hits.forEach(hit => {
                                     console.log(hit, "lookupValuecompactMappings")
@@ -4787,10 +4787,10 @@
                                 });
                             }
 
-                            console.log(lookupValue, "lookupValuecompactMappings")
+                            // console.log(lookupValue, "lookupValuecompactMappings")
                         },
                         error: function (error) {
-                            console.log("ERROR happened >>>> " + error);
+                            // console.log("ERROR happened >>>> " + error);
                             return null;
                         }
                     });
@@ -4850,8 +4850,8 @@
             //if (!_.isEmpty(runtimeColumns)) {
             //selColumns = selColumns.concat(runtimeColumns);
             //}	
-            console.log("Incoming Config JSON MAP " + JSON.stringify(configMap, null, 1));
-            // if (configMap.selectRowReaasign == true) {
+            // console.log("Incoming Config JSON MAP " + JSON.stringify(configMap, null, 1));
+            // // if (configMap.selectRowReaasign == true) {
             //     $('#updateStatus').hide();
             //     $('#reassignButtton').show();
             //     $('#navigateCCResponse').show();
@@ -4864,7 +4864,7 @@
             //     $('#navigateCCReassign').show();
             // }
             if (configMap.rowSelection == true) {
-                console.log(configMap.rowSelection, "ccData")
+                // console.log(configMap.rowSelection, "ccData")
                 let assignButon = true
                 var myButton = $('#ccButton');
                 myButton.prop('disabled', !assignButon);
@@ -5309,8 +5309,8 @@
                                         '"><div class ="noDataTables">No Data Available</div></td></tr>');
                                 }
                             }
-                            console.log("Draw Callback Done " + (moment().valueOf() - drawCallbackStart) +
-                                " ms");
+                            // console.log("Draw Callback Done " + (moment().valueOf() - drawCallbackStart) +
+                            //     " ms");
                         },
                         "fnInitComplete": function (oSettings, json) {
                             $("#sdt_wrapper_loader").hide();
@@ -5341,17 +5341,17 @@
                         }).data().toArray();
                         var checkboxs = $(this).closest('tr').find('input[type="checkbox"]');
                         var row = $(this).closest('tr');
-                        console.log(row, "checkboxccData")
+                        // console.log(row, "checkboxccData")
                         var isChecked
                         if (checkboxs && checkboxs[0] && checkboxs[0]["input#myCheckbox.checkboxforcc"]) {
-                            console.log(checkboxs, "checkbox")
+                            // console.log(checkboxs, "checkbox")
                             isChecked = false;
                             var checkbox = $('.checkboxforcc');
                             checkbox.each(function () {
                                 $(this).prop('checked', isChecked);
                             });
                         } else {
-                            console.log(checkboxs, "checkbox")
+                            // console.log(checkboxs, "checkbox")
                             isChecked = true;
                             var checkbox = $('.checkboxforcc');
                             checkbox.each(function () {
@@ -5368,7 +5368,7 @@
                         var selectedRowsData = myTable.rows({
                             selected: true
                         }).data().toArray();
-                        console.log('Selected rows data:', selectedRowsData);
+                        // console.log('Selected rows data:', selectedRowsData);
                         var isChecked = false;
                         var checkbox = $('.checkboxforcc');
                         checkbox.each(function () {
@@ -5415,7 +5415,7 @@
             // Attach event listener to the input text field
             //   $("#date").on("change", setDateFieldValue(uniqueIdentifier));
 
-            console.log(ccData, "ccData")
+            // console.log(ccData, "ccData")
             $('#example tbody').on('click', 'td:first-child, input[type="checkbox"]', function () {
                 var checkbox = $(this).closest('tr').find('input[type="checkbox"]');
                 var row = $(this).closest('tr');
@@ -5428,16 +5428,16 @@
 
                 var data = JSON.stringify(myTable.rows('.selected').data().toArray())
 
-                console.log("selectedRow: " + selectedRow);
+                // console.log("selectedRow: " + selectedRow);
                 var getData = myTable.rows('.selected').data().toArray();
 
                  if (getData[0].assigned_date) {
-                     console.log("selectedRow: " + getData[0].assigned_date);
+                    //  console.log("selectedRow: " + getData[0].assigned_date);
                      assignedValue = getData[0].assigned_date;
 
                  }
                  if (getData[0].TOC_Program_Current_Status) {
-                     console.log("selectedRow: " + getData[0].TOC_Program_Current_Status);
+                    //  console.log("selectedRow: " + getData[0].TOC_Program_Current_Status);
                      assignedStatus = getData[0].TOC_Program_Current_Status;
                  }
             });
@@ -5546,19 +5546,19 @@
                     searchField: ["id", "values"],
                 });
 
-                console.log("While searching, check the types dt[" + typeof $("#setCCcolumns").val() +
-                    "] ::: " +
-                    $(
-                        "#setCCcolumns").val());
-                console.log("CCcolumns" + $("CCcolumns").val() + "] ::: ");
+                // console.log("While searching, check the types dt[" + typeof $("#setCCcolumns").val() +
+                //     "] ::: " +
+                //     $(
+                //         "#setCCcolumns").val());
+                // console.log("CCcolumns" + $("CCcolumns").val() + "] ::: ");
                 var selectElement = document.getElementById('setCCcolumns');
-                console.log('Selected Value:', selectElement);
+                // console.log('Selected Value:', selectElement);
                 // var selectedValue = selectElement.value;
                 var selectElements = document.getElementById('CCcolumns');
                 // Log or use the selected value
-                console.log('Selected Value:', selectElements);
+                // console.log('Selected Value:', selectElements);
                 // console.log("data",tt)
-                console.log("data")
+                // console.log("data")
             }
 
             function checkConditionsAndDownload() {
@@ -5568,7 +5568,7 @@
                     "index_name": downlodDetails.ds
                 }
                 let dataset = indexDetails.index_name
-                console.log("downlodDetails.url",downlodDetails)
+                // console.log("downlodDetails.url",downlodDetails)
                 $.ajax({
                     headers: downlodDetails.hdr,
                     url: downlodDetails.url.replace("/_msearch", "") + "/_settings",
@@ -5699,7 +5699,7 @@
                 var modalBody = buttonElement.closest(".modal-content").find(".modal-body");
                 showLoader(modalBody);
                 let envUrl = downlodDetails.downloadData.environmentUrl
-                console.log("testtt")
+                // console.log("testtt")
                 $.ajax({
                     type: 'POST',
                     url: envUrl + 'downloadfile',
@@ -5847,7 +5847,7 @@
                         hideLoader(modalBody);
                     },
                     error: function (error) {
-                        console.log("ERROR happened >>>> ", error);
+                        // console.log("ERROR happened >>>> ", error);
                         hideLoader(modalBody);
                         return null;
                     },
@@ -5935,7 +5935,7 @@
 
             });
             $(document).on("click", "#downloadNOCSVRecords", function () {
-                console.log(selColumns.length, "selColumns.length")
+                // console.log(selColumns.length, "selColumns.length")
                 if (selColumns.length >= 37) {
                     document.getElementById('limit37Columns').style.display = 'block';
                 } else {
@@ -6179,8 +6179,8 @@
                             ["modified_on"]: newValue1,
                             ["modified_by"]: dataNew
                         };
-                        console.log(element.assigned_history, "element");
-                        console.log(element, "element");
+                        // console.log(element.assigned_history, "element");
+                        // console.log(element, "element");
                         let history = element.assigned_history
                         let assignedHistory
                         if (history && (history != null || history !=
@@ -7636,12 +7636,12 @@
                 });
                 $('#updateStatus').on('click', function () {
                     var selectedRows = [];
-                    console.log('selectedRows')
-                    // $('.select-checkbox class_:checked').each(function () {
-                    console.log('selectedRows', selectedRows)
+                    // console.log('selectedRows')
+                    // // $('.select-checkbox class_:checked').each(function () {
+                    // console.log('selectedRows', selectedRows)
                     var rowObj = (myTable.rows('.selected').data().toArray());
                     // selectedRows.push(rowObj);
-                    console.log('selectedRows', rowObj)
+                    // console.log('selectedRows', rowObj)
                     if (rowObj.length === 0) {
                         toastr.error(
                             'select atleast one member ID.'
@@ -7683,14 +7683,14 @@
                                             var responseHistorys = response
                                                 .hits.hits[0]._source
                                                 .assigned_history;
-                                            console.log('responseHistorys',
-                                                responseHistorys);
+                                            // console.log('responseHistorys',
+                                            //     responseHistorys);
 
                                             val.assigned_history =
                                                 responseHistorys;
 
-                                            console.log('updated rowObj',
-                                                rowObj);
+                                            // console.log('updated rowObj',
+                                            //     rowObj);
 
                                         }
                                         updateStatus(rowObj);
@@ -7708,7 +7708,7 @@
 
             function updateStatus(selectedRows) {
                 const allRowsValid = selectedRows.every((row) => {
-                    console.log(row, "row");
+                    // console.log(row, "row");
                     // const decodeObj = decodeURIComponent(row);
                     // console.log(JSON.parse(decodeObj),"decodeObj");
                     const careCordinatorData = row;
@@ -7754,9 +7754,9 @@
                     var hospitalcontactValue = hospitalcontactElement.val();
                     var dateValue = dateElement.val();
 
-                    console.log('careCordinatorData.statusValue', statusValue)
+                    // console.log('careCordinatorData.statusValue', statusValue)
 
-                    console.log('careCordinatorData.dateValue', dateValue)
+                    // console.log('careCordinatorData.dateValue', dateValue)
                     careCordinatorData.TOC_Program_Current_Status = statusValue;
                     careCordinatorData.TOC_Comments = hospitalcontactValue;
                     careCordinatorData.TOC_Program_Current_Date = dateValue;
@@ -8061,7 +8061,7 @@
     });
 
     $(document).on("click", ".fa-bullseye-pointer", function () {
-        console.log(":::::::::::::::::::insideee");
+        // console.log(":::::::::::::::::::insideee");
         var buttonValues = $(this).siblings('button.btn-outline-primary');
         var admissionValues = buttonValues.attr('data-custom-admissionDate');
         var healthPlanValues = buttonValues.attr('data-custom-healthid');
@@ -8069,8 +8069,8 @@
         var compositeKey = buttonValues.attr('data-custom-compositKey');
         var dateofAdmissionValues = Number(admissionValues);
         
-        console.log(":::::::::::::::::::memberValues",memberValues);
-        console.log(":::::::::::::::::::compositeKey",compositeKey);
+        // console.log(":::::::::::::::::::memberValues",memberValues);
+        // console.log(":::::::::::::::::::compositeKey",compositeKey);
 
         if (memberValues != null && healthPlanValues != null) {
             let ccSaveQuery = {
