@@ -5718,7 +5718,7 @@
                             let url = URL.createObjectURL(blob);
                             link.setAttribute("href", url);
                             link.setAttribute("download", fileName);
-                            document.body.appendChild(link);
+                            document.body.appendCfzhild(link);
                             link.click();
                             document.body.removeChild(link);
                         }
@@ -7858,7 +7858,11 @@
                         let ccValue = ccData.loginContext
                         let dataNew = ccValue.replace(/^\s+|\s+$/g, "")
                         if(careCordinatorData.TOC_Program_Current_Status ==  "CONFIRMED DC - OUTREACH WITHIN 2 DAYS" ||
-                                careCordinatorData.TOC_Program_Current_Status == "REFERRED OUTREACH PENDING"
+                                careCordinatorData.TOC_Program_Current_Status == "REFERRED OUTREACH PENDING" || 
+                                careCordinatorData.TOC_Program_Current_Status == "MEMBER ENROLLED"||
+                                careCordinatorData.TOC_Program_Current_Status == "MEMBER DECLINED (DOES NOT APPLY TO DSNP)"||
+                                careCordinatorData.TOC_Program_Current_Status == "FIRST ATTEMPT COMPLETED, SECOND ATTEMPT PENDING"||
+                                careCordinatorData.TOC_Program_Current_Status == "UNABLE TO REACH (DOES NOT APPLY TO DSNP)"
                             ){
                                   discharge_notficationDate= date
                                     query = {
